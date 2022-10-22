@@ -1,0 +1,15 @@
+[
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/blog/wildfires/Wildfires in Greece.html"
+    ]
+  },
+  {
+    "listing": "/portfolio.html",
+    "items": [
+      "/portfolio/filmpit/filmpit-scraping.html",
+      "/portfolio/my_website.html"
+    ]
+  }
+]
