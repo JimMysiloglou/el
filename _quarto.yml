@@ -23,7 +23,13 @@ website:
       - text: "Contact"
         href: https://jimmysiloglou.eu.pythonanywhere.com/contact/
       
-
+    right:
+      - text: "Γλώσσα"
+        menu:
+          - text: "English"
+            href: https://jimmysiloglou.github.io/en/blog.html
+          - text: "Ελληνικά"
+            href: blog.qmd
 
 
   page-footer:
