@@ -1,0 +1,17 @@
+---
+title: "Το Portfolio μου"
+description: "Παρακάτω θα βρείτε τα project μου που αφορούν συνήθως την ανάλυση δεδομένων με Python, SQL και Tableau."
+listing:
+  contents: portfolio
+  sort: "date desc"
+  type: grid
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  page-size: 6
+  fields: [date, title, description, image]
+  image-placeholder: /images/default_project_image.jpg
+  date-format: YYYY-MM-DD
+page-layout: full
+title-block-banner: images/portfolio_jumbotron.jpg
+---
