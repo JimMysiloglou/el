@@ -3,7 +3,9 @@ title: "Τα άρθρα μου"
 description: "Μπορείτε να διαβάσετε τα άρθρα σε ημερολογιακή σειρά ή επιλέγοντας μία κατηγορία."
 listing:
   id: blog
-  contents: blog
+  contents: 
+    - "blog/*/!(helper).ipynb"
+    - "blog/*/*.qmd"
   sort: "date desc"
   type: default
   categories: true

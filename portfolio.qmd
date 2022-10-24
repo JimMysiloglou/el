@@ -1,8 +1,10 @@
 ---
-title: "Το Portfolio μου"
-description: "Παρακάτω θα βρείτε τα project μου που αφορούν συνήθως την ανάλυση δεδομένων με Python, SQL και Tableau."
+title: "Τα προσωπικά μου Project"
+description: "Τα παρακάτω project αφορούν συνήθως την ανάλυση δεδομένων με Python, SQL και Tableau."
 listing:
-  contents: portfolio
+  contents:
+    - "portfolio/*/!(helper).ipynb"
+    - "portfolio/*/*.qmd"
   sort: "date desc"
   type: grid
   categories: false
