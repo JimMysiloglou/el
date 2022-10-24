@@ -226,11 +226,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Σε αυτή τη σελίδα</h2>
    
   <ul>
-  <li><a href="#σύντομη-παρουσίαση-και-προετοιμασία-των-δεδομένων" id="toc-σύντομη-παρουσίαση-και-προετοιμασία-των-δεδομένων" class="nav-link active" data-scroll-target="#σύντομη-παρουσίαση-και-προετοιμασία-των-δεδομένων">Σύντομη παρουσίαση και προετοιμασία των δεδομένων</a>
+  <li><a href="#εισαγωγή" id="toc-εισαγωγή" class="nav-link active" data-scroll-target="#εισαγωγή">Εισαγωγή</a>
   <ul class="collapse">
   <li><a href="#κλιματολογικά-δεδομένα" id="toc-κλιματολογικά-δεδομένα" class="nav-link" data-scroll-target="#κλιματολογικά-δεδομένα">Κλιματολογικά δεδομένα</a></li>
   </ul></li>
-  <li><a href="#sec-plots" id="toc-sec-plots" class="nav-link" data-scroll-target="#sec-plots">Γραφική απεικόνιση των δεδομένων</a>
+  <li><a href="#γραφική-απεικόνιση-των-δεδομένων" id="toc-γραφική-απεικόνιση-των-δεδομένων" class="nav-link" data-scroll-target="#γραφική-απεικόνιση-των-δεδομένων">Γραφική απεικόνιση των δεδομένων</a>
   <ul class="collapse">
   <li><a href="#αριθμός-περιστατικών-ανά-έτος-σε-συνδιασμό-με-κλιματολογικές-συνθήκες." id="toc-αριθμός-περιστατικών-ανά-έτος-σε-συνδιασμό-με-κλιματολογικές-συνθήκες." class="nav-link" data-scroll-target="#αριθμός-περιστατικών-ανά-έτος-σε-συνδιασμό-με-κλιματολογικές-συνθήκες.">Αριθμός περιστατικών ανά έτος σε συνδιασμό με κλιματολογικές συνθήκες.</a></li>
   <li><a href="#παρουσίαση-καμμένων-εκτάσεων" id="toc-παρουσίαση-καμμένων-εκτάσεων" class="nav-link" data-scroll-target="#παρουσίαση-καμμένων-εκτάσεων">Παρουσίαση καμμένων εκτάσεων</a></li>
@@ -248,628 +248,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <p><img src="forest-fire.jpeg" class="img-fluid"></p>
+<section id="εισαγωγή" class="level2">
+<h2 class="anchored" data-anchor-id="εισαγωγή">Εισαγωγή</h2>
 <p>Image by <a href="https://pixabay.com/users/ylvers-337353/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=432870" data-bcup-haslogintext="no">Ylvers</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=432870" data-bcup-haslogintext="no">Pixabay</a></p>
 <p>Ένα ακόμη καλοκαίρι έχει φτάσει στο τέλος του. Η Ελλάδα καλείται άλλη μια φορά να αξιολογήσει τις ζημιές που προκάλεσαν οι πυρκαγιές στον φυσικό της πλούτο, τις οικονομικές ζημίες σε καλλιέργειες, και το σημαντικότερο η τραγική απώλεια ανθρώπων και ζώων.</p>
-<p>Στην ιστοσελίδα του Πυροσβεστικού Σώματος Ελλάδος <a href="https://www.fireservice.gr/el_GR/synola-dedomenon">https://www.fireservice.gr</a> μπορείτε να βρείτε αρχεία δασικών και αστικών συμβάντων στα οποία κλήθηκε να επέμβει το Π.Σ. από το 2000 - 2021 σε μορφή <code>.xls|.xlsx</code>. Παρακάτω ακολουθεί η προετοιμασία των δεδομένων για γραφική απεικόνιση και παρουσίαση. Πατήστε <a href="#sec-plots">εδώ</a> αν επιθυμείτε να δείτε μόνο τα τελικά γραφήματα.</p>
-<section id="σύντομη-παρουσίαση-και-προετοιμασία-των-δεδομένων" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="σύντομη-παρουσίαση-και-προετοιμασία-των-δεδομένων">Σύντομη παρουσίαση και προετοιμασία των δεδομένων</h2>
-<p><em>Με την πάροδο των ετών περισσότερες πληροφορίες προστίθενται στα αρχεία.</em></p>
-<p><strong>2000-2008</strong></p>
-<ul>
-<li>Υπηρεσία (<code>fire_service</code>)</li>
-<li>Δασαρχείο (<code>forest_department</code>)</li>
-<li>Περιοχή-Τοποθεσία (<code>location</code>)</li>
-<li>Νομός (<code>district</code>):</li>
-<li>Ημερ/νία Έναρξης (<code>start_date</code>)</li>
-<li>Ώρα Έναρξης (<code>start_time</code>)</li>
-<li>Ημερ/νία Κατάσβεσης (<code>end_date</code>)</li>
-<li>Ώρα Κατάσβεσης (<code>end_time</code>)</li>
-</ul>
-<p><em>Παρακάτω κατηγοριοποιούνται οι εκτάσεις που κάηκαν σε στρέμματα.</em></p>
-<ul>
-<li>Δάση (<code>forest</code>)</li>
-<li>Δασική Έκταση (<code>forest_area</code>): Έπιπλέον δασική έκταση που καταστράφηκε.</li>
-<li>Άλση (<code>grove</code>)</li>
-<li>Χορτ/κές Εκτάσεις (<code>grassland</code>)</li>
-<li>Καλάμια - Βάλτοι (<code>marsh</code>)</li>
-<li>Γεωργικές Εκτάσεις (<code>crop_fields</code>)</li>
-<li>Υπολλείματα Καλλιεργιών (<code>crop_residues</code>)</li>
-<li>Σκουπιδότοποι (<code>dumps</code>)</li>
-</ul>
-<p><strong>2009-2010</strong></p>
-<ul>
-<li>Δήμος (<code>borough</code>)</li>
-</ul>
-<p><strong>2011</strong></p>
-<p><em>Το 2011 προστέθηκαν πληροφορίες για το ανθρώπινο δυναμικό και τα οχήματα που συμμετείχαν στην πυρόσβεση</em></p>
-<ul>
-<li>ΠΥΡΟΣ, ΣΩΜΑ (<code>firemen</code>)</li>
-<li>ΠΕΖΟΠΟΡΑ ΤΜΗΜΑΤΑ (<code>patrol</code>)</li>
-<li>ΕΘΕΛΟΝΤΕΣ (<code>volunteers</code>)</li>
-<li>ΣΤΡΑΤΟΣ (<code>military</code>)</li>
-<li>ΑΛΛΕΣ ΔΥΝΑΜΕΙΣ (<code>other_groups</code>)</li>
-<li>ΠΥΡΟΣ. ΟΧΗΜ. (<code>fire_trucks</code>): Πυροσβεστικά οχήματα.</li>
-<li>ΟΧΗΜ. ΟΤΑ (<code>local_authorities</code>): Οχήματα της τοπικής αυτοδιοίκησης.</li>
-<li>ΒΥΤΙΟΦΟΡΑ (<code>private_trucks</code>)</li>
-<li>ΜΗΧΑΝΗΜΑΤΑ (<code>other_trucks</code>)</li>
-<li>ΕΛΙΚΟΠΤΕΡΑ (<code>helicopters</code>)</li>
-<li>Α/Φ CL415 (<code>canadair_new</code>): Canadair CL-415, το νεότερο μοντέλο του σκάφους πυρόσβεσης.</li>
-<li>Α/Φ CL215 (<code>canadair_old</code>): Canadair CL-215, το παλαιότερο μοντέλο του σκάφους πυρόσβεσης.</li>
-<li>Α/Φ PZL (<code>pzl</code>): PZL-Mielec, μονοκινητήρια αγροτικά αεροσκάφη.</li>
-<li>Α/Φ GRU. (<code>gru</code>): Άλλου είδους αεροσκάφη</li>
-</ul>
-<p><strong>2012-2019</strong></p>
-<ul>
-<li>Διεύθυνση (address)</li>
-</ul>
-<p><strong>2020-2021</strong></p>
-<ul>
-<li>Α/Α ΕΓΓΡΑΦΗΣ - Α/Α ENGAGE</li>
-<li>X-ENGAGE / Y-ENGAGE (Γεωγρ. μήκος/πλάτος)</li>
-</ul>
-<div class="cell" data-execution_count="32">
+<p>Στην ιστοσελίδα του Πυροσβεστικού Σώματος Ελλάδος <a href="https://www.fireservice.gr/el_GR/synola-dedomenon">https://www.fireservice.gr</a> μπορείτε να βρείτε αρχεία δασικών και αστικών συμβάντων στα οποία κλήθηκε να επέμβει το Π.Σ. από το 2000 - 2021 σε μορφή <code>.xls|.xlsx</code>. Για την δημιουργία των γραφημάτων χρειάστηκε να επεξεργαστώ τα αρχεία excel μέσω της python, να επιδιορθώσω κάποιες τιμές και να αποθηκεύσω τα δεδομένα σε ένα αρχείο με όνομα <code>wildfires.csv</code>. Σε <a href="preprocess_helper.ipynb">αυτή την σελίδα</a> μπορείτε να δείτε με λεπτομέρειες την προεργασία. Παρακάτω ακουλουθεί ένα μικρό δείγμα των δεδομένων.</p>
+<div class="cell" data-execution_count="1">
 <details>
-<summary>Εισάγουμε τις βιβλιοθήκες numpy, pandas, matplotlib και seaborn</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> ticker</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">'whitegrid'</span>, context<span class="op">=</span><span class="st">'talk'</span>, palette<span class="op">=</span><span class="st">'colorblind'</span>)</span></code></pre></div>
+<summary>Κώδικας</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Εισαγωγή των βιβλιοθηκών</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> ticker</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">'whitegrid'</span>, context<span class="op">=</span><span class="st">'talk'</span>, palette<span class="op">=</span><span class="st">'colorblind'</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>wildfires <span class="op">=</span> pd.read_csv(<span class="st">'datasets/wildfires.csv'</span>, parse_dates<span class="op">=</span>[<span class="st">'start'</span>, <span class="st">'end'</span>], low_memory<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>wildfires.sample(<span class="dv">5</span>)</span></code></pre></div>
 </details>
-</div>
-<p>Το πρώτο φύλλο excel περιέχει πληροφορίες για τα έτη 2000 - 2012, κάθε φύλλο και ένα έτος.</p>
-<div class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.ExcelFile(<span class="st">'datasets/Dasikes_Pyrkagies_2000-2012.xls'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.sheet_names)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012']</code></pre>
-</div>
-</div>
-<p>Παρακάτω είναι ένα δείγμα 5 τυχαίων καταγραφών.</p>
-<div class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data.parse(<span class="st">'2000'</span>, skiprows<span class="op">=</span><span class="dv">1</span>).sample(<span class="dv">5</span>)</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="34">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Υπηρεσία</th>
-      <th>Δασαρχείο</th>
-      <th>Περιοχή - Τοποθεσία</th>
-      <th>Νομός</th>
-      <th>Ημερ/νία Έναρξης</th>
-      <th>Ώρα Έναρξης</th>
-      <th>Ημερ/νία Κατασβεσης</th>
-      <th>Ώρα Κατάσβεσης</th>
-      <th>Δάση</th>
-      <th>Δασική Έκταση</th>
-      <th>Άλση</th>
-      <th>Χορτ/κές Εκτάσεις</th>
-      <th>Καλάμια - Βάλτοι</th>
-      <th>Γεωργικές Εκτάσεις</th>
-      <th>Υπολλείματα Καλλιεργειών</th>
-      <th>Σκουπιδότοποι</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>940</th>
-      <td>Π.Υ. ΔΡΑΜΑΣ</td>
-      <td>NaN</td>
-      <td>ΤΑΞΙΑΡΧΕΣ</td>
-      <td>ΔΡΑΜΑΣ</td>
-      <td>2000-11-01</td>
-      <td>14:49:00</td>
-      <td>2000-11-01 00:00:00</td>
-      <td>15:30:00</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.1</td>
-    </tr>
-    <tr>
-      <th>2971</th>
-      <td>Π.Υ. ΚΙΛΚΙΣ</td>
-      <td>ΓΟΥΜΕΝΙΣΣΑΣ</td>
-      <td>ΕΥΡΩΠΟΥ</td>
-      <td>ΚΙΛΚΙΣ</td>
-      <td>2000-07-22</td>
-      <td>11:39:00</td>
-      <td>2000-07-22 00:00:00</td>
-      <td>12:45:00</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>5.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>1055</th>
-      <td>Π.Κ. ΝΕΥΡΟΚΟΠΙΟΥ</td>
-      <td>Κ.ΝΕΥΡΟΚΟΠΙΟΥ</td>
-      <td>ΚΟΙΝ.ΛΕΥΚΟΓΕΙΑ</td>
-      <td>ΔΡΑΜΑΣ</td>
-      <td>2000-04-08</td>
-      <td>16:20:00</td>
-      <td>2000-04-08 00:00:00</td>
-      <td>18:15:00</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>5.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>4309</th>
-      <td>Π.Υ. ΓΡΕΒΕΝΩΝ</td>
-      <td>ΓΡΕΒΕΝΩΝ</td>
-      <td>ΘΕΣΗ ΨΗΛΟΤΕΡΑ ΠΟΡΟΥ ΓΡΕΒΕΝΩΝ</td>
-      <td>ΓΡΕΒΕΝΩΝ</td>
-      <td>2000-09-24</td>
-      <td>06:15:00</td>
-      <td>2000-09-24 00:00:00</td>
-      <td>07:10:00</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.5</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2337</th>
-      <td>Π.Κ. ΝΙΓΡΙΤΑΣ</td>
-      <td>ΣΕΡΡΩΝ</td>
-      <td>ΑΓΡΟΤ.ΠΕΡ. ΚΑΛΟΚΑΣΤΡΟΥ ΣΡΤΥΜΩΝΙΚΟΥ</td>
-      <td>ΣΕΡΡΩΝ</td>
-      <td>2000-10-04</td>
-      <td>21:39:00</td>
-      <td>2000-10-04 00:00:00</td>
-      <td>23:20:00</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-</div>
-<p>Θα χρησιμοποιήσω τα παρακάτω ονόματα στηλών για συντομία.</p>
-<div class="cell" data-tags="[]" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> [<span class="st">'fire_service'</span>, <span class="st">'forest_department'</span>, <span class="st">'location'</span>, <span class="st">'district'</span>,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                <span class="st">'start_date'</span>, <span class="st">'start_time'</span>, <span class="st">'end_date'</span>, <span class="st">'end_time'</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest'</span>, <span class="st">'forest_area'</span>, <span class="st">'grove'</span>, <span class="st">'grassland'</span>, <span class="st">'marsh'</span>, <span class="st">'crop_fields'</span>, <span class="st">'crop_residues'</span>, <span class="st">'dumps'</span>]</span></code></pre></div>
-</div>
-<p>Tα φύλλα από το 2000 έως το 2008 περιέχουν τις παραπάνω στήλες</p>
-<div class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sheets <span class="op">=</span> data.sheet_names[:<span class="dv">9</span>]</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sheets)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008']</code></pre>
-</div>
-</div>
-<p>Φορτώνουμε αυτά τα πρώτα 9 φύλλα σε ένα λεξικό με όνομα <code>df_dict</code></p>
-<div class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_dict <span class="op">=</span> {}</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sheet <span class="kw">in</span> sheets:</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> data.parse(sheet, skiprows<span class="op">=</span><span class="dv">1</span>, names<span class="op">=</span>column_names)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    df_dict[sheet] <span class="op">=</span> df</span></code></pre></div>
-</div>
-<div class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df_dict[<span class="st">'2000'</span>]</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df.info()</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-RangeIndex: 12980 entries, 0 to 12979
-Data columns (total 16 columns):
- #   Column             Non-Null Count  Dtype         
----  ------             --------------  -----         
- 0   fire_service       12980 non-null  object        
- 1   forest_department  10037 non-null  object        
- 2   location           12979 non-null  object        
- 3   district           12980 non-null  object        
- 4   start_date         12980 non-null  datetime64[ns]
- 5   start_time         12980 non-null  object        
- 6   end_date           12949 non-null  object        
- 7   end_time           12948 non-null  object        
- 8   forest             12980 non-null  float64       
- 9   forest_area        12980 non-null  float64       
- 10  grove              12980 non-null  float64       
- 11  grassland          12980 non-null  float64       
- 12  marsh              12980 non-null  float64       
- 13  crop_fields        12980 non-null  float64       
- 14  crop_residues      12980 non-null  float64       
- 15  dumps              12980 non-null  float64       
-dtypes: datetime64[ns](1), float64(8), object(7)
-memory usage: 1.6+ MB</code></pre>
-</div>
-</div>
-<p>Με εξαίρεση κάποιες τιμές που λείπουν στις στήλες <code>forest_department</code> και <code>location</code> τα υπόλοιπα δεδομένα εμφανίζονται να είναι εντάξει. Τώρα θα επικεντρωθούμε στις στήλες ημερομηνιών και ωρών (<code>start_date</code>, <code>start_time</code>, <code>end_date</code>, <code>end_time</code>).</p>
-
-<div class="no-row-height column-margin column-container"><div class="cell" data-execution_count="39">
-<details>
-<summary>Λανθασμένες ημερομηνίες</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year, df <span class="kw">in</span> df_dict.items():</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> df[df.end_date.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">isinstance</span>(x, <span class="bu">str</span>))].end_date.empty:</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Year: "</span>, year)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(df[df.end_date.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">isinstance</span>(x, <span class="bu">str</span>))].end_date.sample(<span class="dv">2</span>))</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>()</span></code></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Year:  2000
-7599     10/7/0200
-10053    24/6/0900
-Name: end_date, dtype: object
-
-Year:  2001
-425     12/8/0013
-3215    7/10/0013
-Name: end_date, dtype: object
-
-Year:  2002
-1922     3/2/0052
-2151    24/2/0012
-Name: end_date, dtype: object
-
-Year:  2004
-7369    13/9/0043
-9407     4/9/0041
-Name: end_date, dtype: object
-
-Year:  2006
-4788    23/6/0200
-6937    27/6/0200
-Name: end_date, dtype: object
-
-Year:  2007
-3242    13/1/0200
-3996    26/8/0200
-Name: end_date, dtype: object
-
-Year:  2008
-2294    17/11/0208
-3462     11/8/0200
-Name: end_date, dtype: object
-</code></pre>
-</div>
-</div></div><p>Φαίνεται ότι υπάρχουν αρκετές ημερομηνίες που έχουν πληκτρολογηθεί λανθασμένα. Θα προσπαθήσουμε με μία εφαρμογή να διορθώσουμε τις λανθασμένες τιμές.</p>
-<p>Η εφαρμογή πρώτα ελέγχει ποιες τιμές δεν έχουν μετατραπεί σε datetime objects (strings), και επιστρέφει Timestamp με την σωστή χρονολογία χρησιμοποιώντας τον ίδιο μήνα και ημέρα. Από την διόρθωση θα εξαιρεθούν ημερομηνίες που αφορούν τον Γενάρη του επόμενου έτους μιας και ορισμένες πυρκαγιές ξεκίνησαν Δεκέμβριο και τελείωσαν τον Ιανουάριο του επόμενου έτους.</p>
-<div class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Εφαρμογή διόρθωσης του έτους</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fix_year(x, year):</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""A function to replace mistyped year</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">    on the end_date column</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">        x (str or datetime): value of each row</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">        year (int): the correct year to replace</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">        pandas.Timestamp or original value x</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># records that could not parsed as datetime objects</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">str</span>): </span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>        day, month, _ <span class="op">=</span> x.split(<span class="st">'/'</span>)</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> pd.Timestamp(year<span class="op">=</span>year, month<span class="op">=</span><span class="bu">int</span>(month), day<span class="op">=</span><span class="bu">int</span>(day))</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># check that already parsed dates have the correct year</span></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="bu">isinstance</span>(x, datetime):</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> x.year <span class="op">==</span> year <span class="kw">or</span> pd.isnull(x): <span class="co"># exclude records with the correct year or null value</span></span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> x</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> x.year <span class="op">==</span> (year <span class="op">+</span> <span class="dv">1</span>) <span class="kw">and</span> x.month <span class="op">==</span> <span class="dv">1</span>: <span class="co"># exclude records on January of the next year</span></span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> x </span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> pd.Timestamp(year<span class="op">=</span>year, month<span class="op">=</span><span class="bu">int</span>(x.month), day<span class="op">=</span><span class="bu">int</span>(x.day))</span></code></pre></div>
-</div>
-<p>’Επειτα χρησιμοποιούμε την εφαρμογή και ενώνουμε ημερ/νία και ώρα σε δύο στήλες που θα ονομάζονται <code>start</code> και <code>end</code>.</p>
-<div class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Χρησιμοποιούμε την εφαρμογή</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year, df <span class="kw">in</span> df_dict.items():</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"end_date"</span>] <span class="op">=</span> df.end_date.<span class="bu">apply</span>(fix_year, args<span class="op">=</span>[<span class="bu">int</span>(year)])</span></code></pre></div>
-</div>
-<div class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ενώνουμε ημερομηνία και ώρα</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> df <span class="kw">in</span> df_dict.values():</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'start'</span>] <span class="op">=</span> pd.to_datetime(df.start_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.start_time.<span class="bu">map</span>(<span class="bu">str</span>))</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'end'</span>] <span class="op">=</span> pd.to_datetime(df.end_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.end_time.<span class="bu">map</span>(<span class="bu">str</span>), errors<span class="op">=</span><span class="st">'coerce'</span>)</span></code></pre></div>
-</div>
-<p>Από κάτω παρατηρούμε την προσθήκη της στήλης <code>Δήμος</code> στα δεδομένα σε σχέση με τα προηγούμενα έτη.</p>
-<div class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.parse(<span class="st">'2009'</span>, skiprows<span class="op">=</span><span class="dv">1</span>).columns)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.parse(<span class="st">'2010'</span>, skiprows<span class="op">=</span><span class="dv">1</span>).columns)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Index(['Υπηρεσία', 'Δασαρχείο', 'Περιοχή - Τοποθεσία', 'Δήμος', 'Νομός',
-       'Ημερ/νία Έναρξης', 'Ώρα Έναρξης', 'Ημερ/νία Κατασβεσης',
-       'Ώρα Κατάσβεσης', 'Δάση', 'Δασική Έκταση', 'Άλση', 'Χορτ/κές Εκτάσεις',
-       'Καλάμια - Βάλτοι', 'Γεωργικές Εκτάσεις', 'Υπολλείματα Καλλιεργειών',
-       'Σκουπιδότοποι'],
-      dtype='object')
-Index(['Υπηρεσία', 'Δασαρχείο', 'Περιοχή - Τοποθεσία', 'Δήμος', 'Νομός',
-       'Ημερ/νία Έναρξης', 'Ώρα Έναρξης', 'Ημερ/νία Κατασβεσης',
-       'Ώρα Κατάσβεσης', 'Δάση', 'Δασική Έκταση', 'Άλση', 'Χορτ/κές Εκτάσεις',
-       'Καλάμια - Βάλτοι', 'Γεωργικές Εκτάσεις', 'Υπολλείματα Καλλιεργειών',
-       'Σκουπιδότοποι'],
-      dtype='object')</code></pre>
-</div>
-</div>
-<p>Προσθέτουμε το όνομα <code>borough</code> στη λίστα με τα ονόματα στηλών και φορτώνουμε τα έτη 2009-2010 στο λεξικό μας.</p>
-<div class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> [<span class="st">'fire_service'</span>, <span class="st">'forest_department'</span>, <span class="st">'location'</span>, <span class="st">'borough'</span>, <span class="st">'district'</span>,</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                <span class="st">'start_date'</span>, <span class="st">'start_time'</span>, <span class="st">'end_date'</span>, <span class="st">'end_time'</span>,</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest'</span>, <span class="st">'forest_area'</span>, <span class="st">'grove'</span>, <span class="st">'grassland'</span>, <span class="st">'marsh'</span>, <span class="st">'crop_fields'</span>, <span class="st">'crop_residues'</span>, <span class="st">'dumps'</span>]</span></code></pre></div>
-</div>
-<div class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sheets <span class="op">=</span> [<span class="st">'2009'</span>, <span class="st">'2010'</span>]</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sheet <span class="kw">in</span> sheets:</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> data.parse(sheet, skiprows<span class="op">=</span><span class="dv">1</span>, names<span class="op">=</span>column_names)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    df_dict[sheet] <span class="op">=</span> df</span></code></pre></div>
-</div>
-<p>Ελέγχουμε ξανά για λάθος συπληρωμένες ημερομηνίες, τις διορθώνουμε όπως και προηγουμένως και ενώνουμε για την δημιουργία των στηλών <code>start</code> και <code>end</code>.</p>
-
-<div class="no-row-height column-margin column-container"><div class="cell" data-execution_count="46">
-<details>
-<summary>Λανθασμένες ημερ/νίες</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year, df <span class="kw">in</span> df_dict.items():</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> df[df.end_date.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">isinstance</span>(x, <span class="bu">str</span>))].end_date.empty:</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Year: "</span>, year)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(df[df.end_date.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">isinstance</span>(x, <span class="bu">str</span>))].end_date.sample(<span class="dv">2</span>))</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>()</span></code></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Year:  2009
-2273    21/5/0209
-5410    17/6/0209
-Name: end_date, dtype: object
-</code></pre>
-</div>
-</div></div><div class="cell" data-execution_count="47">
-<details>
-<summary>Διόρθωση ημερ/νιών</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year, df <span class="kw">in</span> df_dict.items():</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> year <span class="kw">in</span> sheets:</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>        df[<span class="st">"end_date"</span>] <span class="op">=</span> df.end_date.<span class="bu">apply</span>(fix_year, args<span class="op">=</span>[<span class="bu">int</span>(year)])</span></code></pre></div>
-</details>
-</div>
-<div class="cell" data-execution_count="48">
-<details>
-<summary>Ενώνουμε ημερομηνία και ώρα</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year, df <span class="kw">in</span> df_dict.items():</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> year <span class="kw">in</span> sheets:</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>        df[<span class="st">'start'</span>] <span class="op">=</span> pd.to_datetime(df.start_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.start_time.<span class="bu">map</span>(<span class="bu">str</span>))</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>        df[<span class="st">'end'</span>] <span class="op">=</span> pd.to_datetime(df.end_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.end_time.<span class="bu">map</span>(<span class="bu">str</span>), errors<span class="op">=</span><span class="st">'coerce'</span>)</span></code></pre></div>
-</details>
-</div>
-<p>Το 2011 προστίθενται πληροφορίες για το ανθρώπινο δυναμικό και τα οχήματα που συμμετείχαν στην πυρόσβεση.</p>
-<div class="cell" data-execution_count="49">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>data.parse(<span class="st">'2011'</span>, skiprows<span class="op">=</span><span class="dv">1</span>).columns</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="49">
-<pre><code>Index(['Υπηρεσία', 'Νομός', 'Ημερ/νία Έναρξης', 'Ώρα Έναρξης',
-       'Ημερ/νία Κατασβεσης', 'Ώρα Κατάσβεσης', 'Δασαρχείο', 'Δήμος',
-       'Περιοχή - Τοποθεσία', 'Δάση', 'Δασική Έκταση', 'Άλση',
-       'Χορτ/κές Εκτάσεις', 'Καλάμια - Βάλτοι', 'Γεωργικές Εκτάσεις',
-       'Υπολλείματα Καλλιεργειών', 'Σκουπιδότοποι', 'ΠΥΡΟΣ. ΣΩΜΑ',
-       'ΠΕΖΟΠΟΡΑ ΤΜΗΜΑΤΑ', 'ΕΘΕΛΟ-ΝΤΕΣ', 'ΣΤΡΑΤΟΣ', 'ΑΛΛΕΣ ΔΥΝΑΜΕΙΣ',
-       'ΠΥΡΟΣ. ΟΧΗΜ.', 'ΟΧΗΜ. ΟΤΑ', 'ΒΥΤΙΟ- ΦΟΡΑ', 'ΜΗΧΑΝΗΜΑΤΑ',
-       'ΕΛΙΚΟ- ΠΤΕΡΑ', 'Α/Φ CL415', 'Α/Φ CL215', 'Α/Φ PZL', 'Α/Φ GRU.'],
-      dtype='object')</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="50">
-<details>
-<summary>Στήλες που θα χρησιμοποιηθούν</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> [<span class="st">'fire_service'</span>, <span class="st">'district'</span>, <span class="st">'start_date'</span>, <span class="st">'start_time'</span>, <span class="st">'end_date'</span>, <span class="st">'end_time'</span>,</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest_department'</span>, <span class="st">'borough'</span>, <span class="st">'location'</span>,</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest'</span>, <span class="st">'forest_area'</span>, <span class="st">'grove'</span>, <span class="st">'grassland'</span>, <span class="st">'marsh'</span>, <span class="st">'crop_fields'</span>, <span class="st">'crop_residues'</span>, <span class="st">'dumps'</span>,</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">'firemen'</span>, <span class="st">'patrol'</span>, <span class="st">'volunteers'</span>, <span class="st">'military'</span>, <span class="st">'other_groups'</span>, <span class="st">'fire_trucks'</span>, <span class="st">'local_authorities'</span>,</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">'private_trucks'</span>, <span class="st">'other_trucks'</span>, <span class="st">'helicopters'</span>, <span class="st">'canadair_new'</span>, <span class="st">'canadair_old'</span>, <span class="st">'pzl'</span>,</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">'gru'</span>]</span></code></pre></div>
-</details>
-</div>
-<div class="cell" data-execution_count="51">
-<details>
-<summary>Προσθήκη του 2011</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sheet <span class="op">=</span> <span class="st">'2011'</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> data.parse(sheet, skiprows<span class="op">=</span><span class="dv">1</span>, names<span class="op">=</span>column_names)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>df_dict[sheet] <span class="op">=</span> df</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"end_date"</span>] <span class="op">=</span> df.end_date.<span class="bu">apply</span>(fix_year, args<span class="op">=</span>[<span class="bu">int</span>(sheet)])</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'start'</span>] <span class="op">=</span> pd.to_datetime(df.start_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.start_time.<span class="bu">map</span>(<span class="bu">str</span>))</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'end'</span>] <span class="op">=</span> pd.to_datetime(df.end_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.end_time.<span class="bu">map</span>(<span class="bu">str</span>), errors<span class="op">=</span><span class="st">'coerce'</span>)</span></code></pre></div>
-</details>
-</div>
-<div class="cell" data-execution_count="52">
-<details>
-<summary>Το 2012 προστίθεται η διεύθυνση <code>address</code></summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data.parse(<span class="st">'2012'</span>, skiprows<span class="op">=</span><span class="dv">1</span>).columns</span></code></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="52">
-<pre><code>Index(['Υπηρεσία', 'Νομός', 'Ημερ/νία Έναρξης', 'Ώρα Έναρξης',
-       'Ημερ/νία Κατασβεσης', 'Ώρα Κατάσβεσης', 'Δασαρχείο', 'Δήμος',
-       'Περιοχή', 'Διεύθυνση', 'Δάση', 'Δασική Έκταση', 'Άλση',
-       'Χορτ/κές Εκτάσεις', 'Καλάμια - Βάλτοι', 'Γεωργικές Εκτάσεις',
-       'Υπολλείματα Καλλιεργειών', 'Σκουπι-δότοποι', 'ΠΥΡΟΣ. ΣΩΜΑ',
-       'ΠΕΖΟΠΟΡΑ ΤΜΗΜΑΤΑ', 'ΕΘΕΛΟ-ΝΤΕΣ', 'ΣΤΡΑΤΟΣ', 'ΑΛΛΕΣ ΔΥΝΑΜΕΙΣ',
-       'ΠΥΡΟΣ. ΟΧΗΜ.', 'ΟΧΗΜ. ΟΤΑ', 'ΒΥΤΙΟ- ΦΟΡΑ', 'ΜΗΧΑΝΗ-ΜΑΤΑ',
-       'ΕΛΙΚΟ- ΠΤΕΡΑ', 'Α/Φ CL415', 'Α/Φ CL215', 'Α/Φ PZL', 'Α/Φ GRU.'],
-      dtype='object')</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="53">
-<details>
-<summary>Ανανέωση των ονομάτων των στηλών</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> [<span class="st">'fire_service'</span>, <span class="st">'district'</span>, <span class="st">'start_date'</span>, <span class="st">'start_time'</span>, <span class="st">'end_date'</span>, <span class="st">'end_time'</span>,</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest_department'</span>, <span class="st">'borough'</span>, <span class="st">'location'</span>, <span class="st">'address'</span>,</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest'</span>, <span class="st">'forest_area'</span>, <span class="st">'grove'</span>, <span class="st">'grassland'</span>, <span class="st">'marsh'</span>, <span class="st">'crop_fields'</span>, <span class="st">'crop_residues'</span>, <span class="st">'dumps'</span>,</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">'firemen'</span>, <span class="st">'patrol'</span>, <span class="st">'volunteers'</span>, <span class="st">'military'</span>, <span class="st">'other_groups'</span>, <span class="st">'fire_trucks'</span>, <span class="st">'local_authorities'</span>,</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">'private_trucks'</span>, <span class="st">'other_trucks'</span>, <span class="st">'helicopters'</span>, <span class="st">'canadair_new'</span>, <span class="st">'canadair_old'</span>, <span class="st">'pzl'</span>,</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">'gru'</span>]</span></code></pre></div>
-</details>
-</div>
-<div class="cell" data-execution_count="54">
-<details>
-<summary>Φόρτωση του 2012</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>sheet <span class="op">=</span> <span class="st">'2012'</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> data.parse(sheet, skiprows<span class="op">=</span><span class="dv">1</span>, names<span class="op">=</span>column_names)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>df_dict[sheet] <span class="op">=</span> df</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"end_date"</span>] <span class="op">=</span> df.end_date.<span class="bu">apply</span>(fix_year, args<span class="op">=</span>[<span class="bu">int</span>(sheet)])</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'start'</span>] <span class="op">=</span> pd.to_datetime(df.start_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.start_time.<span class="bu">map</span>(<span class="bu">str</span>))</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'end'</span>] <span class="op">=</span> pd.to_datetime(df.end_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.end_time.<span class="bu">map</span>(<span class="bu">str</span>), errors<span class="op">=</span><span class="st">'coerce'</span>)</span></code></pre></div>
-</details>
-</div>
-<p>Εφόσον μέχρι το 2019 δεν έχουμε προσθήκη επιπλέον στηλών, θα αυτοματοποιήσουμε τον τρόπο που διαβάζουμε κάθε αρχείο excel, διορθώνουμε τις ημερ/νίες και το προσθέτουμε στο λεξικό μας.</p>
-<div class="cell" data-execution_count="55">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sheet <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2013</span>, <span class="dv">2020</span>):</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># εύρεση του αρχείου</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span> <span class="op">=</span> glob.glob(<span class="st">'datasets/Dasikes_Pyrkagies_'</span> <span class="op">+</span> <span class="bu">str</span>(sheet) <span class="op">+</span> <span class="st">'*'</span>)[<span class="dv">0</span>]</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># φόρτωση του αρχείου</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_excel(<span class="bu">file</span>, skiprows<span class="op">=</span><span class="dv">1</span>, names<span class="op">=</span>column_names)</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    df_dict[<span class="bu">str</span>(sheet)] <span class="op">=</span> df</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># διόρθωση των ημερομηνιών</span></span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"end_date"</span>] <span class="op">=</span> df.end_date.<span class="bu">apply</span>(fix_year, args<span class="op">=</span>[sheet])</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ένωση των ημερ/νιών με τις ώρες</span></span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'start'</span>] <span class="op">=</span> pd.to_datetime(df.start_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.start_time.<span class="bu">map</span>(<span class="bu">str</span>))</span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'end'</span>] <span class="op">=</span> pd.to_datetime(df.end_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.end_time.<span class="bu">map</span>(<span class="bu">str</span>), errors<span class="op">=</span><span class="st">'coerce'</span>)</span></code></pre></div>
-</div>
-<div class="cell" data-execution_count="56">
-<details>
-<summary>Στήλες του 2020 και 2021</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>pd.read_excel(<span class="st">'datasets/Dasikes_Pyrkagies_2020.xls'</span>, skiprows<span class="op">=</span><span class="dv">1</span>).columns</span></code></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="56">
-<pre><code>Index(['Α/Α ΕΓΓΡΑΦΗΣ', 'Α/Α ENGAGE', 'X-ENGAGE', 'Y-ENGAGE', 'Υπηρεσία',
-       'Νομός', 'Ημερ/νία Έναρξης', 'Ώρα Έναρξης', 'Ημερ/νία Κατασβεσης',
-       'Ώρα Κατάσβεσης', 'Δασαρχείο', 'Δήμος', 'Περιοχή', 'Διεύθυνση', 'Δάση',
-       'Δασική Έκταση', 'Άλση', 'Χορτ/κές Εκτάσεις', 'Καλάμια - Βάλτοι',
-       'Γεωργικές Εκτάσεις', 'Υπολλείματα Καλλιεργειών', 'Σκουπι-δότοποι',
-       'ΠΥΡΟΣ. ΣΩΜΑ', 'ΠΕΖΟΠΟΡΑ ΤΜΗΜΑΤΑ', 'ΕΘΕΛΟ-ΝΤΕΣ', 'ΣΤΡΑΤΟΣ',
-       'ΑΛΛΕΣ ΔΥΝΑΜΕΙΣ', 'ΠΥΡΟΣ. ΟΧΗΜ.', 'ΟΧΗΜ. ΟΤΑ', 'ΒΥΤΙΟ- ΦΟΡΑ',
-       'ΜΗΧΑΝΗ-ΜΑΤΑ', 'ΕΛΙΚΟ- ΠΤΕΡΑ', 'Α/Φ CL415', 'Α/Φ CL215', 'Α/Φ PZL',
-       'Α/Φ GRU.'],
-      dtype='object')</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="57">
-<details>
-<summary>Το 2020-2021 προστέθηκαν γεωγρ. συντεταγμένες και ευρετήριο το οποίο δεν θα συμπεριληφθεί στο τελικό αρχείο</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> [<span class="st">'longitude'</span>, <span class="st">'latitude'</span>, <span class="st">'fire_service'</span>, <span class="st">'district'</span>, <span class="st">'start_date'</span>, <span class="st">'start_time'</span>, <span class="st">'end_date'</span>, <span class="st">'end_time'</span>,</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest_department'</span>, <span class="st">'borough'</span>, <span class="st">'location'</span>, <span class="st">'address'</span>,</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest'</span>, <span class="st">'forest_area'</span>, <span class="st">'grove'</span>, <span class="st">'grassland'</span>, <span class="st">'marsh'</span>, <span class="st">'crop_fields'</span>, <span class="st">'crop_residues'</span>, <span class="st">'dumps'</span>,</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">'firemen'</span>, <span class="st">'patrol'</span>, <span class="st">'volunteers'</span>, <span class="st">'military'</span>, <span class="st">'other_groups'</span>, <span class="st">'fire_trucks'</span>, <span class="st">'local_authorities'</span>,</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">'private_trucks'</span>, <span class="st">'other_trucks'</span>, <span class="st">'helicopters'</span>, <span class="st">'canadair_new'</span>, <span class="st">'canadair_old'</span>, <span class="st">'pzl'</span>,</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">'gru'</span>]</span></code></pre></div>
-</details>
-</div>
-<div class="cell" data-execution_count="58">
-<details>
-<summary>Φόρτωση των ετών 2020-2021</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sheet <span class="kw">in</span> [<span class="dv">2020</span>, <span class="dv">2021</span>]:</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># εύρεση του αρχείου</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span> <span class="op">=</span> glob.glob(<span class="st">'datasets/Dasikes_Pyrkagies_'</span> <span class="op">+</span> <span class="bu">str</span>(sheet) <span class="op">+</span> <span class="st">'*'</span>)[<span class="dv">0</span>]</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># φόρτωση του αρχείου</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_excel(<span class="bu">file</span>, skiprows<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>                   usecols<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">36</span>, <span class="dv">1</span>)), names<span class="op">=</span>column_names)</span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    df_dict[<span class="bu">str</span>(sheet)] <span class="op">=</span> df</span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># διόρθωση των ημερομηνιών</span></span>
-<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"end_date"</span>] <span class="op">=</span> df.end_date.<span class="bu">apply</span>(fix_year, args<span class="op">=</span>[sheet])</span>
-<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ένωση των ημερ/νιών με τις ώρες</span></span>
-<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'start'</span>] <span class="op">=</span> pd.to_datetime(df.start_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.start_time.<span class="bu">map</span>(<span class="bu">str</span>))</span>
-<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'end'</span>] <span class="op">=</span> pd.to_datetime(df.end_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.end_time.<span class="bu">map</span>(<span class="bu">str</span>), errors<span class="op">=</span><span class="st">'coerce'</span>)</span></code></pre></div>
-</details>
-</div>
-<p>Μπορούμε πλέον να ενώσουμε όλους τους πίνακες από το λεξικό <code>df_dict</code> σε ένα πίνακα με το όνομα <code>wildfires</code>.</p>
-<div class="cell" data-execution_count="59">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>wildfires <span class="op">=</span> pd.concat(df_dict.values())</span></code></pre></div>
-</div>
-<p>Θέτουμε όποιες ημερ/νίες κατάσβεσης δεν διορθώθηκαν ως κενή τιμή, ελέγχοντας ποιες ημερ/νίες κατάσβεσης προηγούνται των ημερ/νιών έναρξης.</p>
-<div class="cell" data-execution_count="60">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>wildfires.loc[(wildfires.start <span class="op">&gt;</span> wildfires.end), <span class="st">'end'</span>] <span class="op">=</span> pd.NaT</span></code></pre></div>
-</div>
-<p>Παρακάτω είναι το τελικό μας αρχείο.</p>
-<div class="cell" data-execution_count="61">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(wildfires.info())</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-Int64Index: 223260 entries, 0 to 9513
-Data columns (total 36 columns):
- #   Column             Non-Null Count   Dtype         
----  ------             --------------   -----         
- 0   fire_service       223260 non-null  object        
- 1   forest_department  148424 non-null  object        
- 2   location           154541 non-null  object        
- 3   district           223252 non-null  object        
- 4   start_date         223260 non-null  datetime64[ns]
- 5   start_time         223260 non-null  object        
- 6   end_date           203493 non-null  datetime64[ns]
- 7   end_time           203603 non-null  object        
- 8   forest             223259 non-null  float64       
- 9   forest_area        223260 non-null  float64       
- 10  grove              223260 non-null  float64       
- 11  grassland          223260 non-null  float64       
- 12  marsh              223260 non-null  float64       
- 13  crop_fields        223258 non-null  float64       
- 14  crop_residues      223260 non-null  float64       
- 15  dumps              223258 non-null  float64       
- 16  start              223260 non-null  datetime64[ns]
- 17  end                201425 non-null  datetime64[ns]
- 18  borough            123034 non-null  object        
- 19  firemen            106259 non-null  float64       
- 20  patrol             106305 non-null  float64       
- 21  volunteers         106339 non-null  float64       
- 22  military           106341 non-null  float64       
- 23  other_groups       106335 non-null  float64       
- 24  fire_trucks        106340 non-null  float64       
- 25  local_authorities  106341 non-null  float64       
- 26  private_trucks     106338 non-null  float64       
- 27  other_trucks       106340 non-null  float64       
- 28  helicopters        106339 non-null  float64       
- 29  canadair_new       106341 non-null  float64       
- 30  canadair_old       106340 non-null  float64       
- 31  pzl                106341 non-null  float64       
- 32  gru                106341 non-null  float64       
- 33  address            95057 non-null   object        
- 34  longitude          20309 non-null   float64       
- 35  latitude           20309 non-null   float64       
-dtypes: datetime64[ns](4), float64(24), object(8)
-memory usage: 63.0+ MB
-None</code></pre>
-</div>
-</div>
-<div class="cell page-columns page-full" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>wildfires.sample(<span class="dv">5</span>)</span></code></pre></div>
-<div class="cell-output cell-output-display column-page" data-execution_count="62">
+<div class="cell-output cell-output-display" data-execution_count="1">
 
 <div>
 
@@ -902,39 +300,15 @@ None</code></pre>
   </thead>
   <tbody>
     <tr>
-      <th>876</th>
-      <td>Π.Υ. ΞΑΝΘΗΣ</td>
-      <td>ΞΑΝΘΗΣ</td>
-      <td>ΔΑΣΙΚΗ ΠΕΡΙΟΧΗ ΔΙΑΣΠΑΡΤΟ</td>
-      <td>ΞΑΝΘΗΣ</td>
-      <td>2007-07-25</td>
-      <td>13:08</td>
-      <td>2007-07-26</td>
-      <td>23:10</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>...</td>
+      <th>44867</th>
+      <td>Π.Κ. ΚΑΛΛΟΝΗΣ</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>494</th>
-      <td>Π.Υ. ΕΛΕΥΘΕΡΟΥΠΟΛΗΣ</td>
-      <td>ΚΑΒΑΛΑΣ</td>
-      <td>Δ.Δ.Ν.ΠΕΡΑΜΟΥ ΔΗΜΟΣ ΕΛΕΥΘΕΡΩΝ</td>
-      <td>ΚΑΒΑΛΑΣ</td>
-      <td>2007-03-13</td>
-      <td>21:00</td>
-      <td>2007-03-13</td>
-      <td>21:45</td>
+      <td>Δ. ΕΡΕΣΣΟΥ</td>
+      <td>ΛΕΣΒΟΥ</td>
+      <td>2003-10-08</td>
+      <td>11:00:00</td>
+      <td>2003-10-08</td>
+      <td>17:30:00</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
@@ -950,15 +324,15 @@ None</code></pre>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>5587</th>
-      <td>Π.Υ. ΚΑΛΑΜΑΤΑΣ</td>
-      <td>ΚΑΛΑΜΑΤΑΣ</td>
-      <td>ΚΑΛΑΜΑΤΑ</td>
-      <td>ΜΕΣΣΗΝΙΑΣ</td>
-      <td>2002-02-14</td>
-      <td>14:29:00</td>
-      <td>2002-02-14</td>
-      <td>19:40:00</td>
+      <th>69061</th>
+      <td>Π.Υ. ΓΙΑΝΝΙΤΣΩΝ</td>
+      <td>ΕΔΕΣΣΑΣ</td>
+      <td>ΤΣΑΙΝΑΡΛΙ</td>
+      <td>ΠΕΛΛΑΣ</td>
+      <td>2006-09-11</td>
+      <td>12:34:00</td>
+      <td>2006-09-11</td>
+      <td>13:20:00</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
@@ -974,15 +348,39 @@ None</code></pre>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>11524</th>
-      <td>Π.Υ. ΚΑΛΑΒΡΥΤΩΝ</td>
+      <th>119667</th>
+      <td>Π.Υ. ΠΤΟΛΕΜΑΙΔΑΣ</td>
+      <td>ΚΟΖΑΝΗΣ</td>
+      <td>Τ.Κ. ΚΑΡΥΟΧΩΡΙΟΥ</td>
+      <td>ΚΟΖΑΝΗΣ</td>
+      <td>2011-07-13</td>
+      <td>18:50</td>
+      <td>2011-07-13</td>
+      <td>20:25</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>ΑΧΑΙΑΣ</td>
-      <td>2020-11-28</td>
-      <td>15:21</td>
-      <td>2020-11-28</td>
-      <td>17:47</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>197397</th>
+      <td>Π.Υ. ΠΑΛΑΜΑ</td>
+      <td>ΚΑΡΔΙΤΣΑΣ</td>
+      <td>NaN</td>
+      <td>ΚΑΡΔΙΤΣΑΣ</td>
+      <td>2019-03-21</td>
+      <td>15:05</td>
+      <td>2019-03-21</td>
+      <td>15:51</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
@@ -993,22 +391,22 @@ None</code></pre>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>Τ.Κ.ΚΛΕΙΤΟΡΙΑΣ</td>
-      <td>22.111599</td>
-      <td>37.896218</td>
+      <td>ΑΓΡΟΤ.ΔΡΟΜΟΣ ΙΤΕΑΣ-ΣΥΚΕΩΝΑΣ</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>6788</th>
-      <td>Π.Υ. ΜΑΚΡΑΚΩΜΗΣ</td>
-      <td>ΣΠΕΡΧΕΙΑΔΑΣ</td>
-      <td>Δ.Δ.ΡΟΒΟΛΙΑΡΙΟΥ</td>
-      <td>ΦΘΙΩΤΙΔΑΣ</td>
-      <td>2006-07-27</td>
-      <td>13:00:00</td>
-      <td>2006-07-27</td>
-      <td>20:45:00</td>
+      <th>78037</th>
+      <td>Π.Κ. ΣΙΔΗΡΟΚΑΣΤΡΟΥ</td>
+      <td>ΣΙΔΗΡΟΚΑΣΤΡΟΥ</td>
+      <td>ΑΓΡ.ΠΕΡΙΟΧΗ ΓΟΝΙΜΟΥ</td>
+      <td>ΣΕΡΡΩΝ</td>
+      <td>2007-02-05</td>
+      <td>16:50</td>
+      <td>2007-02-05</td>
+      <td>18:05</td>
       <td>0.0</td>
-      <td>2.0</td>
+      <td>0.0</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1031,13 +429,16 @@ None</code></pre>
 <h3 class="anchored" data-anchor-id="κλιματολογικά-δεδομένα">Κλιματολογικά δεδομένα</h3>
 <p>Θα χρησιμοποιηθούν δεδομένα των καιρικών συνθηκών της Ελλάδας του εκάστοτε έτους για σύγκριση με τα στοιχεία των πυρκαγιών. Τα δεδομένα προέρχονται από την ιστοσελίδα <a href="https://climateknowledgeportal.worldbank.org/" class="uri">https://climateknowledgeportal.worldbank.org/</a> και αφορούν δείκτες παρατεταμένης ξηρασίας και υψηλών θερμοκρασιών ανά έτος (<strong>Warm spell duration index</strong>, <strong>max number of consecutive dry days</strong>).</p>
 <div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>col_names <span class="op">=</span> [<span class="st">'year'</span>, <span class="st">'warm_days'</span>]</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>warm_spell <span class="op">=</span> pd.read_csv(<span class="st">'datasets/wsdi_timeseries_annual_era_1970-2020_GRC.csv'</span>, usecols<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>], names<span class="op">=</span>col_names, skiprows<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>warm_spell.info()</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>warm_spell.head()</span></code></pre></div>
-<div class="cell quarto-layout-panel" data-execution_count="63">
+<details>
+<summary>Κώδικας</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>col_names <span class="op">=</span> [<span class="st">'year'</span>, <span class="st">'warm_days'</span>]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>warm_spell <span class="op">=</span> pd.read_csv(<span class="st">'datasets/wsdi_timeseries_annual_era_1970-2020_GRC.csv'</span>, usecols<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>], names<span class="op">=</span>col_names, skiprows<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>warm_spell.info()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>warm_spell.head()</span></code></pre></div>
+</details>
+<div class="cell quarto-layout-panel" data-execution_count="2">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -1050,7 +451,7 @@ Data columns (total 2 columns):
 dtypes: float64(1), int64(1)
 memory usage: 944.0 bytes</code></pre>
 </div>
-<div class="cell-output cell-output-display quarto-layout-cell" data-execution_count="63" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output cell-output-display quarto-layout-cell" data-execution_count="2" style="flex-basis: 50.0%;justify-content: center;">
 
 <div>
 
@@ -1096,13 +497,16 @@ memory usage: 944.0 bytes</code></pre>
 </div>
 </div>
 <div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>col_names <span class="op">=</span> [<span class="st">'year'</span>, <span class="st">'dry_days'</span>]</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>max_dry_days <span class="op">=</span> pd.read_csv(<span class="st">'datasets/cdd_timeseries_annual_era_1970-2020_GRC.csv'</span>, usecols<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>], names<span class="op">=</span>col_names, skiprows<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(max_dry_days.info())</span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>max_dry_days.head()</span></code></pre></div>
-<div class="cell quarto-layout-panel" data-execution_count="64">
+<details>
+<summary>Κώδικας</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>col_names <span class="op">=</span> [<span class="st">'year'</span>, <span class="st">'dry_days'</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>max_dry_days <span class="op">=</span> pd.read_csv(<span class="st">'datasets/cdd_timeseries_annual_era_1970-2020_GRC.csv'</span>, usecols<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>], names<span class="op">=</span>col_names, skiprows<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(max_dry_days.info())</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>max_dry_days.head()</span></code></pre></div>
+</details>
+<div class="cell quarto-layout-panel" data-execution_count="3">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -1116,7 +520,7 @@ dtypes: float64(1), int64(1)
 memory usage: 944.0 bytes
 None</code></pre>
 </div>
-<div class="cell-output cell-output-display quarto-layout-cell" data-execution_count="64" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output cell-output-display quarto-layout-cell" data-execution_count="3" style="flex-basis: 50.0%;justify-content: center;">
 
 <div>
 
@@ -1161,51 +565,51 @@ None</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="65">
+<div class="cell" data-execution_count="4">
 <details>
 <summary>Επιλέγουμε δεδομένα μόνο από το 2000 και μετά</summary>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>warm_spell_subset <span class="op">=</span> warm_spell[warm_spell.year <span class="op">&gt;=</span> <span class="dv">2000</span>]</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>max_dry_days_subset <span class="op">=</span> max_dry_days[max_dry_days.year <span class="op">&gt;=</span> <span class="dv">2000</span>]</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>warm_spell_subset <span class="op">=</span> warm_spell[warm_spell.year <span class="op">&gt;=</span> <span class="dv">2000</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>max_dry_days_subset <span class="op">=</span> max_dry_days[max_dry_days.year <span class="op">&gt;=</span> <span class="dv">2000</span>]</span></code></pre></div>
 </details>
 </div>
 </section>
 </section>
-<section id="sec-plots" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="sec-plots">Γραφική απεικόνιση των δεδομένων</h2>
+<section id="γραφική-απεικόνιση-των-δεδομένων" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="γραφική-απεικόνιση-των-δεδομένων">Γραφική απεικόνιση των δεδομένων</h2>
 <p>Παρακάτω με την χρήση τον βιβλιοθηκών pandas, matplotlib και seaborn θα παρουσιάσουμε τα δεδομένα με κάποια βασικά γραφήματα.</p>
-<div class="cell" data-execution_count="66">
+<div class="cell" data-execution_count="5">
 <details>
 <summary>Υπολογισμός περιστατικών ανά έτος</summary>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>incidents_per_year <span class="op">=</span> wildfires.start.dt.year.value_counts(sort<span class="op">=</span><span class="va">False</span>).rename_axis(<span class="st">'year'</span>).reset_index(name<span class="op">=</span><span class="st">'incidents'</span>).merge(warm_spell_subset, on<span class="op">=</span><span class="st">'year'</span>).merge(max_dry_days_subset, on<span class="op">=</span><span class="st">'year'</span>)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>incidents_per_year <span class="op">=</span> wildfires.start.dt.year.value_counts(sort<span class="op">=</span><span class="va">False</span>).rename_axis(<span class="st">'year'</span>).reset_index(name<span class="op">=</span><span class="st">'incidents'</span>).merge(warm_spell_subset, on<span class="op">=</span><span class="st">'year'</span>).merge(max_dry_days_subset, on<span class="op">=</span><span class="st">'year'</span>)</span></code></pre></div>
 </details>
 </div>
 <section id="αριθμός-περιστατικών-ανά-έτος-σε-συνδιασμό-με-κλιματολογικές-συνθήκες." class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="αριθμός-περιστατικών-ανά-έτος-σε-συνδιασμό-με-κλιματολογικές-συνθήκες.">Αριθμός περιστατικών ανά έτος σε συνδιασμό με κλιματολογικές συνθήκες.</h3>
-<div class="cell page-columns page-full" data-execution_count="67">
+<div class="cell page-columns page-full" data-execution_count="6">
 <details>
 <summary>Ραβδόγραμμα</summary>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">18</span>,<span class="dv">8</span>))</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>incidents_per_year.plot(kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax, x<span class="op">=</span><span class="st">'year'</span>, y<span class="op">=</span><span class="st">'incidents'</span>)</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>incidents_per_year[<span class="st">'warm_days'</span>].plot(kind<span class="op">=</span><span class="st">'line'</span>, secondary_y<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'orangered'</span>)</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>incidents_per_year[<span class="st">'dry_days'</span>].plot(kind<span class="op">=</span><span class="st">'line'</span>, secondary_y<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'orange'</span>)</span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>handles <span class="op">=</span> ax.get_legend_handles_labels()[<span class="dv">0</span>] <span class="op">+</span> ax.right_ax.get_legend_handles_labels()[<span class="dv">0</span>]</span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Πυρκαγιές'</span>, <span class="st">'Ημέρες καύσωνα'</span>, <span class="st">'Ημέρες ξηρασίας'</span>]</span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>ax.legend(handles, labels, loc<span class="op">=</span><span class="st">'upper center'</span>, frameon<span class="op">=</span><span class="va">False</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.1</span>))</span>
-<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">False</span>)</span>
-<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>ax.right_ax.grid(<span class="va">False</span>)</span>
-<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, labelrotation <span class="op">=</span> <span class="dv">90</span>)</span>
-<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>sns.despine(fig, top<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">''</span>)</span>
-<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'# Πυρκαγιών'</span>)</span>
-<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a>ax.right_ax.set_ylabel(<span class="st">'Ημέρες'</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">18</span>,<span class="dv">8</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>incidents_per_year.plot(kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax, x<span class="op">=</span><span class="st">'year'</span>, y<span class="op">=</span><span class="st">'incidents'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>incidents_per_year[<span class="st">'warm_days'</span>].plot(kind<span class="op">=</span><span class="st">'line'</span>, secondary_y<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'orangered'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>incidents_per_year[<span class="st">'dry_days'</span>].plot(kind<span class="op">=</span><span class="st">'line'</span>, secondary_y<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'orange'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>handles <span class="op">=</span> ax.get_legend_handles_labels()[<span class="dv">0</span>] <span class="op">+</span> ax.right_ax.get_legend_handles_labels()[<span class="dv">0</span>]</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Πυρκαγιές'</span>, <span class="st">'Ημέρες καύσωνα'</span>, <span class="st">'Ημέρες ξηρασίας'</span>]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>ax.legend(handles, labels, loc<span class="op">=</span><span class="st">'upper center'</span>, frameon<span class="op">=</span><span class="va">False</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.1</span>))</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">False</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>ax.right_ax.grid(<span class="va">False</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, labelrotation <span class="op">=</span> <span class="dv">90</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>sns.despine(fig, top<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">''</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'# Πυρκαγιών'</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>ax.right_ax.set_ylabel(<span class="st">'Ημέρες'</span>)<span class="op">;</span></span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display column-page">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p></p><figcaption class="figure-caption">Πλήθος πυρκαγιών ανά έτος</figcaption><p></p>
-<p><img src="Wildfires%20in%20Greece_files/figure-html/cell-37-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="Wildfires%20in%20Greece_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1214,54 +618,54 @@ None</code></pre>
 </section>
 <section id="παρουσίαση-καμμένων-εκτάσεων" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="παρουσίαση-καμμένων-εκτάσεων">Παρουσίαση καμμένων εκτάσεων</h3>
-<div class="cell page-columns page-full" data-execution_count="68">
+<div class="cell page-columns page-full" data-execution_count="7">
 <details>
 <summary>Διάγραμμα περιοχής</summary>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">20</span>))</span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>wildfires.groupby(wildfires.start.dt.year).<span class="bu">sum</span>().plot.area(ax<span class="op">=</span>axes[<span class="dv">0</span>],</span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>                                                           y<span class="op">=</span>[<span class="st">'forest'</span>, <span class="st">'forest_area'</span>, <span class="st">'grove'</span>],</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>                                                           color<span class="op">=</span>[<span class="st">'darkgreen'</span>, <span class="st">'forestgreen'</span>, <span class="st">'yellowgreen'</span>],</span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>                                                           linewidth<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>wildfires.groupby(wildfires.start.dt.year).<span class="bu">sum</span>().plot.area(ax<span class="op">=</span>axes[<span class="dv">1</span>],</span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>                                                           y<span class="op">=</span>[<span class="st">'crop_fields'</span>, <span class="st">'crop_residues'</span>],</span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>                                                           color<span class="op">=</span>[<span class="st">'gold'</span>, <span class="st">'darkgoldenrod'</span>],</span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>                                                           linewidth<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>wildfires.groupby(wildfires.start.dt.year).<span class="bu">sum</span>().plot.area(ax<span class="op">=</span>axes[<span class="dv">2</span>],</span>
-<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>                                                           y<span class="op">=</span>[<span class="st">'grassland'</span>, <span class="st">'marsh'</span>, <span class="st">'dumps'</span>],</span>
-<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>                                                           color<span class="op">=</span>[<span class="st">'lightgreen'</span>, <span class="st">'olive'</span>, <span class="st">'silver'</span>],</span>
-<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>                                                           linewidth<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a><span class="co"># make a square root scale for y, otherwise should recalculate area field</span></span>
-<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> forward(x):</span>
-<span id="cb49-19"><a href="#cb49-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb49-20"><a href="#cb49-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-21"><a href="#cb49-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-22"><a href="#cb49-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> inverse(x):</span>
-<span id="cb49-23"><a href="#cb49-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb49-24"><a href="#cb49-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-25"><a href="#cb49-25" aria-hidden="true" tabindex="-1"></a>mylabels <span class="op">=</span> [[<span class="st">'Δάσος'</span>, <span class="st">'Δασική έκταση'</span>, <span class="st">'Άλση'</span>], [<span class="st">'Καλλιέργειες'</span>, <span class="st">'Υπολείμματα καλλιεργειών'</span>], [<span class="st">'Χορτ/κές Εκτάσεις'</span>, <span class="st">'Καλάμια - Βάλτοι'</span>, <span class="st">'Σκουπιδότοποι'</span>]]</span>
-<span id="cb49-26"><a href="#cb49-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-27"><a href="#cb49-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes):</span>
-<span id="cb49-28"><a href="#cb49-28" aria-hidden="true" tabindex="-1"></a>    ax.xaxis.grid(<span class="va">False</span>)</span>
-<span id="cb49-29"><a href="#cb49-29" aria-hidden="true" tabindex="-1"></a>    sns.despine(ax<span class="op">=</span>ax, right<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>, top<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb49-30"><a href="#cb49-30" aria-hidden="true" tabindex="-1"></a>    ax.xaxis.set_major_locator(ticker.MultipleLocator(<span class="dv">2</span>))</span>
-<span id="cb49-31"><a href="#cb49-31" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim([<span class="dv">0</span>, <span class="dv">1_500_000</span>])</span>
-<span id="cb49-32"><a href="#cb49-32" aria-hidden="true" tabindex="-1"></a>    ax.set_yscale(<span class="st">'function'</span>, functions<span class="op">=</span>(forward, inverse)) <span class="co"># set the square root scale</span></span>
-<span id="cb49-33"><a href="#cb49-33" aria-hidden="true" tabindex="-1"></a>    ax.yaxis.set_major_locator(ticker.FixedLocator([<span class="dv">0</span>, <span class="dv">10_000</span>, <span class="dv">50_000</span>, <span class="dv">100_000</span>, <span class="dv">200_000</span>, <span class="dv">400_000</span>,</span>
-<span id="cb49-34"><a href="#cb49-34" aria-hidden="true" tabindex="-1"></a>                                                    <span class="dv">600_000</span>, <span class="dv">800_000</span>, <span class="dv">1_100_000</span>, <span class="dv">1_400_000</span>]))</span>
-<span id="cb49-35"><a href="#cb49-35" aria-hidden="true" tabindex="-1"></a>    ax.yaxis.get_major_formatter().set_scientific(<span class="va">False</span>)</span>
-<span id="cb49-36"><a href="#cb49-36" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">''</span>)</span>
-<span id="cb49-37"><a href="#cb49-37" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">'Καμμένη έκταση (στρέμματα)'</span>)</span>
-<span id="cb49-38"><a href="#cb49-38" aria-hidden="true" tabindex="-1"></a>    handles, _ <span class="op">=</span> ax.get_legend_handles_labels()</span>
-<span id="cb49-39"><a href="#cb49-39" aria-hidden="true" tabindex="-1"></a>    ax.legend(handles, mylabels[i], loc<span class="op">=</span><span class="st">'upper center'</span>, frameon<span class="op">=</span><span class="va">False</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.1</span>))</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">20</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>wildfires.groupby(wildfires.start.dt.year).<span class="bu">sum</span>().plot.area(ax<span class="op">=</span>axes[<span class="dv">0</span>],</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                                                           y<span class="op">=</span>[<span class="st">'forest'</span>, <span class="st">'forest_area'</span>, <span class="st">'grove'</span>],</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                                                           color<span class="op">=</span>[<span class="st">'darkgreen'</span>, <span class="st">'forestgreen'</span>, <span class="st">'yellowgreen'</span>],</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                                                           linewidth<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>wildfires.groupby(wildfires.start.dt.year).<span class="bu">sum</span>().plot.area(ax<span class="op">=</span>axes[<span class="dv">1</span>],</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                                                           y<span class="op">=</span>[<span class="st">'crop_fields'</span>, <span class="st">'crop_residues'</span>],</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                                                           color<span class="op">=</span>[<span class="st">'gold'</span>, <span class="st">'darkgoldenrod'</span>],</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                                                           linewidth<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>wildfires.groupby(wildfires.start.dt.year).<span class="bu">sum</span>().plot.area(ax<span class="op">=</span>axes[<span class="dv">2</span>],</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                                                           y<span class="op">=</span>[<span class="st">'grassland'</span>, <span class="st">'marsh'</span>, <span class="st">'dumps'</span>],</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>                                                           color<span class="op">=</span>[<span class="st">'lightgreen'</span>, <span class="st">'olive'</span>, <span class="st">'silver'</span>],</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                                                           linewidth<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># make a square root scale for y, otherwise should recalculate area field</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> forward(x):</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> inverse(x):</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>mylabels <span class="op">=</span> [[<span class="st">'Δάσος'</span>, <span class="st">'Δασική έκταση'</span>, <span class="st">'Άλση'</span>], [<span class="st">'Καλλιέργειες'</span>, <span class="st">'Υπολείμματα καλλιεργειών'</span>], [<span class="st">'Χορτ/κές Εκτάσεις'</span>, <span class="st">'Καλάμια - Βάλτοι'</span>, <span class="st">'Σκουπιδότοποι'</span>]]</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes):</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    ax.xaxis.grid(<span class="va">False</span>)</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    sns.despine(ax<span class="op">=</span>ax, right<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>, top<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    ax.xaxis.set_major_locator(ticker.MultipleLocator(<span class="dv">2</span>))</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim([<span class="dv">0</span>, <span class="dv">1_500_000</span>])</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    ax.set_yscale(<span class="st">'function'</span>, functions<span class="op">=</span>(forward, inverse)) <span class="co"># set the square root scale</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    ax.yaxis.set_major_locator(ticker.FixedLocator([<span class="dv">0</span>, <span class="dv">10_000</span>, <span class="dv">50_000</span>, <span class="dv">100_000</span>, <span class="dv">200_000</span>, <span class="dv">400_000</span>,</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>                                                    <span class="dv">600_000</span>, <span class="dv">800_000</span>, <span class="dv">1_100_000</span>, <span class="dv">1_400_000</span>]))</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    ax.yaxis.get_major_formatter().set_scientific(<span class="va">False</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">''</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">'Καμμένη έκταση (στρέμματα)'</span>)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    handles, _ <span class="op">=</span> ax.get_legend_handles_labels()</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    ax.legend(handles, mylabels[i], loc<span class="op">=</span><span class="st">'upper center'</span>, frameon<span class="op">=</span><span class="va">False</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.1</span>))</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display column-page">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p></p><figcaption class="figure-caption">Καμμένες εκτάσεις ανά έτος (2000 - 2021)</figcaption><p></p>
-<p><img src="Wildfires%20in%20Greece_files/figure-html/cell-38-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="Wildfires%20in%20Greece_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1273,37 +677,37 @@ None</code></pre>
 <section id="διάρκεια-πυρκαγιών" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="διάρκεια-πυρκαγιών">Διάρκεια πυρκαγιών</h3>
 <p>’Επειτα θα υπολογίσουμε την διάρκεια των πυρκαγιών σε όσα δεδομένα έχουμε διαθέσιμη την ημερ/νία πυρόσβεσης.</p>
-<div class="cell" data-execution_count="69">
+<div class="cell" data-execution_count="8">
 <details>
 <summary>Υπολογισμός διάρκειας πυρκαγιών σε όσα δεδομένα έχουμε διαθέσιμη την ημερ/νία πυρόσβεσης</summary>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># αφαιρούμε τις τιμές που λείπουν</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>wildfires_subset <span class="op">=</span> wildfires[[<span class="st">'start'</span>, <span class="st">'end'</span>]].dropna()</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Πλήθος εγγραφών για τις οποίες υπολογίσαμε την διάρκεια: "</span>, wildfires_subset.shape[<span class="dv">0</span>])</span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>wildfires_subset[<span class="st">'duration'</span>] <span class="op">=</span> (wildfires_subset.end <span class="op">-</span> wildfires_subset.start).dt.total_seconds() <span class="op">/</span> <span class="dv">360</span> <span class="op">/</span> <span class="dv">24</span></span></code></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># αφαιρούμε τις τιμές που λείπουν</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>wildfires_subset <span class="op">=</span> wildfires[[<span class="st">'start'</span>, <span class="st">'end'</span>]].dropna()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Πλήθος εγγραφών για τις οποίες υπολογίσαμε την διάρκεια: "</span>, wildfires_subset.shape[<span class="dv">0</span>])</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>wildfires_subset[<span class="st">'duration'</span>] <span class="op">=</span> (wildfires_subset.end <span class="op">-</span> wildfires_subset.start).dt.total_seconds() <span class="op">/</span> <span class="dv">360</span> <span class="op">/</span> <span class="dv">24</span></span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Πλήθος εγγραφών για τις οποίες υπολογίσαμε την διάρκεια:  201425</code></pre>
 </div>
 </div>
-<div class="cell page-columns page-full" data-execution_count="70">
+<div class="cell page-columns page-full" data-execution_count="9">
 <details>
 <summary>Γραμμικό γράφημα</summary>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">8</span>))</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>wildfires_subset.groupby(wildfires_subset.start.dt.year).mean().plot(y<span class="op">=</span><span class="st">'duration'</span>, ax<span class="op">=</span>ax, legend<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>sns.despine(ax<span class="op">=</span>ax, top<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>, right<span class="op">=</span><span class="va">True</span>, bottom<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>ax.xaxis.grid(<span class="va">False</span>)</span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_locator(ticker.MultipleLocator(<span class="dv">2</span>))</span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="dv">0</span>, <span class="dv">6</span>])</span>
-<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">''</span>, ylabel<span class="op">=</span><span class="st">'Διάρκεια σε ημέρες'</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">8</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>wildfires_subset.groupby(wildfires_subset.start.dt.year).mean().plot(y<span class="op">=</span><span class="st">'duration'</span>, ax<span class="op">=</span>ax, legend<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>sns.despine(ax<span class="op">=</span>ax, top<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>, right<span class="op">=</span><span class="va">True</span>, bottom<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>ax.xaxis.grid(<span class="va">False</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_locator(ticker.MultipleLocator(<span class="dv">2</span>))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="dv">0</span>, <span class="dv">6</span>])</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">''</span>, ylabel<span class="op">=</span><span class="st">'Διάρκεια σε ημέρες'</span>)<span class="op">;</span></span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display column-page">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p></p><figcaption class="figure-caption">Ετήσιος μέσος όρος διάρκειας πυρκαγιών (2000 - 2021)</figcaption><p></p>
-<p><img src="Wildfires%20in%20Greece_files/figure-html/cell-40-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="Wildfires%20in%20Greece_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1312,82 +716,82 @@ None</code></pre>
 </section>
 <section id="παρουσίαση-του-έμψυχου-δυναμικού-πυρόσβεσης-και-των-οχημάτων" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="παρουσίαση-του-έμψυχου-δυναμικού-πυρόσβεσης-και-των-οχημάτων">Παρουσίαση του έμψυχου δυναμικού πυρόσβεσης και των οχημάτων</h3>
-<div class="cell" data-execution_count="71">
+<div class="cell" data-execution_count="10">
 <details>
 <summary>Επιλογή των ετών 2011-2021 για την παρουσίαση του ανθρώπινου δυναμικού και των οχημάτων πυρόσβεσης</summary>
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>wildfires_subset <span class="op">=</span> wildfires[wildfires.start.dt.year <span class="op">&gt;=</span> <span class="dv">2011</span>]</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>wildfires_subset <span class="op">=</span> wildfires[wildfires.start.dt.year <span class="op">&gt;=</span> <span class="dv">2011</span>]</span></code></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="72">
+<div class="cell" data-execution_count="11">
 <details>
 <summary>Υπολογισμός του μέσου όρου πυροσβεστών ανά περιστατικό</summary>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>personnel <span class="op">=</span> wildfires_subset.groupby(wildfires_subset.start.dt.year).mean()[[<span class="st">'firemen'</span>,</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>                                                                             <span class="st">'patrol'</span>,</span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>                                                                             <span class="st">'volunteers'</span>,</span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>                                                                             <span class="st">'military'</span>,</span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>                                                                             <span class="st">'other_groups'</span>]]</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>personnel <span class="op">=</span> wildfires_subset.groupby(wildfires_subset.start.dt.year).mean()[[<span class="st">'firemen'</span>,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                                                                             <span class="st">'patrol'</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                                                                             <span class="st">'volunteers'</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                                                                             <span class="st">'military'</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>                                                                             <span class="st">'other_groups'</span>]]</span></code></pre></div>
 </details>
 </div>
-<div class="cell page-columns page-full" data-execution_count="73">
+<div class="cell page-columns page-full" data-execution_count="12">
 <details>
 <summary>Ραβδόγραμμα</summary>
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>personnel.plot.bar(stacked<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax)</span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>sns.despine(ax<span class="op">=</span>ax, top<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>, right<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>ax.xaxis.grid(<span class="va">False</span>)</span>
-<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="dv">0</span>, <span class="dv">9</span>])</span>
-<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>handles, _ <span class="op">=</span> ax.get_legend_handles_labels()</span>
-<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Πυροσβεστικό Σώμα'</span>, <span class="st">'Πεζοπόρα τμήματα'</span>, <span class="st">'Εθελοντές'</span>, <span class="st">'Στρατός'</span>, <span class="st">"'Αλλες δυνάμεις"</span>]</span>
-<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>ax.legend(handles, labels, loc<span class="op">=</span><span class="st">'right'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.3</span>,<span class="fl">0.5</span>), frameon<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">''</span>, ylabel<span class="op">=</span><span class="st">'Πυροσβέστες ανά περιστατικό'</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>personnel.plot.bar(stacked<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sns.despine(ax<span class="op">=</span>ax, top<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>, right<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>ax.xaxis.grid(<span class="va">False</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="dv">0</span>, <span class="dv">9</span>])</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>handles, _ <span class="op">=</span> ax.get_legend_handles_labels()</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Πυροσβεστικό Σώμα'</span>, <span class="st">'Πεζοπόρα τμήματα'</span>, <span class="st">'Εθελοντές'</span>, <span class="st">'Στρατός'</span>, <span class="st">"'Αλλες δυνάμεις"</span>]</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>ax.legend(handles, labels, loc<span class="op">=</span><span class="st">'right'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.3</span>,<span class="fl">0.5</span>), frameon<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">''</span>, ylabel<span class="op">=</span><span class="st">'Πυροσβέστες ανά περιστατικό'</span>)<span class="op">;</span></span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display column-page">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p></p><figcaption class="figure-caption">Μέσος όρος πυροσβεστών ανά περιστατικό ετησίος (2011-2021)</figcaption><p></p>
-<p><img src="Wildfires%20in%20Greece_files/figure-html/cell-43-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="Wildfires%20in%20Greece_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Ο μέσος όρος των πυροσβεστών που επιχειρούν ανά περιστατικό ετησίως είναι σχετικά σταθερός. Ακόμη και το 2012 και 2021 που επιχείρησαν κατά μέσο όρο περισσότεροι πυροσβέστες οι καταστροφές ήταν εκτεταμένες όπως είδαμε από τα προηγούμενα γραφήματα.</p>
-<div class="cell" data-execution_count="74">
+<div class="cell" data-execution_count="13">
 <details>
 <summary>Υπολογισμός του μέσου όρου οχημάτων ανά περιστατικό</summary>
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>vehicles <span class="op">=</span> wildfires_subset.groupby(wildfires_subset.start.dt.year).mean()[</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>                                                                       [<span class="st">'fire_trucks'</span>,</span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'local_authorities'</span>,</span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'private_trucks'</span>,</span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'other_trucks'</span>,</span>
-<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'helicopters'</span>,</span>
-<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'canadair_new'</span>,</span>
-<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'canadair_old'</span>,</span>
-<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'pzl'</span>,</span>
-<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'gru'</span>]</span>
-<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>                                                                            ]</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>vehicles <span class="op">=</span> wildfires_subset.groupby(wildfires_subset.start.dt.year).mean()[</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                                                                       [<span class="st">'fire_trucks'</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'local_authorities'</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'private_trucks'</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'other_trucks'</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'helicopters'</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'canadair_new'</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'canadair_old'</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'pzl'</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'gru'</span>]</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>                                                                            ]</span></code></pre></div>
 </details>
 </div>
-<div class="cell page-columns page-full" data-execution_count="75">
+<div class="cell page-columns page-full" data-execution_count="14">
 <details>
 <summary>Ραβδόγραμμα</summary>
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>vehicles.plot.bar(stacked<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax)</span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>ax.xaxis.grid(<span class="va">False</span>)</span>
-<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>sns.despine(ax<span class="op">=</span>ax, top<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>, right<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>handles, _ <span class="op">=</span> ax.get_legend_handles_labels()</span>
-<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Πυροσ. Οχήματα'</span>, <span class="st">'Οχήματα ΟΤΑ'</span>, <span class="st">'Βυτιοφόρα'</span>, <span class="st">'Μηχανήματα'</span>, <span class="st">'Ελικόπτερα'</span>, <span class="st">'Canadair CL415'</span>, <span class="st">'Canadair CL215'</span> <span class="st">'PZL'</span>, <span class="st">'GRU'</span>]</span>
-<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>ax.legend(handles, labels, loc<span class="op">=</span><span class="st">'right'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.3</span>,<span class="fl">0.5</span>), frameon<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">''</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>vehicles.plot.bar(stacked<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>ax.xaxis.grid(<span class="va">False</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>sns.despine(ax<span class="op">=</span>ax, top<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>, right<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>handles, _ <span class="op">=</span> ax.get_legend_handles_labels()</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Πυροσ. Οχήματα'</span>, <span class="st">'Οχήματα ΟΤΑ'</span>, <span class="st">'Βυτιοφόρα'</span>, <span class="st">'Μηχανήματα'</span>, <span class="st">'Ελικόπτερα'</span>, <span class="st">'Canadair CL415'</span>, <span class="st">'Canadair CL215'</span> <span class="st">'PZL'</span>, <span class="st">'GRU'</span>]</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>ax.legend(handles, labels, loc<span class="op">=</span><span class="st">'right'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.3</span>,<span class="fl">0.5</span>), frameon<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">''</span>)<span class="op">;</span></span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display column-page">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p></p><figcaption class="figure-caption">Μέσος όρος οχημάτων ανά περιστατικό ετησίος (2011-2021)</figcaption><p></p>
-<p><img src="Wildfires%20in%20Greece_files/figure-html/cell-45-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="Wildfires%20in%20Greece_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>

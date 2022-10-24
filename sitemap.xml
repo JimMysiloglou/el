@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://JimMysiloglou.github.io/el/blog/wildfires/helper.html</loc>
+    <lastmod>2022-10-24T22:16:23.219Z</lastmod>
+  </url>
+  <url>
     <loc>https://JimMysiloglou.github.io/el/blog/wildfires/Wildfires in Greece.html</loc>
-    <lastmod>2022-10-24T17:34:37.740Z</lastmod>
+    <lastmod>2022-10-24T22:16:24.387Z</lastmod>
   </url>
   <url>
     <loc>https://JimMysiloglou.github.io/el/blog.html</loc>
-    <lastmod>2022-10-24T17:34:39.896Z</lastmod>
+    <lastmod>2022-10-24T22:16:26.731Z</lastmod>
   </url>
   <url>
     <loc>https://JimMysiloglou.github.io/el/portfolio.html</loc>
-    <lastmod>2022-10-24T17:34:40.468Z</lastmod>
+    <lastmod>2022-10-24T22:16:27.383Z</lastmod>
   </url>
   <url>
-    <loc>https://JimMysiloglou.github.io/el/portfolio/my_website.html</loc>
-    <lastmod>2022-10-24T17:34:42.744Z</lastmod>
+    <loc>https://JimMysiloglou.github.io/el/portfolio/my_website/my_website.html</loc>
+    <lastmod>2022-10-24T22:16:28.699Z</lastmod>
   </url>
   <url>
     <loc>https://JimMysiloglou.github.io/el/portfolio/filmpit/filmpit-scraping.html</loc>
-    <lastmod>2022-10-24T17:34:43.696Z</lastmod>
+    <lastmod>2022-10-24T22:16:29.235Z</lastmod>
+  </url>
+  <url>
+    <loc>https://JimMysiloglou.github.io/el/portfolio/filmpit/helper.html</loc>
+    <lastmod>2022-10-24T22:16:30.203Z</lastmod>
   </url>
 </urlset>
