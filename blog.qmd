@@ -1,0 +1,20 @@
+---
+title: "Τα άρθρα μου"
+description: "Μπορείτε να διαβάσετε τα άρθρα σε ημερολογιακή σειρά ή επιλέγοντας μία κατηγορία."
+listing:
+  id: blog
+  contents: 
+    - "blog/*/!(helper).ipynb"
+    - "blog/*/*.qmd"
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: [title, date]
+  filter-ui: false
+  page-size: 9
+  fields: [date, title, reading-time, description, categories, image]
+  image-placeholder: /images/default_article_image.jpg
+  date-format: YYYY-MM-DD
+page-layout: full
+title-block-banner: images/blog_jumbotron.jpg
+---

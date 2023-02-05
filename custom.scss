@@ -1,0 +1,38 @@
+/*-- scss:defaults --*/
+$navbar-bg: rgb(249, 249, 249);
+$navbar-fg: rgb(79, 79, 79);
+$navbar-hl: rgb(0, 0, 0);
+
+$footer-bg: rgba(0, 0, 0, 0.2);
+$footer-fg: rgb(79, 79, 79);
+
+/*-- scss:rules --*/
+.navbar{
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 16px;
+}
+
+
+.nav-footer{
+    padding-bottom: 0;
+}
+
+.nav-footer .nav-footer-center{
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+.nav-footer-right .nav-link {
+    font-size: 18px;
+}
+
+.navbar>.container-xxl, .navbar>.container-xl, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container, .navbar>.container-fluid {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+
+#title-block-header{
+    height: 250px;
+}

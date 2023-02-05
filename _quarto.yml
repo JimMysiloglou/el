@@ -1,0 +1,52 @@
+project:
+  type: website
+
+website:
+  title: "Mysiloglou Dimitrios"
+  favicon: images/favicon.ico
+  twitter-card: true
+
+  navbar:
+    background: light
+    title: false
+    logo-alt: "Mysiloglou Dimitrios"
+    logo: images/logo.png
+    logo-href: https://jimmysiloglou.eu.pythonanywhere.com
+    
+    left:
+      - text: "Blog"
+        href: blog.qmd
+      - text: "Portfolio"
+        href: portfolio.qmd
+      - text: "My Journey"
+        href: https://jimmysiloglou.eu.pythonanywhere.com/my_journey/
+      - text: "Contact"
+        href: https://jimmysiloglou.eu.pythonanywhere.com/contact/
+      
+    right:
+      - text: "Γλώσσα"
+        menu:
+          - text: "English"
+            href: https://jimmysiloglou.github.io/en/blog.html
+          - text: "Ελληνικά"
+            href: blog.qmd
+
+
+  page-footer:
+    left: "© 2022 Copyright: Mysiloglou Dimitrios"
+    right:
+      - icon: github
+        href: https://github.com/JimMysiloglou
+      - icon: linkedin
+        href: https://www.linkedin.com/in/jimmysiloglou/
+      - icon: twitter
+        href: https://twitter.com/JimMysiloglou
+      - icon: facebook
+        href: https://www.facebook.com/jim.misi/
+    border: false
+
+format:
+  html:
+    theme:
+      - materia
+      - custom.scss
