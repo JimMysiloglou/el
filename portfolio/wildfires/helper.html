@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="el" xml:lang="el"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Mysiloglou Dimitrios">
+<meta name="dcterms.date" content="2022-09-28">
+<meta name="description" content="Προετοιμασία των δεδομένων του πυροσβεστικού σώματος για απεικόνιση μέσω της επεξεργασίας αρχείων excel.">
+
+<title>Mysiloglou Dimitrios - Δασικές πυρκαγιές στην Ελλάδα</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Χωρίς αποτελέσματα",
+    "search-matching-documents-text": "έγγραφα που αντιστοιχήθηκαν",
+    "search-copy-link-title": "Αντιγραφή συνδέσμου προς αναζήτηση",
+    "search-hide-matches-text": "Κρύψε επιπλέον αντιστοιχήσεις",
+    "search-more-match-text": "επιπλέον αντιστοίχιση σε αυτό το έγγραφο",
+    "search-more-matches-text": "επιπλέον αντιστοιχίσεις σε αυτό το έγγραφο",
+    "search-clear-button-title": "Εκκαθάριση",
+    "search-detached-cancel-button-title": "Ακύρωση",
+    "search-submit-button-title": "Υποβολή"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<meta name="twitter:title" content="Mysiloglou Dimitrios - Δασικές πυρκαγιές στην Ελλάδα">
+<meta name="twitter:description" content="Προετοιμασία των δεδομένων του πυροσβεστικού σώματος για απεικόνιση μέσω της επεξεργασίας αρχείων excel.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="https://jimmysiloglou.eu.pythonanywhere.com" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/logo.png" alt="Mysiloglou Dimitrios" class="navbar-logo">
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html">
+ <span class="menu-text">Portfolio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://jimmysiloglou.eu.pythonanywhere.com/my_journey/">
+ <span class="menu-text">My Journey</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://jimmysiloglou.eu.pythonanywhere.com/contact/">
+ <span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Γλώσσα</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-">    
+        <li>
+    <a class="dropdown-item" href="https://jimmysiloglou.github.io/en/blog.html">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../blog.html">
+ <span class="dropdown-text">Ελληνικά</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Δασικές πυρκαγιές στην Ελλάδα</h1>
+                  <div>
+        <div class="description">
+          Προετοιμασία των δεδομένων του πυροσβεστικού σώματος για απεικόνιση μέσω της επεξεργασίας αρχείων excel.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Συντακτης</div>
+      <div class="quarto-title-meta-contents">
+               <p>Mysiloglou Dimitrios </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Δημοσιευτηκε</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2022-09-28</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Σε αυτή τη σελίδα</h2>
+   
+  <ul>
+  <li><a href="#σύντομη-παρουσίαση-και-προετοιμασία-των-δεδομένων" id="toc-σύντομη-παρουσίαση-και-προετοιμασία-των-δεδομένων" class="nav-link active" data-scroll-target="#σύντομη-παρουσίαση-και-προετοιμασία-των-δεδομένων">Σύντομη παρουσίαση και προετοιμασία των δεδομένων</a></li>
+  <li><a href="#προετοιμασία-του-αρχείου-ετών-2000-2012" id="toc-προετοιμασία-του-αρχείου-ετών-2000-2012" class="nav-link" data-scroll-target="#προετοιμασία-του-αρχείου-ετών-2000-2012">Προετοιμασία του αρχείου ετών 2000-2012</a>
+  <ul class="collapse">
+  <li><a href="#προετοιμασία-των-ετών-2000-2008" id="toc-προετοιμασία-των-ετών-2000-2008" class="nav-link" data-scroll-target="#προετοιμασία-των-ετών-2000-2008">Προετοιμασία των ετών 2000-2008</a></li>
+  <li><a href="#διόρθωση-των-ημερομηνιών" id="toc-διόρθωση-των-ημερομηνιών" class="nav-link" data-scroll-target="#διόρθωση-των-ημερομηνιών">Διόρθωση των ημερομηνιών</a></li>
+  <li><a href="#προετοιμασία-των-ετών-2009-2010" id="toc-προετοιμασία-των-ετών-2009-2010" class="nav-link" data-scroll-target="#προετοιμασία-των-ετών-2009-2010">Προετοιμασία των ετών 2009-2010</a></li>
+  <li><a href="#το-έτος-2011" id="toc-το-έτος-2011" class="nav-link" data-scroll-target="#το-έτος-2011">Το έτος 2011</a></li>
+  <li><a href="#το-έτος-2012" id="toc-το-έτος-2012" class="nav-link" data-scroll-target="#το-έτος-2012">Το έτος 2012</a></li>
+  <li><a href="#επεξεργασία-των-αρχείων-για-τα-έτη-2013-2019" id="toc-επεξεργασία-των-αρχείων-για-τα-έτη-2013-2019" class="nav-link" data-scroll-target="#επεξεργασία-των-αρχείων-για-τα-έτη-2013-2019">Επεξεργασία των αρχείων για τα έτη 2013-2019</a></li>
+  <li><a href="#τα-έτη-2020-2021" id="toc-τα-έτη-2020-2021" class="nav-link" data-scroll-target="#τα-έτη-2020-2021">Τα έτη 2020-2021</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+
+
+
+
+<section id="σύντομη-παρουσίαση-και-προετοιμασία-των-δεδομένων" class="level2">
+<h2 class="anchored" data-anchor-id="σύντομη-παρουσίαση-και-προετοιμασία-των-δεδομένων">Σύντομη παρουσίαση και προετοιμασία των δεδομένων</h2>
+<p><em>Με την πάροδο των ετών περισσότερες πληροφορίες προστίθενται στα αρχεία.</em></p>
+<p><strong>2000-2008</strong></p>
+<ul>
+<li>Υπηρεσία (<code>fire_service</code>)</li>
+<li>Δασαρχείο (<code>forest_department</code>)</li>
+<li>Περιοχή-Τοποθεσία (<code>location</code>)</li>
+<li>Νομός (<code>district</code>):</li>
+<li>Ημερ/νία Έναρξης (<code>start_date</code>)</li>
+<li>Ώρα Έναρξης (<code>start_time</code>)</li>
+<li>Ημερ/νία Κατάσβεσης (<code>end_date</code>)</li>
+<li>Ώρα Κατάσβεσης (<code>end_time</code>)</li>
+</ul>
+<p><em>Παρακάτω κατηγοριοποιούνται οι εκτάσεις που κάηκαν σε στρέμματα.</em></p>
+<ul>
+<li>Δάση (<code>forest</code>)</li>
+<li>Δασική Έκταση (<code>forest_area</code>): Έπιπλέον δασική έκταση που καταστράφηκε.</li>
+<li>Άλση (<code>grove</code>)</li>
+<li>Χορτ/κές Εκτάσεις (<code>grassland</code>)</li>
+<li>Καλάμια - Βάλτοι (<code>marsh</code>)</li>
+<li>Γεωργικές Εκτάσεις (<code>crop_fields</code>)</li>
+<li>Υπολλείματα Καλλιεργιών (<code>crop_residues</code>)</li>
+<li>Σκουπιδότοποι (<code>dumps</code>)</li>
+</ul>
+<p><strong>2009-2010</strong></p>
+<ul>
+<li>Δήμος (<code>borough</code>)</li>
+</ul>
+<p><strong>2011</strong></p>
+<p><em>Το 2011 προστέθηκαν πληροφορίες για το ανθρώπινο δυναμικό και τα οχήματα που συμμετείχαν στην πυρόσβεση</em></p>
+<ul>
+<li>ΠΥΡΟΣ, ΣΩΜΑ (<code>firemen</code>)</li>
+<li>ΠΕΖΟΠΟΡΑ ΤΜΗΜΑΤΑ (<code>patrol</code>)</li>
+<li>ΕΘΕΛΟΝΤΕΣ (<code>volunteers</code>)</li>
+<li>ΣΤΡΑΤΟΣ (<code>military</code>)</li>
+<li>ΑΛΛΕΣ ΔΥΝΑΜΕΙΣ (<code>other_groups</code>)</li>
+<li>ΠΥΡΟΣ. ΟΧΗΜ. (<code>fire_trucks</code>): Πυροσβεστικά οχήματα.</li>
+<li>ΟΧΗΜ. ΟΤΑ (<code>local_authorities</code>): Οχήματα της τοπικής αυτοδιοίκησης.</li>
+<li>ΒΥΤΙΟΦΟΡΑ (<code>private_trucks</code>)</li>
+<li>ΜΗΧΑΝΗΜΑΤΑ (<code>other_trucks</code>)</li>
+<li>ΕΛΙΚΟΠΤΕΡΑ (<code>helicopters</code>)</li>
+<li>Α/Φ CL415 (<code>canadair_new</code>): Canadair CL-415, το νεότερο μοντέλο του σκάφους πυρόσβεσης.</li>
+<li>Α/Φ CL215 (<code>canadair_old</code>): Canadair CL-215, το παλαιότερο μοντέλο του σκάφους πυρόσβεσης.</li>
+<li>Α/Φ PZL (<code>pzl</code>): PZL-Mielec, μονοκινητήρια αγροτικά αεροσκάφη.</li>
+<li>Α/Φ GRU. (<code>gru</code>): Άλλου είδους αεροσκάφη</li>
+</ul>
+<p><strong>2012-2019</strong></p>
+<ul>
+<li>Διεύθυνση (address)</li>
+</ul>
+<p><strong>2020-2021</strong></p>
+<ul>
+<li>Α/Α ΕΓΓΡΑΦΗΣ - Α/Α ENGAGE</li>
+<li>X-ENGAGE / Y-ENGAGE (Γεωγρ. μήκος/πλάτος)</li>
+</ul>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Εισάγουμε τις βιβλιοθήκες numpy και pandas</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div>
+</div>
+</section>
+<section id="προετοιμασία-του-αρχείου-ετών-2000-2012" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="προετοιμασία-του-αρχείου-ετών-2000-2012">Προετοιμασία του αρχείου ετών 2000-2012</h2>
+<p>Το πρώτο φύλλο excel περιέχει πληροφορίες για τα έτη 2000 - 2012, κάθε φύλλο και ένα έτος.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.ExcelFile(<span class="st">'datasets/Dasikes_Pyrkagies_2000-2012.xls'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.sheet_names)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012']</code></pre>
+</div>
+</div>
+<p>Παρακάτω είναι ένα δείγμα 5 τυχαίων καταγραφών.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data.parse(<span class="st">'2000'</span>, skiprows<span class="op">=</span><span class="dv">1</span>).sample(<span class="dv">5</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Υπηρεσία</th>
+      <th>Δασαρχείο</th>
+      <th>Περιοχή - Τοποθεσία</th>
+      <th>Νομός</th>
+      <th>Ημερ/νία Έναρξης</th>
+      <th>Ώρα Έναρξης</th>
+      <th>Ημερ/νία Κατασβεσης</th>
+      <th>Ώρα Κατάσβεσης</th>
+      <th>Δάση</th>
+      <th>Δασική Έκταση</th>
+      <th>Άλση</th>
+      <th>Χορτ/κές Εκτάσεις</th>
+      <th>Καλάμια - Βάλτοι</th>
+      <th>Γεωργικές Εκτάσεις</th>
+      <th>Υπολλείματα Καλλιεργειών</th>
+      <th>Σκουπιδότοποι</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10506</th>
+      <td>Π.Υ  ΘΗΒΑΣ</td>
+      <td>NaN</td>
+      <td>89 ΧΙΛ.ΑΘΗΝΩΝ-ΛΑΜΙΑΣ</td>
+      <td>ΒΟΙΩΤΙΑΣ</td>
+      <td>2000-05-22</td>
+      <td>15:34:00</td>
+      <td>2000-05-22 00:00:00</td>
+      <td>16:30:00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4737</th>
+      <td>Π.Υ. ΑΡΤΑΣ</td>
+      <td>NaN</td>
+      <td>ΑΡΤΑ ΤΕΤΡΑΦΥΛΛΙΑΣ</td>
+      <td>ΑΡΤΑΣ</td>
+      <td>2000-12-10</td>
+      <td>13:39:00</td>
+      <td>2000-12-10 00:00:00</td>
+      <td>15:46:00</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>10611</th>
+      <td>Π.Υ. ΧΑΛΚΙΔΑΣ</td>
+      <td>ΧΑΛΚΙΔΑΣ</td>
+      <td>ΔΗΜ.ΜΕΣΣΑΠΙΩΝ ΠΕΡ.ΠΑΛΙΟΚΗΠΑΡΙΣΩ</td>
+      <td>ΕΥΒΟΙΑΣ</td>
+      <td>2000-06-20</td>
+      <td>18:00:00</td>
+      <td>2000-06-21 00:00:00</td>
+      <td>00:07:00</td>
+      <td>20.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7011</th>
+      <td>Π.Υ. ΑΙΓΙΟΥ</td>
+      <td>ΑΙΓΙΟΥ</td>
+      <td>ΒΟΥΛΩΜΕΝΟ</td>
+      <td>ΑΧΑΙΑΣ</td>
+      <td>2000-07-05</td>
+      <td>13:15:00</td>
+      <td>2000-07-06 00:00:00</td>
+      <td>10:00:00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>6295</th>
+      <td>Π.Υ. ΚΑΡΔΙΤΣΑΣ</td>
+      <td>ΚΑΡΔΙΤΣΑΣ</td>
+      <td>ΜΑΓΟΥΛΑ</td>
+      <td>ΚΑΡΔΙΤΣΑΣ</td>
+      <td>2000-09-02</td>
+      <td>11:05:00</td>
+      <td>2000-09-02 00:00:00</td>
+      <td>12:50:00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Θα χρησιμοποιήσω τα παρακάτω ονόματα στηλών για συντομία.</p>
+<div class="cell" data-tags="[]" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> [<span class="st">'fire_service'</span>, <span class="st">'forest_department'</span>, <span class="st">'location'</span>, <span class="st">'district'</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                <span class="st">'start_date'</span>, <span class="st">'start_time'</span>, <span class="st">'end_date'</span>, <span class="st">'end_time'</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest'</span>, <span class="st">'forest_area'</span>, <span class="st">'grove'</span>, <span class="st">'grassland'</span>, <span class="st">'marsh'</span>, <span class="st">'crop_fields'</span>, <span class="st">'crop_residues'</span>, <span class="st">'dumps'</span>]</span></code></pre></div>
+</div>
+<section id="προετοιμασία-των-ετών-2000-2008" class="level3">
+<h3 class="anchored" data-anchor-id="προετοιμασία-των-ετών-2000-2008">Προετοιμασία των ετών 2000-2008</h3>
+<p>Tα φύλλα από το 2000 έως το 2008 περιέχουν τις παραπάνω στήλες</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sheets <span class="op">=</span> data.sheet_names[:<span class="dv">9</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sheets)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008']</code></pre>
+</div>
+</div>
+<p>Φορτώνουμε αυτά τα πρώτα 9 φύλλα σε ένα λεξικό με όνομα <code>df_dict</code></p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_dict <span class="op">=</span> {}</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sheet <span class="kw">in</span> sheets:</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> data.parse(sheet, skiprows<span class="op">=</span><span class="dv">1</span>, names<span class="op">=</span>column_names)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    df_dict[sheet] <span class="op">=</span> df</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df_dict[<span class="st">'2000'</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df.info()</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 12980 entries, 0 to 12979
+Data columns (total 16 columns):
+ #   Column             Non-Null Count  Dtype         
+---  ------             --------------  -----         
+ 0   fire_service       12980 non-null  object        
+ 1   forest_department  10037 non-null  object        
+ 2   location           12979 non-null  object        
+ 3   district           12980 non-null  object        
+ 4   start_date         12980 non-null  datetime64[ns]
+ 5   start_time         12980 non-null  object        
+ 6   end_date           12949 non-null  object        
+ 7   end_time           12948 non-null  object        
+ 8   forest             12980 non-null  float64       
+ 9   forest_area        12980 non-null  float64       
+ 10  grove              12980 non-null  float64       
+ 11  grassland          12980 non-null  float64       
+ 12  marsh              12980 non-null  float64       
+ 13  crop_fields        12980 non-null  float64       
+ 14  crop_residues      12980 non-null  float64       
+ 15  dumps              12980 non-null  float64       
+dtypes: datetime64[ns](1), float64(8), object(7)
+memory usage: 1.6+ MB</code></pre>
+</div>
+</div>
+<p>Με εξαίρεση κάποιες τιμές που λείπουν στις στήλες <code>forest_department</code> και <code>location</code> τα υπόλοιπα δεδομένα εμφανίζονται να είναι εντάξει. Τώρα θα επικεντρωθούμε στις στήλες ημερομηνιών και ωρών (<code>start_date</code>, <code>start_time</code>, <code>end_date</code>, <code>end_time</code>).</p>
+</section>
+<section id="διόρθωση-των-ημερομηνιών" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="διόρθωση-των-ημερομηνιών">Διόρθωση των ημερομηνιών</h3>
+
+<div class="no-row-height column-margin column-container"><div class="cell" data-execution_count="8">
+<details>
+<summary>Λανθασμένες ημερομηνίες</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year, df <span class="kw">in</span> df_dict.items():</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> df[df.end_date.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">isinstance</span>(x, <span class="bu">str</span>))].end_date.empty:</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Year: "</span>, year)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(df[df.end_date.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">isinstance</span>(x, <span class="bu">str</span>))].end_date.sample(<span class="dv">2</span>))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Year:  2000
+4088     2/2/0200
+7599    10/7/0200
+Name: end_date, dtype: object
+
+Year:  2001
+5068    28/9/0010
+5259    10/9/0001
+Name: end_date, dtype: object
+
+Year:  2002
+7230    19/6/0023
+5856    19/2/0002
+Name: end_date, dtype: object
+
+Year:  2004
+7369    13/9/0043
+9407     4/9/0041
+Name: end_date, dtype: object
+
+Year:  2006
+2481    31/7/0200
+4788    23/6/0200
+Name: end_date, dtype: object
+
+Year:  2007
+1245    28/9/0207
+2108    24/8/0207
+Name: end_date, dtype: object
+
+Year:  2008
+3462     11/8/0200
+1407    22/10/0208
+Name: end_date, dtype: object
+</code></pre>
+</div>
+</div></div><p>Φαίνεται ότι υπάρχουν αρκετές ημερομηνίες που έχουν πληκτρολογηθεί λανθασμένα. Θα προσπαθήσουμε με μία εφαρμογή να διορθώσουμε τις λανθασμένες τιμές.</p>
+<p>Η εφαρμογή πρώτα ελέγχει ποιες τιμές δεν έχουν μετατραπεί σε datetime objects (strings), και επιστρέφει Timestamp με την σωστή χρονολογία χρησιμοποιώντας τον ίδιο μήνα και ημέρα. Από την διόρθωση θα εξαιρεθούν ημερομηνίες που αφορούν τον Γενάρη του επόμενου έτους μιας και ορισμένες πυρκαγιές ξεκίνησαν Δεκέμβριο και τελείωσαν τον Ιανουάριο του επόμενου έτους.</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Εφαρμογή διόρθωσης του έτους</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fix_year(x, year):</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""A function to replace mistyped year</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">    on the end_date column</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">        x (str or datetime): value of each row</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">        year (int): the correct year to replace</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">        pandas.Timestamp or original value x</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># records that could not parsed as datetime objects</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">str</span>): </span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>        day, month, _ <span class="op">=</span> x.split(<span class="st">'/'</span>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> pd.Timestamp(year<span class="op">=</span>year, month<span class="op">=</span><span class="bu">int</span>(month), day<span class="op">=</span><span class="bu">int</span>(day))</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># check that already parsed dates have the correct year</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="bu">isinstance</span>(x, datetime):</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> x.year <span class="op">==</span> year <span class="kw">or</span> pd.isnull(x): <span class="co"># exclude records with the correct year or null value</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> x</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> x.year <span class="op">==</span> (year <span class="op">+</span> <span class="dv">1</span>) <span class="kw">and</span> x.month <span class="op">==</span> <span class="dv">1</span>: <span class="co"># exclude records on January of the next year</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> x </span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> pd.Timestamp(year<span class="op">=</span>year, month<span class="op">=</span><span class="bu">int</span>(x.month), day<span class="op">=</span><span class="bu">int</span>(x.day))</span></code></pre></div>
+</div>
+<p>’Επειτα χρησιμοποιούμε την εφαρμογή και ενώνουμε ημερ/νία και ώρα σε δύο στήλες που θα ονομάζονται <code>start</code> και <code>end</code>.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Χρησιμοποιούμε την εφαρμογή</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year, df <span class="kw">in</span> df_dict.items():</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"end_date"</span>] <span class="op">=</span> df.end_date.<span class="bu">apply</span>(fix_year, args<span class="op">=</span>[<span class="bu">int</span>(year)])</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ενώνουμε ημερομηνία και ώρα</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> df <span class="kw">in</span> df_dict.values():</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'start'</span>] <span class="op">=</span> pd.to_datetime(df.start_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.start_time.<span class="bu">map</span>(<span class="bu">str</span>))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'end'</span>] <span class="op">=</span> pd.to_datetime(df.end_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.end_time.<span class="bu">map</span>(<span class="bu">str</span>), errors<span class="op">=</span><span class="st">'coerce'</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="προετοιμασία-των-ετών-2009-2010" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="προετοιμασία-των-ετών-2009-2010">Προετοιμασία των ετών 2009-2010</h3>
+<p>Από κάτω παρατηρούμε την προσθήκη της στήλης <code>Δήμος</code> στα δεδομένα σε σχέση με τα προηγούμενα έτη.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.parse(<span class="st">'2009'</span>, skiprows<span class="op">=</span><span class="dv">1</span>).columns)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.parse(<span class="st">'2010'</span>, skiprows<span class="op">=</span><span class="dv">1</span>).columns)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['Υπηρεσία', 'Δασαρχείο', 'Περιοχή - Τοποθεσία', 'Δήμος', 'Νομός',
+       'Ημερ/νία Έναρξης', 'Ώρα Έναρξης', 'Ημερ/νία Κατασβεσης',
+       'Ώρα Κατάσβεσης', 'Δάση', 'Δασική Έκταση', 'Άλση', 'Χορτ/κές Εκτάσεις',
+       'Καλάμια - Βάλτοι', 'Γεωργικές Εκτάσεις', 'Υπολλείματα Καλλιεργειών',
+       'Σκουπιδότοποι'],
+      dtype='object')
+Index(['Υπηρεσία', 'Δασαρχείο', 'Περιοχή - Τοποθεσία', 'Δήμος', 'Νομός',
+       'Ημερ/νία Έναρξης', 'Ώρα Έναρξης', 'Ημερ/νία Κατασβεσης',
+       'Ώρα Κατάσβεσης', 'Δάση', 'Δασική Έκταση', 'Άλση', 'Χορτ/κές Εκτάσεις',
+       'Καλάμια - Βάλτοι', 'Γεωργικές Εκτάσεις', 'Υπολλείματα Καλλιεργειών',
+       'Σκουπιδότοποι'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<p>Προσθέτουμε το όνομα <code>borough</code> στη λίστα με τα ονόματα στηλών και φορτώνουμε τα έτη 2009-2010 στο λεξικό μας.</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> [<span class="st">'fire_service'</span>, <span class="st">'forest_department'</span>, <span class="st">'location'</span>, <span class="st">'borough'</span>, <span class="st">'district'</span>,</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                <span class="st">'start_date'</span>, <span class="st">'start_time'</span>, <span class="st">'end_date'</span>, <span class="st">'end_time'</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest'</span>, <span class="st">'forest_area'</span>, <span class="st">'grove'</span>, <span class="st">'grassland'</span>, <span class="st">'marsh'</span>, <span class="st">'crop_fields'</span>, <span class="st">'crop_residues'</span>, <span class="st">'dumps'</span>]</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sheets <span class="op">=</span> [<span class="st">'2009'</span>, <span class="st">'2010'</span>]</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sheet <span class="kw">in</span> sheets:</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> data.parse(sheet, skiprows<span class="op">=</span><span class="dv">1</span>, names<span class="op">=</span>column_names)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    df_dict[sheet] <span class="op">=</span> df</span></code></pre></div>
+</div>
+<p>Ελέγχουμε ξανά για λάθος συπληρωμένες ημερομηνίες, τις διορθώνουμε όπως και προηγουμένως και ενώνουμε για την δημιουργία των στηλών <code>start</code> και <code>end</code>.</p>
+
+<div class="no-row-height column-margin column-container"><div class="cell" data-execution_count="15">
+<details>
+<summary>Λανθασμένες ημερ/νίες</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year, df <span class="kw">in</span> df_dict.items():</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> df[df.end_date.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">isinstance</span>(x, <span class="bu">str</span>))].end_date.empty:</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Year: "</span>, year)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(df[df.end_date.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">isinstance</span>(x, <span class="bu">str</span>))].end_date.sample(<span class="dv">2</span>))</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Year:  2009
+7665     4/9/0209
+5410    17/6/0209
+Name: end_date, dtype: object
+</code></pre>
+</div>
+</div></div><div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Διόρθωση ημερ/νιών</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year, df <span class="kw">in</span> df_dict.items():</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> year <span class="kw">in</span> sheets:</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        df[<span class="st">"end_date"</span>] <span class="op">=</span> df.end_date.<span class="bu">apply</span>(fix_year, args<span class="op">=</span>[<span class="bu">int</span>(year)])</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ενώνουμε ημερομηνία και ώρα</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year, df <span class="kw">in</span> df_dict.items():</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> year <span class="kw">in</span> sheets:</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        df[<span class="st">'start'</span>] <span class="op">=</span> pd.to_datetime(df.start_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.start_time.<span class="bu">map</span>(<span class="bu">str</span>))</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        df[<span class="st">'end'</span>] <span class="op">=</span> pd.to_datetime(df.end_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.end_time.<span class="bu">map</span>(<span class="bu">str</span>), errors<span class="op">=</span><span class="st">'coerce'</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="το-έτος-2011" class="level3">
+<h3 class="anchored" data-anchor-id="το-έτος-2011">Το έτος 2011</h3>
+<p>Το 2011 προστίθενται πληροφορίες για το ανθρώπινο δυναμικό και τα οχήματα που συμμετείχαν στην πυρόσβεση.</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>data.parse(<span class="st">'2011'</span>, skiprows<span class="op">=</span><span class="dv">1</span>).columns</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>Index(['Υπηρεσία', 'Νομός', 'Ημερ/νία Έναρξης', 'Ώρα Έναρξης',
+       'Ημερ/νία Κατασβεσης', 'Ώρα Κατάσβεσης', 'Δασαρχείο', 'Δήμος',
+       'Περιοχή - Τοποθεσία', 'Δάση', 'Δασική Έκταση', 'Άλση',
+       'Χορτ/κές Εκτάσεις', 'Καλάμια - Βάλτοι', 'Γεωργικές Εκτάσεις',
+       'Υπολλείματα Καλλιεργειών', 'Σκουπιδότοποι', 'ΠΥΡΟΣ. ΣΩΜΑ',
+       'ΠΕΖΟΠΟΡΑ ΤΜΗΜΑΤΑ', 'ΕΘΕΛΟ-ΝΤΕΣ', 'ΣΤΡΑΤΟΣ', 'ΑΛΛΕΣ ΔΥΝΑΜΕΙΣ',
+       'ΠΥΡΟΣ. ΟΧΗΜ.', 'ΟΧΗΜ. ΟΤΑ', 'ΒΥΤΙΟ- ΦΟΡΑ', 'ΜΗΧΑΝΗΜΑΤΑ',
+       'ΕΛΙΚΟ- ΠΤΕΡΑ', 'Α/Φ CL415', 'Α/Φ CL215', 'Α/Φ PZL', 'Α/Φ GRU.'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Στήλες που θα χρησιμοποιηθούν</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> [<span class="st">'fire_service'</span>, <span class="st">'district'</span>, <span class="st">'start_date'</span>, <span class="st">'start_time'</span>, <span class="st">'end_date'</span>, <span class="st">'end_time'</span>,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest_department'</span>, <span class="st">'borough'</span>, <span class="st">'location'</span>,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest'</span>, <span class="st">'forest_area'</span>, <span class="st">'grove'</span>, <span class="st">'grassland'</span>, <span class="st">'marsh'</span>, <span class="st">'crop_fields'</span>, <span class="st">'crop_residues'</span>, <span class="st">'dumps'</span>,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">'firemen'</span>, <span class="st">'patrol'</span>, <span class="st">'volunteers'</span>, <span class="st">'military'</span>, <span class="st">'other_groups'</span>, <span class="st">'fire_trucks'</span>, <span class="st">'local_authorities'</span>,</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">'private_trucks'</span>, <span class="st">'other_trucks'</span>, <span class="st">'helicopters'</span>, <span class="st">'canadair_new'</span>, <span class="st">'canadair_old'</span>, <span class="st">'pzl'</span>,</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">'gru'</span>]</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Προσθήκη του 2011</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>sheet <span class="op">=</span> <span class="st">'2011'</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> data.parse(sheet, skiprows<span class="op">=</span><span class="dv">1</span>, names<span class="op">=</span>column_names)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>df_dict[sheet] <span class="op">=</span> df</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"end_date"</span>] <span class="op">=</span> df.end_date.<span class="bu">apply</span>(fix_year, args<span class="op">=</span>[<span class="bu">int</span>(sheet)])</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'start'</span>] <span class="op">=</span> pd.to_datetime(df.start_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.start_time.<span class="bu">map</span>(<span class="bu">str</span>))</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'end'</span>] <span class="op">=</span> pd.to_datetime(df.end_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.end_time.<span class="bu">map</span>(<span class="bu">str</span>), errors<span class="op">=</span><span class="st">'coerce'</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="το-έτος-2012" class="level3">
+<h3 class="anchored" data-anchor-id="το-έτος-2012">Το έτος 2012</h3>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Το 2012 προστίθεται η διεύθυνση `address`</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>data.parse(<span class="st">'2012'</span>, skiprows<span class="op">=</span><span class="dv">1</span>).columns</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>Index(['Υπηρεσία', 'Νομός', 'Ημερ/νία Έναρξης', 'Ώρα Έναρξης',
+       'Ημερ/νία Κατασβεσης', 'Ώρα Κατάσβεσης', 'Δασαρχείο', 'Δήμος',
+       'Περιοχή', 'Διεύθυνση', 'Δάση', 'Δασική Έκταση', 'Άλση',
+       'Χορτ/κές Εκτάσεις', 'Καλάμια - Βάλτοι', 'Γεωργικές Εκτάσεις',
+       'Υπολλείματα Καλλιεργειών', 'Σκουπι-δότοποι', 'ΠΥΡΟΣ. ΣΩΜΑ',
+       'ΠΕΖΟΠΟΡΑ ΤΜΗΜΑΤΑ', 'ΕΘΕΛΟ-ΝΤΕΣ', 'ΣΤΡΑΤΟΣ', 'ΑΛΛΕΣ ΔΥΝΑΜΕΙΣ',
+       'ΠΥΡΟΣ. ΟΧΗΜ.', 'ΟΧΗΜ. ΟΤΑ', 'ΒΥΤΙΟ- ΦΟΡΑ', 'ΜΗΧΑΝΗ-ΜΑΤΑ',
+       'ΕΛΙΚΟ- ΠΤΕΡΑ', 'Α/Φ CL415', 'Α/Φ CL215', 'Α/Φ PZL', 'Α/Φ GRU.'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ανανέωση των ονομάτων των στηλών</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> [<span class="st">'fire_service'</span>, <span class="st">'district'</span>, <span class="st">'start_date'</span>, <span class="st">'start_time'</span>, <span class="st">'end_date'</span>, <span class="st">'end_time'</span>,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest_department'</span>, <span class="st">'borough'</span>, <span class="st">'location'</span>, <span class="st">'address'</span>,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest'</span>, <span class="st">'forest_area'</span>, <span class="st">'grove'</span>, <span class="st">'grassland'</span>, <span class="st">'marsh'</span>, <span class="st">'crop_fields'</span>, <span class="st">'crop_residues'</span>, <span class="st">'dumps'</span>,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">'firemen'</span>, <span class="st">'patrol'</span>, <span class="st">'volunteers'</span>, <span class="st">'military'</span>, <span class="st">'other_groups'</span>, <span class="st">'fire_trucks'</span>, <span class="st">'local_authorities'</span>,</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">'private_trucks'</span>, <span class="st">'other_trucks'</span>, <span class="st">'helicopters'</span>, <span class="st">'canadair_new'</span>, <span class="st">'canadair_old'</span>, <span class="st">'pzl'</span>,</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">'gru'</span>]</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Φόρτωση του 2012</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>sheet <span class="op">=</span> <span class="st">'2012'</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> data.parse(sheet, skiprows<span class="op">=</span><span class="dv">1</span>, names<span class="op">=</span>column_names)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>df_dict[sheet] <span class="op">=</span> df</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"end_date"</span>] <span class="op">=</span> df.end_date.<span class="bu">apply</span>(fix_year, args<span class="op">=</span>[<span class="bu">int</span>(sheet)])</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'start'</span>] <span class="op">=</span> pd.to_datetime(df.start_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.start_time.<span class="bu">map</span>(<span class="bu">str</span>))</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'end'</span>] <span class="op">=</span> pd.to_datetime(df.end_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.end_time.<span class="bu">map</span>(<span class="bu">str</span>), errors<span class="op">=</span><span class="st">'coerce'</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="επεξεργασία-των-αρχείων-για-τα-έτη-2013-2019" class="level3">
+<h3 class="anchored" data-anchor-id="επεξεργασία-των-αρχείων-για-τα-έτη-2013-2019">Επεξεργασία των αρχείων για τα έτη 2013-2019</h3>
+<p>Εφόσον μέχρι το 2019 δεν έχουμε προσθήκη επιπλέον στηλών, θα αυτοματοποιήσουμε τον τρόπο που διαβάζουμε κάθε αρχείο excel, διορθώνουμε τις ημερ/νίες και το προσθέτουμε στο λεξικό μας.</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sheet <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2013</span>, <span class="dv">2020</span>):</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># εύρεση του αρχείου</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span> <span class="op">=</span> glob.glob(<span class="st">'datasets/Dasikes_Pyrkagies_'</span> <span class="op">+</span> <span class="bu">str</span>(sheet) <span class="op">+</span> <span class="st">'*'</span>)[<span class="dv">0</span>]</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># φόρτωση του αρχείου</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_excel(<span class="bu">file</span>, skiprows<span class="op">=</span><span class="dv">1</span>, names<span class="op">=</span>column_names)</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    df_dict[<span class="bu">str</span>(sheet)] <span class="op">=</span> df</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># διόρθωση των ημερομηνιών</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"end_date"</span>] <span class="op">=</span> df.end_date.<span class="bu">apply</span>(fix_year, args<span class="op">=</span>[sheet])</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ένωση των ημερ/νιών με τις ώρες</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'start'</span>] <span class="op">=</span> pd.to_datetime(df.start_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.start_time.<span class="bu">map</span>(<span class="bu">str</span>))</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'end'</span>] <span class="op">=</span> pd.to_datetime(df.end_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.end_time.<span class="bu">map</span>(<span class="bu">str</span>), errors<span class="op">=</span><span class="st">'coerce'</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="τα-έτη-2020-2021" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="τα-έτη-2020-2021">Τα έτη 2020-2021</h3>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Στήλες του 2020 και 2021</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>pd.read_excel(<span class="st">'datasets/Dasikes_Pyrkagies_2020.xls'</span>, skiprows<span class="op">=</span><span class="dv">1</span>).columns</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>Index(['Α/Α ΕΓΓΡΑΦΗΣ', 'Α/Α ENGAGE', 'X-ENGAGE', 'Y-ENGAGE', 'Υπηρεσία',
+       'Νομός', 'Ημερ/νία Έναρξης', 'Ώρα Έναρξης', 'Ημερ/νία Κατασβεσης',
+       'Ώρα Κατάσβεσης', 'Δασαρχείο', 'Δήμος', 'Περιοχή', 'Διεύθυνση', 'Δάση',
+       'Δασική Έκταση', 'Άλση', 'Χορτ/κές Εκτάσεις', 'Καλάμια - Βάλτοι',
+       'Γεωργικές Εκτάσεις', 'Υπολλείματα Καλλιεργειών', 'Σκουπι-δότοποι',
+       'ΠΥΡΟΣ. ΣΩΜΑ', 'ΠΕΖΟΠΟΡΑ ΤΜΗΜΑΤΑ', 'ΕΘΕΛΟ-ΝΤΕΣ', 'ΣΤΡΑΤΟΣ',
+       'ΑΛΛΕΣ ΔΥΝΑΜΕΙΣ', 'ΠΥΡΟΣ. ΟΧΗΜ.', 'ΟΧΗΜ. ΟΤΑ', 'ΒΥΤΙΟ- ΦΟΡΑ',
+       'ΜΗΧΑΝΗ-ΜΑΤΑ', 'ΕΛΙΚΟ- ΠΤΕΡΑ', 'Α/Φ CL415', 'Α/Φ CL215', 'Α/Φ PZL',
+       'Α/Φ GRU.'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Το 2020-2021 προστέθηκαν γεωγρ. συντεταγμένες και ευρετήριο το οποίο δεν θα συμπεριληφθεί στο τελικό αρχείο</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> [<span class="st">'longitude'</span>, <span class="st">'latitude'</span>, <span class="st">'fire_service'</span>, <span class="st">'district'</span>, <span class="st">'start_date'</span>, <span class="st">'start_time'</span>, <span class="st">'end_date'</span>, <span class="st">'end_time'</span>,</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest_department'</span>, <span class="st">'borough'</span>, <span class="st">'location'</span>, <span class="st">'address'</span>,</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">'forest'</span>, <span class="st">'forest_area'</span>, <span class="st">'grove'</span>, <span class="st">'grassland'</span>, <span class="st">'marsh'</span>, <span class="st">'crop_fields'</span>, <span class="st">'crop_residues'</span>, <span class="st">'dumps'</span>,</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">'firemen'</span>, <span class="st">'patrol'</span>, <span class="st">'volunteers'</span>, <span class="st">'military'</span>, <span class="st">'other_groups'</span>, <span class="st">'fire_trucks'</span>, <span class="st">'local_authorities'</span>,</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">'private_trucks'</span>, <span class="st">'other_trucks'</span>, <span class="st">'helicopters'</span>, <span class="st">'canadair_new'</span>, <span class="st">'canadair_old'</span>, <span class="st">'pzl'</span>,</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">'gru'</span>]</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Φόρτωση των ετών 2020-2021</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sheet <span class="kw">in</span> [<span class="dv">2020</span>, <span class="dv">2021</span>]:</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># εύρεση του αρχείου</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span> <span class="op">=</span> glob.glob(<span class="st">'datasets/Dasikes_Pyrkagies_'</span> <span class="op">+</span> <span class="bu">str</span>(sheet) <span class="op">+</span> <span class="st">'*'</span>)[<span class="dv">0</span>]</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># φόρτωση του αρχείου</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_excel(<span class="bu">file</span>, skiprows<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>                   usecols<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">36</span>, <span class="dv">1</span>)), names<span class="op">=</span>column_names)</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    df_dict[<span class="bu">str</span>(sheet)] <span class="op">=</span> df</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># διόρθωση των ημερομηνιών</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"end_date"</span>] <span class="op">=</span> df.end_date.<span class="bu">apply</span>(fix_year, args<span class="op">=</span>[sheet])</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ένωση των ημερ/νιών με τις ώρες</span></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'start'</span>] <span class="op">=</span> pd.to_datetime(df.start_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.start_time.<span class="bu">map</span>(<span class="bu">str</span>))</span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'end'</span>] <span class="op">=</span> pd.to_datetime(df.end_date.dt.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df.end_time.<span class="bu">map</span>(<span class="bu">str</span>), errors<span class="op">=</span><span class="st">'coerce'</span>)</span></code></pre></div>
+</div>
+<p>Μπορούμε πλέον να ενώσουμε όλους τους πίνακες από το λεξικό <code>df_dict</code> σε ένα πίνακα με το όνομα <code>wildfires</code>.</p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>wildfires <span class="op">=</span> pd.concat(df_dict.values())</span></code></pre></div>
+</div>
+<p>Θέτουμε όποιες ημερ/νίες κατάσβεσης δεν διορθώθηκαν ως κενή τιμή, ελέγχοντας ποιες ημερ/νίες κατάσβεσης προηγούνται των ημερ/νιών έναρξης.</p>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>wildfires.loc[(wildfires.start <span class="op">&gt;</span> wildfires.end), <span class="st">'end'</span>] <span class="op">=</span> pd.NaT</span></code></pre></div>
+</div>
+<p>Παρακάτω είναι το τελικό μας αρχείο.</p>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(wildfires.info())</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 223260 entries, 0 to 9513
+Data columns (total 36 columns):
+ #   Column             Non-Null Count   Dtype         
+---  ------             --------------   -----         
+ 0   fire_service       223260 non-null  object        
+ 1   forest_department  148424 non-null  object        
+ 2   location           154541 non-null  object        
+ 3   district           223252 non-null  object        
+ 4   start_date         223260 non-null  datetime64[ns]
+ 5   start_time         223260 non-null  object        
+ 6   end_date           203493 non-null  datetime64[ns]
+ 7   end_time           203603 non-null  object        
+ 8   forest             223259 non-null  float64       
+ 9   forest_area        223260 non-null  float64       
+ 10  grove              223260 non-null  float64       
+ 11  grassland          223260 non-null  float64       
+ 12  marsh              223260 non-null  float64       
+ 13  crop_fields        223258 non-null  float64       
+ 14  crop_residues      223260 non-null  float64       
+ 15  dumps              223258 non-null  float64       
+ 16  start              223260 non-null  datetime64[ns]
+ 17  end                201425 non-null  datetime64[ns]
+ 18  borough            123034 non-null  object        
+ 19  firemen            106259 non-null  float64       
+ 20  patrol             106305 non-null  float64       
+ 21  volunteers         106339 non-null  float64       
+ 22  military           106341 non-null  float64       
+ 23  other_groups       106335 non-null  float64       
+ 24  fire_trucks        106340 non-null  float64       
+ 25  local_authorities  106341 non-null  float64       
+ 26  private_trucks     106338 non-null  float64       
+ 27  other_trucks       106340 non-null  float64       
+ 28  helicopters        106339 non-null  float64       
+ 29  canadair_new       106341 non-null  float64       
+ 30  canadair_old       106340 non-null  float64       
+ 31  pzl                106341 non-null  float64       
+ 32  gru                106341 non-null  float64       
+ 33  address            95057 non-null   object        
+ 34  longitude          20309 non-null   float64       
+ 35  latitude           20309 non-null   float64       
+dtypes: datetime64[ns](4), float64(24), object(8)
+memory usage: 63.0+ MB
+None</code></pre>
+</div>
+</div>
+<div class="cell page-columns page-full" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>wildfires.sample(<span class="dv">5</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display column-page" data-execution_count="31">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>fire_service</th>
+      <th>forest_department</th>
+      <th>location</th>
+      <th>district</th>
+      <th>start_date</th>
+      <th>start_time</th>
+      <th>end_date</th>
+      <th>end_time</th>
+      <th>forest</th>
+      <th>forest_area</th>
+      <th>...</th>
+      <th>private_trucks</th>
+      <th>other_trucks</th>
+      <th>helicopters</th>
+      <th>canadair_new</th>
+      <th>canadair_old</th>
+      <th>pzl</th>
+      <th>gru</th>
+      <th>address</th>
+      <th>longitude</th>
+      <th>latitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>11694</th>
+      <td>Π.Υ. ΑΡΓΟΥΣ</td>
+      <td>ΑΡΓΟΛΙΔΑΣ</td>
+      <td>ΑΓ.ΝΙΚΟΛΑΟΣ</td>
+      <td>ΑΡΓΟΛΙΔΟΣ</td>
+      <td>2001-10-03</td>
+      <td>16:19:00</td>
+      <td>2001-10-03</td>
+      <td>16:50:00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8088</th>
+      <td>Π.Υ. ΛΑΜΙΑΣ</td>
+      <td>NaN</td>
+      <td>ΛΑΜΙΑ</td>
+      <td>ΦΘΙΩΤΙΔΑΣ</td>
+      <td>2004-10-11</td>
+      <td>12:19:00</td>
+      <td>2004-10-11</td>
+      <td>13:50:00</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1009</th>
+      <td>Π.Υ. ΟΡΕΣΤΙΑΔΑΣ</td>
+      <td>ΔΙΔ/ΧΟΥ</td>
+      <td>ΒΑΛΤΟΣ</td>
+      <td>ΕΒΡΟΥ</td>
+      <td>2019-08-25</td>
+      <td>18:17</td>
+      <td>2019-08-25</td>
+      <td>18:28</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>ΑΓΡΟΤΙΚΗ ΠΕΡΙΟΧΗ ΒΑΛΤΟΥ</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>276</th>
+      <td>Π.Υ. ΚΡΩΠΙΑΣ</td>
+      <td>NaN</td>
+      <td>ΚΟΡΟΠΙΟΝ</td>
+      <td>ΑΤΤΙΚΗΣ</td>
+      <td>2003-07-04</td>
+      <td>10:20:00</td>
+      <td>2003-07-04</td>
+      <td>11:15:00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7781</th>
+      <td>ΕΘ.Π.Σ. Β ΤΑΞΗΣ ΠΑΡΑΒΟΛΑΣ</td>
+      <td>NaN</td>
+      <td>ΑΓΡΙΝΙΟ</td>
+      <td>ΑΙΤΩΛΟΑΚΑΡΝΑΝΙΑΣ</td>
+      <td>2020-08-27</td>
+      <td>12:35</td>
+      <td>2020-08-27</td>
+      <td>17:25</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>ΠΑΝΑΙΤΩΛΙΟ(ΑΜΠΑΡΙΑ)</td>
+      <td>21.4607</td>
+      <td>38.578267</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 36 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Αποθήκευση του πίνακα στο αρχείο wildfires.csv</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>wildfires.to_csv(<span class="st">'datasets/wildfires.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/JimMysiloglou\.github\.io\/el\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© 2022 Copyright: Mysiloglou Dimitrios</div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JimMysiloglou">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/jimmysiloglou/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/JimMysiloglou">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.facebook.com/jim.misi/">
+      <i class="bi bi-facebook" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

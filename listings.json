@@ -1,0 +1,14 @@
+[
+  {
+    "listing": "/blog.html",
+    "items": []
+  },
+  {
+    "listing": "/portfolio.html",
+    "items": [
+      "/portfolio/filmpit/filmpit-scraping.html",
+      "/portfolio/wildfires/Wildfires in Greece.html",
+      "/portfolio/my_website/my_website.html"
+    ]
+  }
+]

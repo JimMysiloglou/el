@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="el" xml:lang="el"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Mysiloglou Dimitrios">
+<meta name="dcterms.date" content="2022-10-10">
+<meta name="description" content="Συγκέντρωση πληροφοριών για τις ταινίες του podcast “The Film Pit” με την γλώσσα Python.">
+
+<title>Mysiloglou Dimitrios - Οι ταινίες του Film Pit σε γραφήματα</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Χωρίς αποτελέσματα",
+    "search-matching-documents-text": "έγγραφα που αντιστοιχήθηκαν",
+    "search-copy-link-title": "Αντιγραφή συνδέσμου προς αναζήτηση",
+    "search-hide-matches-text": "Κρύψε επιπλέον αντιστοιχήσεις",
+    "search-more-match-text": "επιπλέον αντιστοίχιση σε αυτό το έγγραφο",
+    "search-more-matches-text": "επιπλέον αντιστοιχίσεις σε αυτό το έγγραφο",
+    "search-clear-button-title": "Εκκαθάριση",
+    "search-detached-cancel-button-title": "Ακύρωση",
+    "search-submit-button-title": "Υποβολή"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<meta name="twitter:title" content="Mysiloglou Dimitrios - Οι ταινίες του Film Pit σε γραφήματα">
+<meta name="twitter:description" content="Συγκέντρωση πληροφοριών για τις ταινίες του podcast &quot;The Film Pit&quot; με την γλώσσα Python.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="https://jimmysiloglou.eu.pythonanywhere.com" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/logo.png" alt="Mysiloglou Dimitrios" class="navbar-logo">
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html">
+ <span class="menu-text">Portfolio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://jimmysiloglou.eu.pythonanywhere.com/my_journey/">
+ <span class="menu-text">My Journey</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://jimmysiloglou.eu.pythonanywhere.com/contact/">
+ <span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Γλώσσα</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-">    
+        <li>
+    <a class="dropdown-item" href="https://jimmysiloglou.github.io/en/blog.html">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../blog.html">
+ <span class="dropdown-text">Ελληνικά</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Οι ταινίες του Film Pit σε γραφήματα</h1>
+                  <div>
+        <div class="description">
+          Συγκέντρωση πληροφοριών για τις ταινίες του podcast “The Film Pit” με την γλώσσα Python.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Συντακτης</div>
+      <div class="quarto-title-meta-contents">
+               <p>Mysiloglou Dimitrios </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Δημοσιευτηκε</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2022-10-10</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Σε αυτή τη σελίδα</h2>
+   
+  <ul>
+  <li><a href="#συγκέντρωση-των-τίτλων" id="toc-συγκέντρωση-των-τίτλων" class="nav-link active" data-scroll-target="#συγκέντρωση-των-τίτλων">Συγκέντρωση των τίτλων</a></li>
+  <li><a href="#εξαγωγή-πληροφοριών-από-την-ιστοσελίδα-the-movie-database" id="toc-εξαγωγή-πληροφοριών-από-την-ιστοσελίδα-the-movie-database" class="nav-link" data-scroll-target="#εξαγωγή-πληροφοριών-από-την-ιστοσελίδα-the-movie-database">Εξαγωγή πληροφοριών από την ιστοσελίδα The Movie Database</a></li>
+  <li><a href="#εξαγωγή-πληροφοριών-από-την-ιστοσελίδα-open-movie-database" id="toc-εξαγωγή-πληροφοριών-από-την-ιστοσελίδα-open-movie-database" class="nav-link" data-scroll-target="#εξαγωγή-πληροφοριών-από-την-ιστοσελίδα-open-movie-database">Εξαγωγή πληροφοριών από την ιστοσελίδα Open Movie Database</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="συγκέντρωση-των-τίτλων" class="level2">
+<h2 class="anchored" data-anchor-id="συγκέντρωση-των-τίτλων">Συγκέντρωση των τίτλων</h2>
+<p>Αρχικά με τις βιβλιοθήκες <code>requests</code> και <code>BeautifulSoup</code> συγκέντρωσα όλους τους τίτλους των ταινιών από την ιστοσελίδα του Film Pit και τις αποθήκευσα σε ένα αρχείο με όνομα <code>movie_titles.csv</code>.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Φόρτωση των απαραίτητων βιβλιοθηκών</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> os <span class="im">import</span> path</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ελέγχουμε έαν υπάρχει ήδη το αρχείο αλλιώς το δημιουργούμε</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'movie_titles.csv'</span>)):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    movie_titles <span class="op">=</span> pd.read_csv(path.join(<span class="st">'datasets'</span>, <span class="st">'movie_titles.csv'</span>)).squeeze(<span class="st">'columns'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    URL <span class="op">=</span> <span class="st">"https://thefilmpit.com"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_movies_title(URL):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Scrapes podcasts hrefs to get movie titles"""</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        movie_titles <span class="op">=</span> []</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        page <span class="op">=</span> requests.get(URL)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        next_link <span class="op">=</span> <span class="va">None</span>   </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> page.ok:</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            soup <span class="op">=</span> BeautifulSoup(page.content, <span class="st">'html.parser'</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">try</span>:</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Ελέγχουμε αν υπάρχει επόμενη σελίδα στο site</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                next_link <span class="op">=</span> soup.find(<span class="st">'link'</span>, {<span class="st">'rel'</span>:<span class="st">'next'</span>,}).get(<span class="st">'href'</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">except</span> <span class="pp">AttributeError</span>:</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">"This page hasn't a next link"</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Απο τους συνδέσμους href λαμβάνουμε τους τίτλους</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> podcast <span class="kw">in</span> soup.find_all(<span class="st">'a'</span>, attrs<span class="op">=</span>{<span class="st">'rel'</span>:<span class="st">'bookmark'</span>}): </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>                podcast_link <span class="op">=</span> podcast.get(<span class="st">'href'</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                title <span class="op">=</span> podcast_link.split(<span class="st">'/'</span>)[<span class="op">-</span><span class="dv">2</span>].replace(<span class="st">'-'</span>, <span class="st">' '</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>                movie_titles.append(title)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> movie_titles, next_link</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    next_link <span class="op">=</span> URL</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    movie_titles <span class="op">=</span> []</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> next_link:</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Scraping next link: </span><span class="sc">{</span>next_link<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        titles, next_link <span class="op">=</span> get_movies_title(next_link)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        movie_titles <span class="op">+=</span> titles</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Scraping finished."</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Scraping next link: https://thefilmpit.com
+Scraping next link: https://thefilmpit.com/page/2/
+Scraping next link: https://thefilmpit.com/page/3/
+Scraping next link: https://thefilmpit.com/page/4/
+Scraping next link: https://thefilmpit.com/page/5/
+Scraping next link: https://thefilmpit.com/page/6/
+Scraping next link: https://thefilmpit.com/page/7/
+Scraping next link: https://thefilmpit.com/page/8/
+Scraping next link: https://thefilmpit.com/page/9/
+Scraping next link: https://thefilmpit.com/page/10/
+Scraping next link: https://thefilmpit.com/page/11/
+Scraping next link: https://thefilmpit.com/page/12/
+This page hasn't a next link
+Scraping finished.</code></pre>
+</div>
+</div>
+<p>Κάποιοι τίτλοι χρειάζονταν διόρθωση όπως βλέπετε παρακάτω.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'movie_titles.csv'</span>)):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    movie_titles <span class="op">+=</span> [<span class="st">'never too young to die'</span>, <span class="st">'Dr Caligari'</span>, <span class="st">'Yeti'</span>] <span class="co"># 3 ταινίες δεν υπάρχουν στην ιστοσελίδα</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    movie_titles <span class="op">=</span> pd.Series(movie_titles)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    fixed_titles <span class="op">=</span> {<span class="st">'diagalaxiaki poiotita galaxy of terror'</span>: <span class="st">'galaxy of terror'</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'i scholi tou gkontfrei sakura killers'</span>: <span class="st">'sakura killers'</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'exairetika petsino podkast the punisher'</span>: <span class="st">'the punisher'</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'o rambu tis indonisias einai edo'</span>: <span class="st">'Rambu aka The Intruder'</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'tha einai san star gouorz alla den tha einai star gouorz battle beyond the stars'</span>: <span class="st">'battle beyond the stars'</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'brady idrotas kai pioti tie night stalker'</span>: <span class="st">'night stalker'</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'pao na kano penintarika double dragon'</span>: <span class="st">'double dragon'</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'mousikorama shock em dead'</span>: <span class="st">'shock em dead'</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'asiatiki tourne 3 undefeatable'</span>: <span class="st">'undefeatable'</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'asiatiki tourne 2 w is war'</span>: <span class="st">'w is war'</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'asiatiki tourne 1 for your height only'</span>: <span class="st">'for your height only'</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'ena mikro mousiko breik rappin'</span>: <span class="st">'rappin'</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'dark night of the scarecrow feat elina dimitriadi'</span>: <span class="st">'dark night of the scarecrow'</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'prom night feat elina dimitriadi'</span>: <span class="st">'prom night'</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'aerobicide'</span>: <span class="st">'Killer Workout'</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'an american hippie in paris'</span>: <span class="st">'An American Hippie in Israel'</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'tc2000'</span>: <span class="st">'tc 2000'</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'american ninia'</span>: <span class="st">'american ninja'</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'class of nukem high'</span>: <span class="st">"Class of Nuke 'Em High"</span>,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'superman 4'</span>: <span class="st">"superman iv"</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                    }</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    movie_titles.replace(fixed_titles, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    movie_titles.drop([<span class="dv">91</span>, <span class="dv">109</span>], inplace<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Αποθήκευση των τίτλων στο αρχείο movie_title.csv</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'movie_titles.csv'</span>)):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    movie_titles.to_csv(path.join(<span class="st">'datasets'</span>,<span class="st">'movie_titles.csv'</span>), index<span class="op">=</span><span class="va">False</span>, header<span class="op">=</span>[<span class="st">'titles'</span>])</span></code></pre></div>
+</div>
+</section>
+<section id="εξαγωγή-πληροφοριών-από-την-ιστοσελίδα-the-movie-database" class="level2">
+<h2 class="anchored" data-anchor-id="εξαγωγή-πληροφοριών-από-την-ιστοσελίδα-the-movie-database">Εξαγωγή πληροφοριών από την ιστοσελίδα The Movie Database</h2>
+<p>Για την εξαγωγή πληροφοριών από το <a href="https://www.themoviedb.org">TMDB</a> χρησιμοποίησα την βιβλιοθήκη <code>tmdbv3api</code>.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'movies_tmdb.csv'</span>)):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    movies_tmdb <span class="op">=</span> pd.read_csv(path.join(<span class="st">'datasets'</span>,<span class="st">'movies_tmdb.csv'</span>), index_col<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> tmdbv3api <span class="im">import</span> TMDb</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> config <span class="im">import</span> config</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    tmdb <span class="op">=</span> TMDb()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    tmdb.api_key <span class="op">=</span> config[<span class="st">'tmdb_api_key'</span>] <span class="co"># το api key δίνεται δωρεάν με απλή εγγραφή στο TMDB</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> tmdbv3api <span class="im">import</span> Movie</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    movie <span class="op">=</span> Movie()</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    basic_info <span class="op">=</span> {}</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    not_found <span class="op">=</span> []</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> title <span class="kw">in</span> movie_titles.to_list():</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'Fetching '</span> <span class="op">+</span> title)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Χρησιμοποιούμε το πρώτο αποτέλεσμα αναζήτησης</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>            basic_info[title] <span class="op">=</span> movie.search(title)[<span class="dv">0</span>] </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">IndexError</span>:</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Αποθηκεύουμε τους τίτλους που δεν βρέθηκαν στην λίστα not_found</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>            not_found.append(title) </span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Movies not found: '</span>, not_found)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Fetching broken america the killing of america
+Fetching broken america star time
+Fetching edge of honour
+Fetching mind trap aka danger usa
+Fetching caged fury
+Fetching silk
+Fetching raw nerve
+Fetching raw justice
+Fetching the baby
+Fetching dont go in the house
+Fetching conquest
+Fetching battletruck
+Fetching ninja squad
+Fetching ultimax force
+Fetching punk vacation
+Fetching suburbia
+Fetching An American Hippie in Israel
+Fetching blood beach
+Fetching hunters of the golden cobra
+Fetching intent to kill
+Fetching maniac cop
+Fetching hard ticket to hawaii
+Fetching warlock
+Fetching maximum overdrive
+Fetching nekromantik
+Fetching manos
+Fetching superman iv
+Fetching flash gordon
+Fetching surf nazis must die
+Fetching to kako
+Fetching zardoz
+Fetching dark angel
+Fetching girl in room 2a
+Fetching tc 2000
+Fetching interzone
+Fetching zaat
+Fetching american ninja
+Fetching krull
+Fetching beastmaster
+Fetching raiders of the living dead
+Fetching 315
+Fetching q winged serpent
+Fetching karate warrior 6
+Fetching savage streets
+Fetching amsterdamned
+Fetching fatal deviation
+Fetching black gestapo
+Fetching ss experiment love camp
+Fetching ilsa she wolf of the ss
+Fetching yor
+Fetching savage justice
+Fetching commander
+Fetching nightstick
+Fetching captain america
+Fetching stone cold
+Fetching programmed to kill
+Fetching rotor
+Fetching Killer Workout
+Fetching russian ninja
+Fetching new years evil
+Fetching star wars holiday special
+Fetching christmas evil
+Fetching little hercules
+Fetching death wish 3
+Fetching chopping mall
+Fetching savage beach
+Fetching mad foxes
+Fetching gymkata
+Fetching galaxy of terror
+Fetching mac and me
+Fetching sakura killers
+Fetching the punisher
+Fetching Rambu aka The Intruder
+Fetching battle beyond the stars
+Fetching night stalker
+Fetching double dragon
+Fetching shock em dead
+Fetching undefeatable
+Fetching w is war
+Fetching for your height only
+Fetching ninja silent assassin
+Fetching samurai cop
+Fetching lambada set the night on fire
+Fetching double trouble
+Fetching rappin
+Fetching the perfect weapon
+Fetching deadly prey
+Fetching the rage
+Fetching warbirds
+Fetching starcrash
+Fetching arena
+Fetching galaxina
+Fetching star slammer
+Fetching jack frost
+Fetching santa with muscles
+Fetching elves
+Fetching the terrible infocast
+Fetching neon maniacs
+Fetching dark night of the scarecrow
+Fetching prom night
+Fetching cheerleader camp
+Fetching tuff turf
+Fetching Class of Nuke 'Em High
+Fetching class of 1984
+Fetching exterminators of the year 3000
+Fetching 1990 bronx warriors
+Fetching endgame
+Fetching 2019 after the fall of new york
+Fetching hands of steel
+Fetching bloodsport
+Fetching no retreat no surrender
+Fetching thunder
+Fetching miami connection
+Fetching an intermission with michael pare
+Fetching robowar
+Fetching frankenhooker
+Fetching ninja terminator
+Fetching never too young to die
+Fetching Dr Caligari
+Fetching Yeti
+Movies not found:  ['broken america the killing of america', 'broken america star time', 'edge of honour', 'mind trap aka danger usa', 'Rambu aka The Intruder', 'lambada set the night on fire', 'the terrible infocast', 'an intermission with michael pare']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ελέγχουμε ότι το πρώτο αποτέλεσμα αναζήτησης ήταν το σωστό</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'movies_tmdb.csv'</span>)):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> title <span class="kw">in</span> movie_titles.to_list():</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> basic_info.get(title):</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(title, <span class="st">': '</span>, basic_info[title][<span class="st">'title'</span>], basic_info[title][<span class="st">'release_date'</span>][:<span class="dv">4</span>])</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>caged fury :  Caged Fury 1990
+silk :  Silk Road 2021
+raw nerve :  Raw Nerve 1991
+raw justice :  Raw Justice 1994
+the baby :  The Boss Baby: Family Business 2021
+dont go in the house :  Don't Go in the House 1979
+conquest :  Game of Thrones - Conquest &amp; Rebellion: An Animated History of the Seven Kingdoms 2017
+battletruck :  Warlords of the 21st Century 1982
+ninja squad :  The Ninja Squad 1986
+ultimax force :  Ultimax Force 1987
+punk vacation :  Punk Vacation 1990
+suburbia :  Infidelity in Suburbia 2017
+An American Hippie in Israel :  An American Hippie in Israel 1972
+blood beach :  Blood Beach 1980
+hunters of the golden cobra :  The Hunters of the Golden Cobra 1982
+intent to kill :  Intent to Kill 1992
+maniac cop :  Maniac Cop 1988
+hard ticket to hawaii :  Hard Ticket to Hawaii 1987
+warlock :  Warlock: The Armageddon 1993
+maximum overdrive :  Maximum Overdrive 1986
+nekromantik :  Nekromantik 1987
+manos :  Manos: The Hands of Fate 1966
+superman iv :  Superman IV: The Quest for Peace 1987
+flash gordon :  Flash Gordon 1980
+surf nazis must die :  Surf Nazis Must Die 1987
+to kako :  Evil 2005
+zardoz :  Zardoz 1974
+dark angel :  Dark Angel 1990
+girl in room 2a :  The Girl in Room 2A 1974
+tc 2000 :  TC 2000 1993
+interzone :  Interzone 1987
+zaat :  Zaat 1971
+american ninja :  American Ninja 1985
+krull :  Krull 1983
+beastmaster :  The Beastmaster 1982
+raiders of the living dead :  Raiders of the Living Dead 1986
+315 :  3:15 1986
+q winged serpent :  Q 1982
+karate warrior 6 :  Karate Warrior 6 1993
+savage streets :  Savage Streets 1984
+amsterdamned :  Amsterdamned 1988
+fatal deviation :  Fatal Deviation 1998
+black gestapo :  The Black Gestapo 1975
+ss experiment love camp :  SS Experiment Love Camp 1976
+ilsa she wolf of the ss :  Ilsa: She Wolf of the SS 1975
+yor :  Yor, the Hunter from the Future 1983
+savage justice :  Savage Justice 1988
+commander :  Wing Commander 1999
+nightstick :  Nightstick 1987
+captain america :  Captain America: Civil War 2016
+stone cold :  Stone Cold 2005
+programmed to kill :  Programmed to Kill 1987
+rotor :  R.O.T.O.R. 1987
+Killer Workout :  Killer Workout 1987
+russian ninja :  The Russian Ninja 1989
+new years evil :  New Year's Evil 1980
+star wars holiday special :  LEGO Star Wars Holiday Special 2020
+christmas evil :  Christmas Evil 1980
+little hercules :  Little Hercules 2009
+death wish 3 :  Death Wish 3 1985
+chopping mall :  Chopping Mall 1986
+savage beach :  L.E.T.H.A.L. Ladies: Return to Savage Beach 1998
+mad foxes :  Mad Foxes 1981
+gymkata :  Gymkata 1985
+galaxy of terror :  Galaxy of Terror 1981
+mac and me :  Mac and Me 1988
+sakura killers :  Sakura Killers 1987
+the punisher :  The Punisher 2004
+battle beyond the stars :  Battle Beyond the Stars 1980
+night stalker :  The Night Stalker 1972
+double dragon :  Double Dragon 1994
+shock em dead :  Shock 'Em Dead 1991
+undefeatable :  Undefeatable 1993
+w is war :  W Is War 1983
+for your height only :  For Y'ur Height Only 1981
+ninja silent assassin :  Ninja Silent Assassin 1987
+samurai cop :  Samurai Cop 1991
+double trouble :  Double Trouble 1992
+rappin :  Rappin' 1985
+the perfect weapon :  The Perfect Weapon 2016
+deadly prey :  Deadly Prey 1987
+the rage :  The Rage: Carrie 2 1999
+warbirds :  Warbirds 2008
+starcrash :  Starcrash 1978
+arena :  Arena 2011
+galaxina :  Galaxina 1980
+star slammer :  Star Slammer 1986
+jack frost :  Jack Frost 1997
+santa with muscles :  Santa with Muscles 1996
+elves :  Elves 1989
+neon maniacs :  Neon Maniacs 1986
+dark night of the scarecrow :  Dark Night of the Scarecrow 1981
+prom night :  Prom Night 1980
+cheerleader camp :  #1 Cheerleader Camp 2010
+tuff turf :  Tuff Turf 1985
+Class of Nuke 'Em High :  Class of Nuke 'Em High 1986
+class of 1984 :  Class of 1984 1982
+exterminators of the year 3000 :  Exterminators of the Year 3000 1983
+1990 bronx warriors :  1990: The Bronx Warriors 1982
+endgame :  Avengers: Endgame 2019
+2019 after the fall of new york :  2019: After the Fall of New York 1983
+hands of steel :  Hands of Steel 1986
+bloodsport :  Bloodsport 1988
+no retreat no surrender :  No Retreat, No Surrender 1986
+thunder :  Thor: Love and Thunder 2022
+miami connection :  Miami Connection 1987
+robowar :  Robowar 1988
+frankenhooker :  Frankenhooker 1990
+ninja terminator :  Ninja Terminator 1985
+never too young to die :  Never Too Young to Die 1986
+Dr Caligari :  The Cabinet of Dr. Caligari 1920
+Yeti :  Mission Kathmandu: The Adventures of Nelly &amp; Simon 2017</code></pre>
+</div>
+</div>
+<p>Δυστυχώς τα πρώτο αποτέλεσμα από κάθε ταινία δεν είναι πάντα το επιθυμητό δεδομένου ότι πολλές ταινίες έχουν τον ίδιο ή παρόμοιο τίτλο. Παρακάτω επιλέγουμε τις σωστές ταινίες μέσω του αριθμού <code>id</code> κάθε ταινίας και προσθέτουμε και όσες δεν βρέθηκαν στην αναζήτηση.</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'movies_tmdb.csv'</span>)):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    wrong_matches <span class="op">=</span> {<span class="st">'Rambu aka The Intruder'</span>: <span class="st">'81944'</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'lambada set the night on fire'</span>: <span class="st">'117269'</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'the baby'</span>: <span class="st">'28156'</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'conquest'</span>: <span class="st">'27232'</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'suburbia'</span>: <span class="st">'28054'</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'warlock'</span>: <span class="st">'11342'</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'to kako'</span>: <span class="st">'39897'</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'commander'</span>: <span class="st">'205697'</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'captain america'</span>: <span class="st">'13995'</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'star wars holiday special'</span>: <span class="st">'74849'</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'the punisher'</span>: <span class="st">'8867'</span>,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'night stalker'</span>:<span class="st">'66474'</span>,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'the perfect weapon'</span>: <span class="st">'34421'</span>,</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'the rage'</span>: <span class="st">'114936'</span>,</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'warbirds'</span>: <span class="st">'219359'</span>,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'arena'</span>: <span class="st">'44796'</span>,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'jack frost'</span>: <span class="st">'27318'</span>,</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'elves'</span>: <span class="st">'30452'</span>,</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'prom night'</span>: <span class="st">'36599'</span>,</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'cheerleader camp'</span>: <span class="st">'40087'</span>,</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'endgame'</span>: <span class="st">'28850'</span>,</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'thunder'</span>: <span class="st">'109104'</span>,</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'Dr Caligari'</span>: <span class="st">'35642'</span>,</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'Yeti'</span>: <span class="st">'92316'</span>}</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    movie_ids <span class="op">=</span> {title:info[<span class="st">'id'</span>] <span class="cf">for</span> title, info <span class="kw">in</span> basic_info.items()}</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    movie_ids.update(wrong_matches)</span></code></pre></div>
+</div>
+<p>Εφόσον πλέον έχουμε το σωστό <code>id</code> για όλες τις ταινίες εξάγουμε όλες τις πληροφορίες που χρειαζόμαστε, τις αποθηκεύουμε στο λεξικό <code>movie_records</code> και με την βιβλιοθήκη <code>pandas</code> δημιουργούμε το αρχείο <code>movies_tmdb.csv</code>.</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'movies_tmdb.csv'</span>)):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Starting api request'</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    movie_records <span class="op">=</span> {}</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> title, <span class="bu">id</span> <span class="kw">in</span> movie_ids.items():</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Fetching </span><span class="sc">{</span>title<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        mov <span class="op">=</span> movie.details(<span class="bu">id</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        temp_list <span class="op">=</span> [</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>            mov.imdb_id,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>            mov.original_title,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>            mov.budget,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>            mov.revenue,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>            mov.runtime,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>            mov.popularity,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>            [company[<span class="st">'name'</span>] <span class="cf">for</span> company <span class="kw">in</span> mov.production_companies],</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>            [key[<span class="st">'name'</span>] <span class="cf">for</span> key <span class="kw">in</span> mov.keywords.keywords],</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>            [act[<span class="st">'name'</span>] <span class="cf">for</span> act <span class="kw">in</span> mov.casts.cast],</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>            mov.overview</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        movie_records[mov.title] <span class="op">=</span> temp_list</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'TMDB request finished'</span>)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    columns <span class="op">=</span> [<span class="st">'imdb_id'</span>,</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>               <span class="st">'original_title'</span>,</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>               <span class="st">'budget'</span>,</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>               <span class="st">'revenue'</span>,</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>               <span class="st">'runtime'</span>,</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>               <span class="st">'popularity'</span>,</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>               <span class="st">'production_companies'</span>,</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>               <span class="st">'keywords'</span>,</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>               <span class="st">'cast'</span>,</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>               <span class="st">'overview'</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>              ]</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    movies_tmdb <span class="op">=</span> pd.DataFrame.from_dict(movie_records, orient<span class="op">=</span><span class="st">'index'</span>, columns<span class="op">=</span>columns)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Starting api request
+Fetching caged fury
+Fetching silk
+Fetching raw nerve
+Fetching raw justice
+Fetching the baby
+Fetching dont go in the house
+Fetching conquest
+Fetching battletruck
+Fetching ninja squad
+Fetching ultimax force
+Fetching punk vacation
+Fetching suburbia
+Fetching An American Hippie in Israel
+Fetching blood beach
+Fetching hunters of the golden cobra
+Fetching intent to kill
+Fetching maniac cop
+Fetching hard ticket to hawaii
+Fetching warlock
+Fetching maximum overdrive
+Fetching nekromantik
+Fetching manos
+Fetching superman iv
+Fetching flash gordon
+Fetching surf nazis must die
+Fetching to kako
+Fetching zardoz
+Fetching dark angel
+Fetching girl in room 2a
+Fetching tc 2000
+Fetching interzone
+Fetching zaat
+Fetching american ninja
+Fetching krull
+Fetching beastmaster
+Fetching raiders of the living dead
+Fetching 315
+Fetching q winged serpent
+Fetching karate warrior 6
+Fetching savage streets
+Fetching amsterdamned
+Fetching fatal deviation
+Fetching black gestapo
+Fetching ss experiment love camp
+Fetching ilsa she wolf of the ss
+Fetching yor
+Fetching savage justice
+Fetching commander
+Fetching nightstick
+Fetching captain america
+Fetching stone cold
+Fetching programmed to kill
+Fetching rotor
+Fetching Killer Workout
+Fetching russian ninja
+Fetching new years evil
+Fetching star wars holiday special
+Fetching christmas evil
+Fetching little hercules
+Fetching death wish 3
+Fetching chopping mall
+Fetching savage beach
+Fetching mad foxes
+Fetching gymkata
+Fetching galaxy of terror
+Fetching mac and me
+Fetching sakura killers
+Fetching the punisher
+Fetching battle beyond the stars
+Fetching night stalker
+Fetching double dragon
+Fetching shock em dead
+Fetching undefeatable
+Fetching w is war
+Fetching for your height only
+Fetching ninja silent assassin
+Fetching samurai cop
+Fetching double trouble
+Fetching rappin
+Fetching the perfect weapon
+Fetching deadly prey
+Fetching the rage
+Fetching warbirds
+Fetching starcrash
+Fetching arena
+Fetching galaxina
+Fetching star slammer
+Fetching jack frost
+Fetching santa with muscles
+Fetching elves
+Fetching neon maniacs
+Fetching dark night of the scarecrow
+Fetching prom night
+Fetching cheerleader camp
+Fetching tuff turf
+Fetching Class of Nuke 'Em High
+Fetching class of 1984
+Fetching exterminators of the year 3000
+Fetching 1990 bronx warriors
+Fetching endgame
+Fetching 2019 after the fall of new york
+Fetching hands of steel
+Fetching bloodsport
+Fetching no retreat no surrender
+Fetching thunder
+Fetching miami connection
+Fetching robowar
+Fetching frankenhooker
+Fetching ninja terminator
+Fetching never too young to die
+Fetching Dr Caligari
+Fetching Yeti
+Fetching Rambu aka The Intruder
+Fetching lambada set the night on fire
+TMDB request finished</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Αντικαθιστούμε το 0 ως τιμή που λείπει</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>movies_tmdb[[<span class="st">'budget'</span>, <span class="st">'revenue'</span>, <span class="st">'runtime'</span>]] <span class="op">=</span> movies_tmdb[[<span class="st">'budget'</span>, <span class="st">'revenue'</span>, <span class="st">'runtime'</span>]].replace({<span class="dv">0</span>: np.nan})</span></code></pre></div>
+</div>
+<p>Παρακάτω είναι ένα μικρό δείγμα του αρχείου.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>movies_tmdb.sample(<span class="dv">5</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>imdb_id</th>
+      <th>original_title</th>
+      <th>budget</th>
+      <th>revenue</th>
+      <th>runtime</th>
+      <th>popularity</th>
+      <th>production_companies</th>
+      <th>keywords</th>
+      <th>cast</th>
+      <th>overview</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Blood Beach</th>
+      <td>tt0082083</td>
+      <td>Blood Beach</td>
+      <td>2000000.0</td>
+      <td>NaN</td>
+      <td>92.0</td>
+      <td>8.242</td>
+      <td>[Compass International Pictures, Empress Film ...</td>
+      <td>[beach, monster, sand, spoof]</td>
+      <td>[David Huffman, Marianna Hill, Burt Young, Joh...</td>
+      <td>Something or someone is attacking people one b...</td>
+    </tr>
+    <tr>
+      <th>Elves</th>
+      <td>tt0099496</td>
+      <td>Elves</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>89.0</td>
+      <td>4.980</td>
+      <td>[Triangle Film Corporation, Fitzgerald Film Co...</td>
+      <td>[elves, cat, experiment, nazi, family secrets,...</td>
+      <td>[Dan Haggerty, Julie Austin, Deanna Lund, Bora...</td>
+      <td>A young woman discovers that she is the focus ...</td>
+    </tr>
+    <tr>
+      <th>Killer Workout</th>
+      <td>tt0091339</td>
+      <td>Killer Workout</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>84.0</td>
+      <td>5.634</td>
+      <td>[Shapiro Entertainment]</td>
+      <td>[shower, stalker, murder, serial killer, gym, ...</td>
+      <td>[Marcia Karr, David James Campbell, Fritz Matt...</td>
+      <td>Two years ago, a young woman named Valerie was...</td>
+    </tr>
+    <tr>
+      <th>The Russian Ninja</th>
+      <td>tt0100531</td>
+      <td>The Russian Ninja</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>87.0</td>
+      <td>1.798</td>
+      <td>[Swedish Action Film Force]</td>
+      <td>[kidnapping, ninja]</td>
+      <td>[Frederick Offrein, Helle Michaelsen, Mats Hud...</td>
+      <td>An ex-mercenary is enlisted back into the life...</td>
+    </tr>
+    <tr>
+      <th>Stone Cold</th>
+      <td>tt0431420</td>
+      <td>Stone Cold</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>87.0</td>
+      <td>13.679</td>
+      <td>[Brandman Productions, Sony Pictures Televisio...</td>
+      <td>[cop, new england]</td>
+      <td>[Tom Selleck, Jane Adams, Viola Davis, Shawn R...</td>
+      <td>Jesse Stone is a former L.A. homicide detectiv...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Κάθε ταινία έχει πολλαπλές τιμές σε κάθε πεδίο. Για την επεξεργασία όλων των πληροφοριών θα πρέπει ή να δημιουργήσουμε μία βάση sql με πολλαπλούς πίνακες ή να δημιουργήσουμε διαφορετικά αρχεία csv που θα μπορούν να συνδυαστούν μεσω του κοινού πεδίου <code>imdb_id</code>. Παρακάτω παρουσιάζεται η δεύτερη μέθοδος. Τα αρχεία θα συνδυαστούν αργότερα στο πρόγραμμα Tableau μέσω των data relationships.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Αρχείο companies.csv που θα περιέχει τις πληροφορίες των εταιριών παραγωγής</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'companies.csv'</span>)):</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    companies <span class="op">=</span> (movies_tmdb[[<span class="st">'imdb_id'</span>, <span class="st">'production_companies'</span>]]</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                 .reset_index()</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                 .rename(columns<span class="op">=</span>{<span class="st">'index'</span>:<span class="st">'title'</span>})</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                 .explode(column<span class="op">=</span><span class="st">'production_companies'</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                 .dropna().reset_index(drop<span class="op">=</span><span class="va">True</span>)).copy()</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    companies.to_csv(path.join(<span class="st">'datasets'</span>,<span class="st">'companies.csv'</span>), index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Αρχείο cast.csv που θα περιέχει τους ηθοποιούς ανά ταινία</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'cast.csv'</span>)):</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    cast <span class="op">=</span> (movies_tmdb[[<span class="st">'imdb_id'</span>, <span class="st">'cast'</span>]]</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>             .reset_index()</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>             .rename(columns<span class="op">=</span>{<span class="st">'index'</span>:<span class="st">'title'</span>})</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>             .explode(column<span class="op">=</span><span class="st">'cast'</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>             .dropna().reset_index(drop<span class="op">=</span><span class="va">True</span>)).copy()</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    cast.to_csv(path.join(<span class="st">'datasets'</span>,<span class="st">'cast.csv'</span>), index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Αρχείο keywords.csv που θα περιέχει τις λέξεις κλειδιά για την περιγραφή κάθε ταινίας</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'keywords.csv'</span>)):</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    keywords <span class="op">=</span> (movies_tmdb[[<span class="st">'imdb_id'</span>, <span class="st">'keywords'</span>]]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                .reset_index().rename(columns<span class="op">=</span>{<span class="st">'index'</span>:<span class="st">'title'</span>})</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                .explode(column<span class="op">=</span><span class="st">'keywords'</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                .dropna().reset_index(drop<span class="op">=</span><span class="va">True</span>).copy())</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    keywords.to_csv(path.join(<span class="st">'datasets'</span>, <span class="st">'keywords.csv'</span>), index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Οι υπόλοιπες στήλες θα αποθηκευτούν σε ένα αρχείο με όνομα movies_tmdb.csv</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Στήλες: "</span>, movies_tmdb.columns.values)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Στήλες:  ['imdb_id' 'original_title' 'budget' 'revenue' 'runtime' 'popularity'
+ 'production_companies' 'keywords' 'cast' 'overview']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'movies_tmdb.csv'</span>)):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    movies_tmdb.drop(columns<span class="op">=</span>[<span class="st">'production_companies'</span>, <span class="st">'keywords'</span>, <span class="st">'cast'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    movies_tmdb.to_csv(path.join(<span class="st">'datasets'</span>,<span class="st">'movies_tmdb.csv'</span>))</span></code></pre></div>
+</div>
+</section>
+<section id="εξαγωγή-πληροφοριών-από-την-ιστοσελίδα-open-movie-database" class="level2">
+<h2 class="anchored" data-anchor-id="εξαγωγή-πληροφοριών-από-την-ιστοσελίδα-open-movie-database">Εξαγωγή πληροφοριών από την ιστοσελίδα Open Movie Database</h2>
+<p>Αρχικά προσπάθησα να χρησιμοποιήσω την βιβλιοθήκη <code>omdb</code> αλλά τελικά είχα καλύτερα αποτελέσματα με το api της ιστοσελίδας <a href="https://www.omdbapi.com">OMDb</a>. Η OMDb παρέχει τις ίδιες πληροφορίες που έχει το IMDB αλλά με ευκολότερη πρόσβαση. Οι πληροφορίες θα αποθηκευτούν στο λεξικό <code>omdb_info</code> και μετέπειτα σε αρχείο <code>movies_omdb.csv</code> με την βοήθεια του <code>pandas</code>.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'movies_omdb.csv'</span>)):</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    movies_omdb <span class="op">=</span> pd.read_csv(path.join(<span class="st">'datasets'</span>,<span class="st">'movies_omdb.csv'</span>), index_col<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> config <span class="im">import</span> config <span class="co"># αποθήκευση των κλειδιών api στο βοηθητικό αρχείο 'config.py'</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    omdb_info <span class="op">=</span> {}</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> imdb_id <span class="kw">in</span> movies_tmdb[<span class="st">'imdb_id'</span>].to_list():</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>            res <span class="op">=</span> requests.get(<span class="ss">f"http://www.omdbapi.com/?i=</span><span class="sc">{</span>imdb_id<span class="sc">}</span><span class="ss">&amp;apikey=</span><span class="sc">{</span>config[<span class="st">'omdb_api_key'</span>]<span class="sc">}</span><span class="ss">"</span>, timeout<span class="op">=</span><span class="dv">3</span>).json()</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>            omdb_info[imdb_id] <span class="op">=</span> [</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>                res[<span class="st">'Year'</span>],</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>                res[<span class="st">'Rated'</span>],</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>                res[<span class="st">'Genre'</span>],</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>                res[<span class="st">'Director'</span>],</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>                res[<span class="st">'Writer'</span>],</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>                res[<span class="st">'Language'</span>],</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>                res[<span class="st">'Country'</span>],</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>                res[<span class="st">'Awards'</span>],</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>                res[<span class="st">'Metascore'</span>],</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>                res[<span class="st">'imdbRating'</span>],</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>                res[<span class="st">'imdbVotes'</span>],</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>                [rating[<span class="st">'Value'</span>] <span class="cf">for</span> rating <span class="kw">in</span> res[<span class="st">'Ratings'</span>] <span class="cf">if</span> rating[<span class="st">'Source'</span>] <span class="op">==</span> <span class="st">'Rotten Tomatoes'</span>]</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>            ]</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span>:</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Request for movie id </span><span class="sc">{</span>imdb_id<span class="sc">}</span><span class="ss"> did not executed."</span>)</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'movies_omdb.csv'</span>)):</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    columns <span class="op">=</span> [<span class="st">'year'</span>,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">'rated'</span>,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">'genre'</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>               <span class="st">'director'</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>               <span class="st">'writer'</span>,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>               <span class="st">'language'</span>,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>               <span class="st">'country'</span>,</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">'awards'</span>,</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">'metascore'</span>,</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">'imdb_rating'</span>,</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>               <span class="st">'imdb_votes'</span>,</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>               <span class="st">'rotten_rating'</span>]</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    movies_omdb <span class="op">=</span> pd.DataFrame.from_dict(omdb_info, orient<span class="op">=</span><span class="st">'index'</span>, columns<span class="op">=</span>columns)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    movies_omdb <span class="op">=</span> movies_omdb.reset_index().rename(columns<span class="op">=</span>{<span class="st">'index'</span>: <span class="st">'imdb_id'</span>})</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    movies_omdb.replace({<span class="st">'N/A'</span>: np.nan}, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Βελτίωση των αποτελεσμάτων των ratings</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    movies_omdb[<span class="st">'imdb_votes'</span>] <span class="op">=</span> movies_omdb[<span class="st">'imdb_votes'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    movies_omdb[<span class="st">'rotten_rating'</span>] <span class="op">=</span> movies_omdb.rotten_rating.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="dv">0</span>] <span class="cf">if</span> x <span class="cf">else</span> np.nan).<span class="bu">str</span>.replace(<span class="st">'%'</span>, <span class="st">''</span>).astype(<span class="bu">float</span>)</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    movies_omdb[<span class="st">'imdb_rating'</span>] <span class="op">=</span> movies_omdb.imdb_rating.astype(<span class="bu">float</span>)</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    movies_omdb[<span class="st">'metascore'</span>] <span class="op">=</span> movies_omdb.metascore.astype(<span class="bu">float</span>)</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>movies_omdb.sample(<span class="dv">5</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>imdb_id</th>
+      <th>year</th>
+      <th>rated</th>
+      <th>genre</th>
+      <th>director</th>
+      <th>writer</th>
+      <th>language</th>
+      <th>country</th>
+      <th>awards</th>
+      <th>metascore</th>
+      <th>imdb_rating</th>
+      <th>imdb_votes</th>
+      <th>rotten_rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>31</th>
+      <td>tt0072666</td>
+      <td>1971</td>
+      <td>PG</td>
+      <td>Horror, Sci-Fi</td>
+      <td>Don Barton, Arnold Stevens</td>
+      <td>Ron Kivett, Lee O. Larew, Don Barton</td>
+      <td>English</td>
+      <td>United States</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.1</td>
+      <td>5150</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>tt0086434</td>
+      <td>1983</td>
+      <td>R</td>
+      <td>Action, Crime, Drama</td>
+      <td>Fabrizio De Angelis</td>
+      <td>Fabrizio De Angelis, Dardano Sacchetti</td>
+      <td>Italian, English</td>
+      <td>Italy</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5.2</td>
+      <td>532</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>tt0089695</td>
+      <td>1985</td>
+      <td>PG</td>
+      <td>Action, Comedy, Crime</td>
+      <td>Corey Yuen</td>
+      <td>See-Yuen Ng, Corey Yuen, Keith W. Strandberg</td>
+      <td>English</td>
+      <td>United States, Hong Kong</td>
+      <td>NaN</td>
+      <td>30.0</td>
+      <td>5.6</td>
+      <td>17361</td>
+      <td>80.0</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>tt0085811</td>
+      <td>1983</td>
+      <td>PG</td>
+      <td>Action, Adventure, Fantasy</td>
+      <td>Peter Yates</td>
+      <td>Stanford Sherman</td>
+      <td>English</td>
+      <td>United Kingdom, United States</td>
+      <td>1 win &amp; 5 nominations</td>
+      <td>45.0</td>
+      <td>6.1</td>
+      <td>33773</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>tt0117433</td>
+      <td>1997</td>
+      <td>R</td>
+      <td>Action, Thriller</td>
+      <td>Sidney J. Furie</td>
+      <td>Sidney J. Furie, Greg Mellott</td>
+      <td>English</td>
+      <td>United States, Canada</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.5</td>
+      <td>579</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>movies_omdb.info()</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 114 entries, 0 to 113
+Data columns (total 13 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   imdb_id        114 non-null    object 
+ 1   year           114 non-null    object 
+ 2   rated          104 non-null    object 
+ 3   genre          114 non-null    object 
+ 4   director       114 non-null    object 
+ 5   writer         113 non-null    object 
+ 6   language       114 non-null    object 
+ 7   country        114 non-null    object 
+ 8   awards         25 non-null     object 
+ 9   metascore      27 non-null     float64
+ 10  imdb_rating    114 non-null    float64
+ 11  imdb_votes     114 non-null    int64  
+ 12  rotten_rating  46 non-null     float64
+dtypes: float64(3), int64(1), object(9)
+memory usage: 11.7+ KB</code></pre>
+</div>
+</div>
+<p>Όπως και στο TMDB υπάρχουν πολλαπλές τιμές για κάθε πεδίο της εκάστοτε ταινίας οπότε δημιούργησα μία εφαρμογή που θα αποθηκεύει αυτές τις τιμές σε ξεχωριστό αρχείο csv μαζί με ένα αναγνωριστικό για την κάθε ταινία.</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_sup_tables(column, f_name):</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The fuction picks a dataframe column, splits values by coma,</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">    creates different columns and writes the new dataframe</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">    to a csv file based on f_name</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> movies_omdb[[<span class="st">'imdb_id'</span>, column]].copy()</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    df[column] <span class="op">=</span> df[column].<span class="bu">str</span>.split(<span class="st">','</span>)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> df.explode(column<span class="op">=</span>column)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    df[column] <span class="op">=</span> df[column].<span class="bu">str</span>.strip()</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    df.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    df.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    df.to_csv(path.join(<span class="st">'datasets'</span>, f_name), index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Χρήση της εφαρμογής σε 5 στήλες</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'genres.csv'</span>)):</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    create_sup_tables(<span class="st">'genre'</span>, <span class="st">'genres.csv'</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'writers.csv'</span>)):</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    create_sup_tables(<span class="st">'writer'</span>, <span class="st">'writers.csv'</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'countries.csv'</span>)):</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    create_sup_tables(<span class="st">'country'</span>, <span class="st">'countries.csv'</span>)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'languages.csv'</span>)):</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    create_sup_tables(<span class="st">'language'</span>, <span class="st">'languages.csv'</span>)</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'directors.csv'</span>)):</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    create_sup_tables(<span class="st">'director'</span>, <span class="st">'directors.csv'</span>)</span></code></pre></div>
+</div>
+<p>Εξάγουμε τις υπόλοιπες στήλες για τις οποίες δεν δημιουργήσαμε ξεχωριστά αρχεία στο αρχείο <code>movies_omdb.csv</code>.</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'movies_omdb.csv'</span>)):</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    movies_omdb.drop(columns<span class="op">=</span>[<span class="st">'genre'</span>, <span class="st">'writer'</span>, <span class="st">'country'</span>, <span class="st">'director'</span>, <span class="st">'language'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    movies_omdb.to_csv(path.join(<span class="st">'datasets'</span>,<span class="st">'movies_omdb.csv'</span>))</span></code></pre></div>
+</div>
+<p>Τέλος ενώνουμε τις πληροφορίες απο τις δύο ιστοσελίδες σε ένα αρχείο που ονομάζεται <code>movies.csv</code>.</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>movies <span class="op">=</span> movies_tmdb.reset_index().rename(columns<span class="op">=</span>{<span class="st">'index'</span>:<span class="st">'title'</span>}).merge(movies_omdb, how<span class="op">=</span><span class="st">'inner'</span>, on<span class="op">=</span><span class="st">'imdb_id'</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>movies.info()</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path.exists(path.join(<span class="st">'datasets'</span>,<span class="st">'movies.csv'</span>)):</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    movies.to_csv(path.join(<span class="st">'datasets'</span>,<span class="st">'movies.csv'</span>), index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 114 entries, 0 to 113
+Data columns (total 15 columns):
+ #   Column          Non-Null Count  Dtype  
+---  ------          --------------  -----  
+ 0   title           114 non-null    object 
+ 1   imdb_id         114 non-null    object 
+ 2   original_title  114 non-null    object 
+ 3   budget          35 non-null     float64
+ 4   revenue         25 non-null     float64
+ 5   runtime         113 non-null    float64
+ 6   popularity      114 non-null    float64
+ 7   overview        114 non-null    object 
+ 8   year            114 non-null    object 
+ 9   rated           104 non-null    object 
+ 10  awards          25 non-null     object 
+ 11  metascore       27 non-null     float64
+ 12  imdb_rating     114 non-null    float64
+ 13  imdb_votes      114 non-null    int64  
+ 14  rotten_rating   46 non-null     float64
+dtypes: float64(7), int64(1), object(7)
+memory usage: 14.2+ KB</code></pre>
+</div>
+</div>
+<p>Στο πρόγραμμα Tableau χρησιμοποίησα το αρχείο <code>movies.csv</code> ως το κύριο αρχείο και το συνδύασα με τα αρχεία:</p>
+<ul>
+<li><code>cast.csv</code></li>
+<li><code>companies.csv</code></li>
+<li><code>countries.csv</code></li>
+<li><code>directors.csv</code></li>
+<li><code>genres.csv</code></li>
+<li><code>keywords.csv</code></li>
+<li><code>languages.csv</code></li>
+<li><code>writers.csv</code></li>
+</ul>
+<p>για επιπλεον πληροφορίες.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/JimMysiloglou\.github\.io\/el\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© 2022 Copyright: Mysiloglou Dimitrios</div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JimMysiloglou">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/jimmysiloglou/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/JimMysiloglou">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.facebook.com/jim.misi/">
+      <i class="bi bi-facebook" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

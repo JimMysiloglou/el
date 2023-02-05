@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="el" xml:lang="el"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Mysiloglou Dimitrios">
+<meta name="dcterms.date" content="2022-09-28">
+<meta name="description" content="Παρουσίαση των δασικών πυρκαγιών στην Ελλάδα από το 2000 έως το 2021 με πηγή το αρχείο του Πυροσβεστικού Σώματος.">
+
+<title>Mysiloglou Dimitrios - Δασικές πυρκαγιές στην Ελλάδα</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Χωρίς αποτελέσματα",
+    "search-matching-documents-text": "έγγραφα που αντιστοιχήθηκαν",
+    "search-copy-link-title": "Αντιγραφή συνδέσμου προς αναζήτηση",
+    "search-hide-matches-text": "Κρύψε επιπλέον αντιστοιχήσεις",
+    "search-more-match-text": "επιπλέον αντιστοίχιση σε αυτό το έγγραφο",
+    "search-more-matches-text": "επιπλέον αντιστοιχίσεις σε αυτό το έγγραφο",
+    "search-clear-button-title": "Εκκαθάριση",
+    "search-detached-cancel-button-title": "Ακύρωση",
+    "search-submit-button-title": "Υποβολή"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<meta name="twitter:title" content="Mysiloglou Dimitrios - Δασικές πυρκαγιές στην Ελλάδα">
+<meta name="twitter:description" content="Παρουσίαση των δασικών πυρκαγιών στην Ελλάδα από το 2000 έως το 2021 με πηγή το αρχείο του Πυροσβεστικού Σώματος.">
+<meta name="twitter:image" content="https://JimMysiloglou.github.io/el/portfolio/wildfires/forest-fire.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="https://jimmysiloglou.eu.pythonanywhere.com" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/logo.png" alt="Mysiloglou Dimitrios" class="navbar-logo">
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html">
+ <span class="menu-text">Portfolio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://jimmysiloglou.eu.pythonanywhere.com/my_journey/">
+ <span class="menu-text">My Journey</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://jimmysiloglou.eu.pythonanywhere.com/contact/">
+ <span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Γλώσσα</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-">    
+        <li>
+    <a class="dropdown-item" href="https://jimmysiloglou.github.io/en/blog.html">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../blog.html">
+ <span class="dropdown-text">Ελληνικά</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Δασικές πυρκαγιές στην Ελλάδα</h1>
+                  <div>
+        <div class="description">
+          Παρουσίαση των δασικών πυρκαγιών στην Ελλάδα από το 2000 έως το 2021 με πηγή το αρχείο του Πυροσβεστικού Σώματος.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Συντακτης</div>
+      <div class="quarto-title-meta-contents">
+               <p>Mysiloglou Dimitrios </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Δημοσιευτηκε</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2022-09-28</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Σε αυτή τη σελίδα</h2>
+   
+  <ul>
+  <li><a href="#εισαγωγή" id="toc-εισαγωγή" class="nav-link active" data-scroll-target="#εισαγωγή">Εισαγωγή</a>
+  <ul class="collapse">
+  <li><a href="#κλιματολογικά-δεδομένα" id="toc-κλιματολογικά-δεδομένα" class="nav-link" data-scroll-target="#κλιματολογικά-δεδομένα">Κλιματολογικά δεδομένα</a></li>
+  </ul></li>
+  <li><a href="#γραφική-απεικόνιση-των-δεδομένων" id="toc-γραφική-απεικόνιση-των-δεδομένων" class="nav-link" data-scroll-target="#γραφική-απεικόνιση-των-δεδομένων">Γραφική απεικόνιση των δεδομένων</a>
+  <ul class="collapse">
+  <li><a href="#αριθμός-περιστατικών-ανά-έτος-σε-συνδιασμό-με-κλιματολογικές-συνθήκες." id="toc-αριθμός-περιστατικών-ανά-έτος-σε-συνδιασμό-με-κλιματολογικές-συνθήκες." class="nav-link" data-scroll-target="#αριθμός-περιστατικών-ανά-έτος-σε-συνδιασμό-με-κλιματολογικές-συνθήκες.">Αριθμός περιστατικών ανά έτος σε συνδιασμό με κλιματολογικές συνθήκες.</a></li>
+  <li><a href="#παρουσίαση-καμμένων-εκτάσεων" id="toc-παρουσίαση-καμμένων-εκτάσεων" class="nav-link" data-scroll-target="#παρουσίαση-καμμένων-εκτάσεων">Παρουσίαση καμμένων εκτάσεων</a></li>
+  <li><a href="#διάρκεια-πυρκαγιών" id="toc-διάρκεια-πυρκαγιών" class="nav-link" data-scroll-target="#διάρκεια-πυρκαγιών">Διάρκεια πυρκαγιών</a></li>
+  <li><a href="#παρουσίαση-του-έμψυχου-δυναμικού-πυρόσβεσης-και-των-οχημάτων" id="toc-παρουσίαση-του-έμψυχου-δυναμικού-πυρόσβεσης-και-των-οχημάτων" class="nav-link" data-scroll-target="#παρουσίαση-του-έμψυχου-δυναμικού-πυρόσβεσης-και-των-οχημάτων">Παρουσίαση του έμψυχου δυναμικού πυρόσβεσης και των οχημάτων</a></li>
+  <li><a href="#συμπεράσματα" id="toc-συμπεράσματα" class="nav-link" data-scroll-target="#συμπεράσματα">Συμπεράσματα</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+
+
+
+
+<p><img src="forest-fire.jpeg" class="img-fluid"></p>
+<section id="εισαγωγή" class="level2">
+<h2 class="anchored" data-anchor-id="εισαγωγή">Εισαγωγή</h2>
+<p>Image by <a href="https://pixabay.com/users/ylvers-337353/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=432870" data-bcup-haslogintext="no">Ylvers</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=432870" data-bcup-haslogintext="no">Pixabay</a></p>
+<p>Ένα ακόμη καλοκαίρι έχει φτάσει στο τέλος του. Η Ελλάδα καλείται άλλη μια φορά να αξιολογήσει τις ζημιές που προκάλεσαν οι πυρκαγιές στον φυσικό της πλούτο, τις οικονομικές ζημίες σε καλλιέργειες, και το σημαντικότερο η τραγική απώλεια ανθρώπων και ζώων.</p>
+<p>Στην ιστοσελίδα του Πυροσβεστικού Σώματος Ελλάδος <a href="https://www.fireservice.gr/el_GR/synola-dedomenon">https://www.fireservice.gr</a> μπορείτε να βρείτε αρχεία δασικών και αστικών συμβάντων στα οποία κλήθηκε να επέμβει το Π.Σ. από το 2000 - 2021 σε μορφή <code>.xls|.xlsx</code>. Για την δημιουργία των γραφημάτων χρειάστηκε να επεξεργαστώ τα αρχεία excel μέσω της python, να επιδιορθώσω κάποιες τιμές και να αποθηκεύσω τα δεδομένα σε ένα αρχείο με όνομα <code>wildfires.csv</code>. Σε <a href="../../portfolio/wildfires/helper.html">αυτή την σελίδα</a> μπορείτε να δείτε με λεπτομέρειες την προεργασία. Παρακάτω ακουλουθεί ένα μικρό δείγμα των δεδομένων.</p>
+<div class="cell" data-execution_count="1">
+<details>
+<summary>Κώδικας</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Εισαγωγή των βιβλιοθηκών</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> ticker</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">'whitegrid'</span>, context<span class="op">=</span><span class="st">'talk'</span>, palette<span class="op">=</span><span class="st">'colorblind'</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>wildfires <span class="op">=</span> pd.read_csv(<span class="st">'datasets/wildfires.csv'</span>, parse_dates<span class="op">=</span>[<span class="st">'start'</span>, <span class="st">'end'</span>], low_memory<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>wildfires.sample(<span class="dv">5</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="1">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>fire_service</th>
+      <th>forest_department</th>
+      <th>location</th>
+      <th>district</th>
+      <th>start_date</th>
+      <th>start_time</th>
+      <th>end_date</th>
+      <th>end_time</th>
+      <th>forest</th>
+      <th>forest_area</th>
+      <th>...</th>
+      <th>private_trucks</th>
+      <th>other_trucks</th>
+      <th>helicopters</th>
+      <th>canadair_new</th>
+      <th>canadair_old</th>
+      <th>pzl</th>
+      <th>gru</th>
+      <th>address</th>
+      <th>longitude</th>
+      <th>latitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>44867</th>
+      <td>Π.Κ. ΚΑΛΛΟΝΗΣ</td>
+      <td>NaN</td>
+      <td>Δ. ΕΡΕΣΣΟΥ</td>
+      <td>ΛΕΣΒΟΥ</td>
+      <td>2003-10-08</td>
+      <td>11:00:00</td>
+      <td>2003-10-08</td>
+      <td>17:30:00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>69061</th>
+      <td>Π.Υ. ΓΙΑΝΝΙΤΣΩΝ</td>
+      <td>ΕΔΕΣΣΑΣ</td>
+      <td>ΤΣΑΙΝΑΡΛΙ</td>
+      <td>ΠΕΛΛΑΣ</td>
+      <td>2006-09-11</td>
+      <td>12:34:00</td>
+      <td>2006-09-11</td>
+      <td>13:20:00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>119667</th>
+      <td>Π.Υ. ΠΤΟΛΕΜΑΙΔΑΣ</td>
+      <td>ΚΟΖΑΝΗΣ</td>
+      <td>Τ.Κ. ΚΑΡΥΟΧΩΡΙΟΥ</td>
+      <td>ΚΟΖΑΝΗΣ</td>
+      <td>2011-07-13</td>
+      <td>18:50</td>
+      <td>2011-07-13</td>
+      <td>20:25</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>197397</th>
+      <td>Π.Υ. ΠΑΛΑΜΑ</td>
+      <td>ΚΑΡΔΙΤΣΑΣ</td>
+      <td>NaN</td>
+      <td>ΚΑΡΔΙΤΣΑΣ</td>
+      <td>2019-03-21</td>
+      <td>15:05</td>
+      <td>2019-03-21</td>
+      <td>15:51</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>ΑΓΡΟΤ.ΔΡΟΜΟΣ ΙΤΕΑΣ-ΣΥΚΕΩΝΑΣ</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>78037</th>
+      <td>Π.Κ. ΣΙΔΗΡΟΚΑΣΤΡΟΥ</td>
+      <td>ΣΙΔΗΡΟΚΑΣΤΡΟΥ</td>
+      <td>ΑΓΡ.ΠΕΡΙΟΧΗ ΓΟΝΙΜΟΥ</td>
+      <td>ΣΕΡΡΩΝ</td>
+      <td>2007-02-05</td>
+      <td>16:50</td>
+      <td>2007-02-05</td>
+      <td>18:05</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 36 columns</p>
+</div>
+</div>
+</div>
+<section id="κλιματολογικά-δεδομένα" class="level3">
+<h3 class="anchored" data-anchor-id="κλιματολογικά-δεδομένα">Κλιματολογικά δεδομένα</h3>
+<p>Θα χρησιμοποιηθούν δεδομένα των καιρικών συνθηκών της Ελλάδας του εκάστοτε έτους για σύγκριση με τα στοιχεία των πυρκαγιών. Τα δεδομένα προέρχονται από την ιστοσελίδα <a href="https://climateknowledgeportal.worldbank.org/" class="uri">https://climateknowledgeportal.worldbank.org/</a> και αφορούν δείκτες παρατεταμένης ξηρασίας και υψηλών θερμοκρασιών ανά έτος (<strong>Warm spell duration index</strong>, <strong>max number of consecutive dry days</strong>).</p>
+<div>
+<details>
+<summary>Κώδικας</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>col_names <span class="op">=</span> [<span class="st">'year'</span>, <span class="st">'warm_days'</span>]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>warm_spell <span class="op">=</span> pd.read_csv(<span class="st">'datasets/wsdi_timeseries_annual_era_1970-2020_GRC.csv'</span>, usecols<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>], names<span class="op">=</span>col_names, skiprows<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>warm_spell.info()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>warm_spell.head()</span></code></pre></div>
+</details>
+<div class="cell quarto-layout-panel" data-execution_count="2">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 51 entries, 0 to 50
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype  
+---  ------     --------------  -----  
+ 0   year       51 non-null     int64  
+ 1   warm_days  51 non-null     float64
+dtypes: float64(1), int64(1)
+memory usage: 944.0 bytes</code></pre>
+</div>
+<div class="cell-output cell-output-display quarto-layout-cell" data-execution_count="2" style="flex-basis: 50.0%;justify-content: center;">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>year</th>
+      <th>warm_days</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1970</td>
+      <td>11.94</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1971</td>
+      <td>1.05</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1972</td>
+      <td>0.48</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1973</td>
+      <td>3.06</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1974</td>
+      <td>1.22</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<details>
+<summary>Κώδικας</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>col_names <span class="op">=</span> [<span class="st">'year'</span>, <span class="st">'dry_days'</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>max_dry_days <span class="op">=</span> pd.read_csv(<span class="st">'datasets/cdd_timeseries_annual_era_1970-2020_GRC.csv'</span>, usecols<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>], names<span class="op">=</span>col_names, skiprows<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(max_dry_days.info())</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>max_dry_days.head()</span></code></pre></div>
+</details>
+<div class="cell quarto-layout-panel" data-execution_count="3">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 51 entries, 0 to 50
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   year      51 non-null     int64  
+ 1   dry_days  51 non-null     float64
+dtypes: float64(1), int64(1)
+memory usage: 944.0 bytes
+None</code></pre>
+</div>
+<div class="cell-output cell-output-display quarto-layout-cell" data-execution_count="3" style="flex-basis: 50.0%;justify-content: center;">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>year</th>
+      <th>dry_days</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1970</td>
+      <td>34.75</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1971</td>
+      <td>23.84</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1972</td>
+      <td>25.08</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1973</td>
+      <td>26.60</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1974</td>
+      <td>37.09</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<details>
+<summary>Επιλέγουμε δεδομένα μόνο από το 2000 και μετά</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>warm_spell_subset <span class="op">=</span> warm_spell[warm_spell.year <span class="op">&gt;=</span> <span class="dv">2000</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>max_dry_days_subset <span class="op">=</span> max_dry_days[max_dry_days.year <span class="op">&gt;=</span> <span class="dv">2000</span>]</span></code></pre></div>
+</details>
+</div>
+</section>
+</section>
+<section id="γραφική-απεικόνιση-των-δεδομένων" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="γραφική-απεικόνιση-των-δεδομένων">Γραφική απεικόνιση των δεδομένων</h2>
+<p>Παρακάτω με την χρήση τον βιβλιοθηκών pandas, matplotlib και seaborn θα παρουσιάσουμε τα δεδομένα με κάποια βασικά γραφήματα.</p>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Υπολογισμός περιστατικών ανά έτος</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>incidents_per_year <span class="op">=</span> wildfires.start.dt.year.value_counts(sort<span class="op">=</span><span class="va">False</span>).rename_axis(<span class="st">'year'</span>).reset_index(name<span class="op">=</span><span class="st">'incidents'</span>).merge(warm_spell_subset, on<span class="op">=</span><span class="st">'year'</span>).merge(max_dry_days_subset, on<span class="op">=</span><span class="st">'year'</span>)</span></code></pre></div>
+</details>
+</div>
+<section id="αριθμός-περιστατικών-ανά-έτος-σε-συνδιασμό-με-κλιματολογικές-συνθήκες." class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="αριθμός-περιστατικών-ανά-έτος-σε-συνδιασμό-με-κλιματολογικές-συνθήκες.">Αριθμός περιστατικών ανά έτος σε συνδιασμό με κλιματολογικές συνθήκες.</h3>
+<div class="cell page-columns page-full" data-execution_count="6">
+<details>
+<summary>Ραβδόγραμμα</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">18</span>,<span class="dv">8</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>incidents_per_year.plot(kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax, x<span class="op">=</span><span class="st">'year'</span>, y<span class="op">=</span><span class="st">'incidents'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>incidents_per_year[<span class="st">'warm_days'</span>].plot(kind<span class="op">=</span><span class="st">'line'</span>, secondary_y<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'orangered'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>incidents_per_year[<span class="st">'dry_days'</span>].plot(kind<span class="op">=</span><span class="st">'line'</span>, secondary_y<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'orange'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>handles <span class="op">=</span> ax.get_legend_handles_labels()[<span class="dv">0</span>] <span class="op">+</span> ax.right_ax.get_legend_handles_labels()[<span class="dv">0</span>]</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Πυρκαγιές'</span>, <span class="st">'Ημέρες καύσωνα'</span>, <span class="st">'Ημέρες ξηρασίας'</span>]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>ax.legend(handles, labels, loc<span class="op">=</span><span class="st">'upper center'</span>, frameon<span class="op">=</span><span class="va">False</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.1</span>))</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">False</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>ax.right_ax.grid(<span class="va">False</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, labelrotation <span class="op">=</span> <span class="dv">90</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>sns.despine(fig, top<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">''</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'# Πυρκαγιών'</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>ax.right_ax.set_ylabel(<span class="st">'Ημέρες'</span>)<span class="op">;</span></span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display column-page">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p></p><figcaption class="figure-caption">Πλήθος πυρκαγιών ανά έτος</figcaption><p></p>
+<p><img src="Wildfires in Greece_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Τα περισσότερα περιστατικά πυρκαγιών καταγράφηκαν το 2000 με 2001 με 12980 και 15303 αντίστοιχα. Καλύτερη χρονιά ήταν το 2014 με 6833 πυρκαγιές. Το πλήθος των πυρκαγιών έχει ξεκάθαρη σχέση με τις ημέρες ξηρασίας που επικρατούν το εκάστοτε έτος ενώ οι ημέρες καύσωνα φαίνεται να έχουν θετική συσχέτιση αλλά μικρότερη.</p>
+</section>
+<section id="παρουσίαση-καμμένων-εκτάσεων" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="παρουσίαση-καμμένων-εκτάσεων">Παρουσίαση καμμένων εκτάσεων</h3>
+<div class="cell page-columns page-full" data-execution_count="7">
+<details>
+<summary>Διάγραμμα περιοχής</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">20</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>wildfires.groupby(wildfires.start.dt.year).<span class="bu">sum</span>().plot.area(ax<span class="op">=</span>axes[<span class="dv">0</span>],</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                                                           y<span class="op">=</span>[<span class="st">'forest'</span>, <span class="st">'forest_area'</span>, <span class="st">'grove'</span>],</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                                                           color<span class="op">=</span>[<span class="st">'darkgreen'</span>, <span class="st">'forestgreen'</span>, <span class="st">'yellowgreen'</span>],</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                                                           linewidth<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>wildfires.groupby(wildfires.start.dt.year).<span class="bu">sum</span>().plot.area(ax<span class="op">=</span>axes[<span class="dv">1</span>],</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                                                           y<span class="op">=</span>[<span class="st">'crop_fields'</span>, <span class="st">'crop_residues'</span>],</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                                                           color<span class="op">=</span>[<span class="st">'gold'</span>, <span class="st">'darkgoldenrod'</span>],</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                                                           linewidth<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>wildfires.groupby(wildfires.start.dt.year).<span class="bu">sum</span>().plot.area(ax<span class="op">=</span>axes[<span class="dv">2</span>],</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                                                           y<span class="op">=</span>[<span class="st">'grassland'</span>, <span class="st">'marsh'</span>, <span class="st">'dumps'</span>],</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>                                                           color<span class="op">=</span>[<span class="st">'lightgreen'</span>, <span class="st">'olive'</span>, <span class="st">'silver'</span>],</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                                                           linewidth<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># make a square root scale for y, otherwise should recalculate area field</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> forward(x):</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> inverse(x):</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>mylabels <span class="op">=</span> [[<span class="st">'Δάσος'</span>, <span class="st">'Δασική έκταση'</span>, <span class="st">'Άλση'</span>], [<span class="st">'Καλλιέργειες'</span>, <span class="st">'Υπολείμματα καλλιεργειών'</span>], [<span class="st">'Χορτ/κές Εκτάσεις'</span>, <span class="st">'Καλάμια - Βάλτοι'</span>, <span class="st">'Σκουπιδότοποι'</span>]]</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes):</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    ax.xaxis.grid(<span class="va">False</span>)</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    sns.despine(ax<span class="op">=</span>ax, right<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>, top<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    ax.xaxis.set_major_locator(ticker.MultipleLocator(<span class="dv">2</span>))</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim([<span class="dv">0</span>, <span class="dv">1_500_000</span>])</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    ax.set_yscale(<span class="st">'function'</span>, functions<span class="op">=</span>(forward, inverse)) <span class="co"># set the square root scale</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    ax.yaxis.set_major_locator(ticker.FixedLocator([<span class="dv">0</span>, <span class="dv">10_000</span>, <span class="dv">50_000</span>, <span class="dv">100_000</span>, <span class="dv">200_000</span>, <span class="dv">400_000</span>,</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>                                                    <span class="dv">600_000</span>, <span class="dv">800_000</span>, <span class="dv">1_100_000</span>, <span class="dv">1_400_000</span>]))</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    ax.yaxis.get_major_formatter().set_scientific(<span class="va">False</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">''</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">'Καμμένη έκταση (στρέμματα)'</span>)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    handles, _ <span class="op">=</span> ax.get_legend_handles_labels()</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    ax.legend(handles, mylabels[i], loc<span class="op">=</span><span class="st">'upper center'</span>, frameon<span class="op">=</span><span class="va">False</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.1</span>))</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display column-page">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p></p><figcaption class="figure-caption">Καμμένες εκτάσεις ανά έτος (2000 - 2021)</figcaption><p></p>
+<p><img src="Wildfires in Greece_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Το 2000 είχαμε την πυρκαγιά της Σάμου, τη μεγαλύτερη στην ιστορία του νησιού με 145.000 στρέμματα καμμένα όπως επίσης και του Ξυλόκαστρου Κορινθίας όπου κάηκαν συνολικά 200.000 στρέμματα.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Το 2007, η χειρότερη χρονιά για την Πελοπόννησο, με την μεγαλύτερη καταστροφή φυσικού πλούτου μέχρι σήμερα. Σε δύο μήνες, Ιούλιο και Αύγουστο ξέσπασαν πυρκαγιές στο Αίγιο, την Καλαμάτα, την Καλλιθέα Λακωνίας, την Ζαχάρω και το Αγραπιδώρι Ηλείας όπου έκαψαν άνω του ενός εκατομμυρίου στρεμμάτων.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>Το 2021 ήταν σειρά της Εύβοιας να υποστεί μία από τις μεγαλύτερες καταστροφές του φυσικού της πλούτου με 511.854 καμμένα στρέμματα. Ακολούθησε η πυρκαγιά στην Αρχαία Ολυμπία με 150.000 καμμένα στρέμματα και την Ανατολική Μάνη με 101.001 καμμένα στρέμματα.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+</section>
+<section id="διάρκεια-πυρκαγιών" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="διάρκεια-πυρκαγιών">Διάρκεια πυρκαγιών</h3>
+<p>’Επειτα θα υπολογίσουμε την διάρκεια των πυρκαγιών σε όσα δεδομένα έχουμε διαθέσιμη την ημερ/νία πυρόσβεσης.</p>
+<div class="cell" data-execution_count="8">
+<details>
+<summary>Υπολογισμός διάρκειας πυρκαγιών σε όσα δεδομένα έχουμε διαθέσιμη την ημερ/νία πυρόσβεσης</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># αφαιρούμε τις τιμές που λείπουν</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>wildfires_subset <span class="op">=</span> wildfires[[<span class="st">'start'</span>, <span class="st">'end'</span>]].dropna()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Πλήθος εγγραφών για τις οποίες υπολογίσαμε την διάρκεια: "</span>, wildfires_subset.shape[<span class="dv">0</span>])</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>wildfires_subset[<span class="st">'duration'</span>] <span class="op">=</span> (wildfires_subset.end <span class="op">-</span> wildfires_subset.start).dt.total_seconds() <span class="op">/</span> <span class="dv">360</span> <span class="op">/</span> <span class="dv">24</span></span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Πλήθος εγγραφών για τις οποίες υπολογίσαμε την διάρκεια:  201425</code></pre>
+</div>
+</div>
+<div class="cell page-columns page-full" data-execution_count="9">
+<details>
+<summary>Γραμμικό γράφημα</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">8</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>wildfires_subset.groupby(wildfires_subset.start.dt.year).mean().plot(y<span class="op">=</span><span class="st">'duration'</span>, ax<span class="op">=</span>ax, legend<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>sns.despine(ax<span class="op">=</span>ax, top<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>, right<span class="op">=</span><span class="va">True</span>, bottom<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>ax.xaxis.grid(<span class="va">False</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_locator(ticker.MultipleLocator(<span class="dv">2</span>))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="dv">0</span>, <span class="dv">6</span>])</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">''</span>, ylabel<span class="op">=</span><span class="st">'Διάρκεια σε ημέρες'</span>)<span class="op">;</span></span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display column-page">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p></p><figcaption class="figure-caption">Ετήσιος μέσος όρος διάρκειας πυρκαγιών (2000 - 2021)</figcaption><p></p>
+<p><img src="Wildfires in Greece_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Με την πάροδο των ετών η διάρκεια των πυρκαγιών αυξάνεται με αποκορύφωμα το 2021. Επίσης με μία σύγκριση με το προηγούμενο γράφημα υπάρχει σαφής συσχέτιση της διάρκειας με την έκταση των καταστροφών.</p>
+</section>
+<section id="παρουσίαση-του-έμψυχου-δυναμικού-πυρόσβεσης-και-των-οχημάτων" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="παρουσίαση-του-έμψυχου-δυναμικού-πυρόσβεσης-και-των-οχημάτων">Παρουσίαση του έμψυχου δυναμικού πυρόσβεσης και των οχημάτων</h3>
+<div class="cell" data-execution_count="10">
+<details>
+<summary>Επιλογή των ετών 2011-2021 για την παρουσίαση του ανθρώπινου δυναμικού και των οχημάτων πυρόσβεσης</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>wildfires_subset <span class="op">=</span> wildfires[wildfires.start.dt.year <span class="op">&gt;=</span> <span class="dv">2011</span>]</span></code></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="11">
+<details>
+<summary>Υπολογισμός του μέσου όρου πυροσβεστών ανά περιστατικό</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>personnel <span class="op">=</span> wildfires_subset.groupby(wildfires_subset.start.dt.year).mean()[[<span class="st">'firemen'</span>,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                                                                             <span class="st">'patrol'</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                                                                             <span class="st">'volunteers'</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                                                                             <span class="st">'military'</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>                                                                             <span class="st">'other_groups'</span>]]</span></code></pre></div>
+</details>
+</div>
+<div class="cell page-columns page-full" data-execution_count="12">
+<details>
+<summary>Ραβδόγραμμα</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>personnel.plot.bar(stacked<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sns.despine(ax<span class="op">=</span>ax, top<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>, right<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>ax.xaxis.grid(<span class="va">False</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="dv">0</span>, <span class="dv">9</span>])</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>handles, _ <span class="op">=</span> ax.get_legend_handles_labels()</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Πυροσβεστικό Σώμα'</span>, <span class="st">'Πεζοπόρα τμήματα'</span>, <span class="st">'Εθελοντές'</span>, <span class="st">'Στρατός'</span>, <span class="st">"'Αλλες δυνάμεις"</span>]</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>ax.legend(handles, labels, loc<span class="op">=</span><span class="st">'right'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.3</span>,<span class="fl">0.5</span>), frameon<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">''</span>, ylabel<span class="op">=</span><span class="st">'Πυροσβέστες ανά περιστατικό'</span>)<span class="op">;</span></span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display column-page">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p></p><figcaption class="figure-caption">Μέσος όρος πυροσβεστών ανά περιστατικό ετησίος (2011-2021)</figcaption><p></p>
+<p><img src="Wildfires in Greece_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Ο μέσος όρος των πυροσβεστών που επιχειρούν ανά περιστατικό ετησίως είναι σχετικά σταθερός. Ακόμη και το 2012 και 2021 που επιχείρησαν κατά μέσο όρο περισσότεροι πυροσβέστες οι καταστροφές ήταν εκτεταμένες όπως είδαμε από τα προηγούμενα γραφήματα.</p>
+<div class="cell" data-execution_count="13">
+<details>
+<summary>Υπολογισμός του μέσου όρου οχημάτων ανά περιστατικό</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>vehicles <span class="op">=</span> wildfires_subset.groupby(wildfires_subset.start.dt.year).mean()[</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                                                                       [<span class="st">'fire_trucks'</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'local_authorities'</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'private_trucks'</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'other_trucks'</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'helicopters'</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'canadair_new'</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'canadair_old'</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'pzl'</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>                                                                        <span class="st">'gru'</span>]</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>                                                                            ]</span></code></pre></div>
+</details>
+</div>
+<div class="cell page-columns page-full" data-execution_count="14">
+<details>
+<summary>Ραβδόγραμμα</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>vehicles.plot.bar(stacked<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>ax.xaxis.grid(<span class="va">False</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>sns.despine(ax<span class="op">=</span>ax, top<span class="op">=</span><span class="va">True</span>, left<span class="op">=</span><span class="va">True</span>, right<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>handles, _ <span class="op">=</span> ax.get_legend_handles_labels()</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Πυροσ. Οχήματα'</span>, <span class="st">'Οχήματα ΟΤΑ'</span>, <span class="st">'Βυτιοφόρα'</span>, <span class="st">'Μηχανήματα'</span>, <span class="st">'Ελικόπτερα'</span>, <span class="st">'Canadair CL415'</span>, <span class="st">'Canadair CL215'</span> <span class="st">'PZL'</span>, <span class="st">'GRU'</span>]</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>ax.legend(handles, labels, loc<span class="op">=</span><span class="st">'right'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.3</span>,<span class="fl">0.5</span>), frameon<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">''</span>)<span class="op">;</span></span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display column-page">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p></p><figcaption class="figure-caption">Μέσος όρος οχημάτων ανά περιστατικό ετησίος (2011-2021)</figcaption><p></p>
+<p><img src="Wildfires in Greece_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Ακριβώς ίδια είναι η εικόνα από το μέσο όρο οχημάτων που χρησιμοποιήθηκαν στην πυρόσβεση ανά έτος.</p>
+</section>
+<section id="συμπεράσματα" class="level3">
+<h3 class="anchored" data-anchor-id="συμπεράσματα">Συμπεράσματα</h3>
+<p>Δυστυχώς παρόλες τις προσπάθειες πυρόσβεσης δεν εμφανίζεται κάποια βελτίωση στην ετήσια αποτίμηση των ζημιών από πυρκαγιές. Αν συνυπολογίσουμε ότι οι καιρικές συνθήκες όπως ο καύσωνας και η ξηρασία επιδεινώνουν την κατάσταση και λόγω της κλιματικής αλλαγής τέτοιες συνθήκες θα είναι συχνότερες, πρέπει να αναμένουμε ότι τα επόμενα χρόνια η συχνότητα, η διάρκεια και η έκταση των ζημιών θα αυξάνονται. Ανάλογα λοιπόν, θα πρέπει να αυξήσουμε την προσπάθεια πυρόσβεσης ποιοτικά και ποσοτικά, όπως επίσης και τις προσπάθεις πρόληψης, αν θέλουμε μελλοντικά να διατηρήσουμε ή ακόμη και να μειώσουμε το ετήσιο κόστος ζημιών από πυρκαγιές.</p>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Υποσημειώσεις</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://dasarxeio.com/2017/08/17/47883/">&lt;&lt;Οι 10 πιο καταστροφικές πυρκαγιές της Ελλάδας&gt;&gt; https://dasarxeio.com 17/08/2017</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://dasarxeio.com/2017/08/17/47883/">&lt;&lt;Οι 10 πιο καταστροφικές πυρκαγιές της Ελλάδας&gt;&gt; https://dasarxeio.com 17/08/2017</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://www.fireservice.gr/el_GR/-/emerida-gia-ton-apologismo-tes-antipyrikes-periodou-etous-2021">&lt;&lt;Ημερίδα για τον απολογισμό της αντιπυρικής περιόδου έτους 2021&gt;&gt; Πυροσβεστικό Σώμα. 14/12/2021</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/JimMysiloglou\.github\.io\/el\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© 2022 Copyright: Mysiloglou Dimitrios</div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JimMysiloglou">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/jimmysiloglou/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/JimMysiloglou">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.facebook.com/jim.misi/">
+      <i class="bi bi-facebook" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
